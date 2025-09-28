@@ -1,0 +1,61 @@
+import './App.css'
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { VStack } from '@chakra-ui/react';
+import { Header } from './components/Header';
+import { Footer } from './components/Footer';
+import { Home } from './pages/Home';
+// import { About } from './pages/About';
+// import { Services } from './pages/Services';
+// import { ServiceDetails } from './pages/ServiceDetails';
+import { Blog } from './pages/Blog';
+// import { ArticleDetails } from './pages/ArticleDetails';
+// import { ViewAllArtciles } from './pages/ViewAllArtciles';
+// import { Contact } from './pages/Contact';
+// import { TermsandConditions } from './pages/TermsandConditions';
+// import { PrivacyPolicy } from './pages/PrivacyPolicy';
+// import { FrequentQuestions } from './pages/FrequentQuestions';
+import { NotFound } from './pages/NotFound';
+// import { Toaster } from 'react-hot-toast';
+import { useLanguage } from "./hooks/useLanguage.ts";
+import { useEffect } from "react";
+// import { TimedPopup } from "./components/SubscribeNow.tsx";
+import useDirection from "./hooks/useDirection.ts";
+import useFontFamily from "./hooks/useFontFamily";
+function App() {
+  const { direction } = useLanguage();
+  useDirection();
+
+  useEffect(() => {
+    document.documentElement.dir = direction;
+  }, [direction]);
+  useFontFamily(); // dynamically switches fonts
+
+  return (
+    <VStack minH="100vh" w={"100vw"} gap={0}>
+      <BrowserRouter>
+        <Header />
+        <main>
+          {/* <TimedPopup /> */}
+          <Routes>
+            <Route path="/" element={<Home />} />
+            {/* <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/services/:slug" element={<ServiceDetails />} />
+            <Route path="/knowledge-center" element={<KnowledgeCenter />} />
+            <Route path="/knowledge-center/:id" element={<ArticleDetails />} /> */}
+            <Route path="/blogs" element={<Blog />} />
+            {/* <Route path="/contact" element={<Contact />} />
+            <Route path="/terms-and-conditions" element={<TermsandConditions />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/faq" element={<FrequentQuestions />} /> */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          {/* <Toaster /> */}
+        </main>
+        <Footer />
+      </BrowserRouter>
+    </VStack>
+  );
+}
+
+export default App
