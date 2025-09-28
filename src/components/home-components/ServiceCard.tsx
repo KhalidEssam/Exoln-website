@@ -22,7 +22,7 @@ export const ServiceCard = ({ number, service }: ServiceCardProps) => {
             bgSize="cover"
             bgPos="center"
             bgRepeat="no-repeat"
-            w="23%"
+            w={{ base: "90vw", md: "300px" }}
             h="300px"
             overflow="hidden" // ensures overlay respects border radius
         >

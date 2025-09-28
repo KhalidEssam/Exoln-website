@@ -29,9 +29,9 @@ export const OurServices = () => {
         },
     ]
     return (
-        <VStack w={"90%"} bgColor={"#FFFFFF"} justifyContent={"center"} alignItems={"center"} gap={8}>
+        <VStack w={"90%"} justifyContent={"center"} alignItems={"center"} gap={8}>
 
-            <HStack w={"100%"} h={"100%"} justifyContent={"space-between"} alignItems={"center"}>
+            <HStack w={"100%"} align={"stretch"} color={"white"} flexDir={{ base: "column", md: "row" }} justify={"center"} flexWrap={"wrap"} justifyContent={"space-between"}>
                 {Services.map((service, index) => (
                     <ServiceCard number={index + 1} service={service} key={index} />
                 ))}

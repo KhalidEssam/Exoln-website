@@ -1,5 +1,5 @@
 
-import { VStack, HStack, Text } from "@chakra-ui/react";
+import { VStack, HStack } from "@chakra-ui/react";
 
 export const Contact = () => {
     return (

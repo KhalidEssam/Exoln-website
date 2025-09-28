@@ -2,6 +2,8 @@ import { VStack, HStack, Box } from "@chakra-ui/react";
 import { HeroSection } from "../components/home-components/HeroSection.tsx";
 import { OurValues } from "@/components/home-components/OurValues.tsx";
 import { OurServices } from "@/components/home-components/OurServices.tsx";
+import { Whyus } from "@/components/home-components/WhyUs.tsx";
+import { OurPartners } from "@/components/home-components/OurPartners.tsx";
 export const Home = () => {
   return (
     <VStack w={"100vw"} >
@@ -34,6 +36,8 @@ export const Home = () => {
       <VStack w={"100%"} h={"100%"} p={8} gap={8} bgColor={"#F5F5F5"}>
         <OurValues />
         <OurServices />
+        <Whyus />
+        <OurPartners />
       </VStack>
     </VStack>
   )
