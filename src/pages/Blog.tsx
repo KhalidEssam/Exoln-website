@@ -6,7 +6,6 @@ export const Blog = () => {
 
       <HStack  bgImage={"url(./pattern.png)"} top={0} width={"100%"} bgSize={"cover"} bgPos={"center"} height={"100vh"}/>
       <Box className="overlay-darker" top={0} width={"100%"} bgSize={"cover"} bgPos={"center"} height={"100vh"} />
-      <h1>Home Page</h1>
     </VStack>
   )
 }

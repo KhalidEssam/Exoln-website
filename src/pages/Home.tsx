@@ -1,14 +1,16 @@
 import { VStack, HStack, Box } from "@chakra-ui/react";
-import { HeroSection } from "../components/HeroSection.tsx";
+import { HeroSection } from "../components/home-components/HeroSection.tsx";
+import { OurValues } from "@/components/home-components/OurValues.tsx";
+import { OurServices } from "@/components/home-components/OurServices.tsx";
 export const Home = () => {
   return (
-    <VStack w={"100vw"} gap={4}>
+    <VStack w={"100vw"} >
 
       <HStack
         position="relative"
         top={0}
         width="100%"
-        height="100vh"
+        height="120vh"
         overflow="hidden"
         _before={{
           content: '""',
@@ -20,15 +22,19 @@ export const Home = () => {
           bgImage: "url(./pattern.png)",
           bgSize: "cover",
           bgPos: "center",
-          transform: "scaleX(-1)",  // 🔥 flips only the background
+          transform: "scaleX(-1)",
         }}
       >
         {/* your content here */}
       </HStack>
-      <Box className="overlay" top={0} width={"100%"} bgSize={"cover"} bgPos={"center"} height={"100vh"} >
-        <Box mt={"15rem"}/>
-        <HeroSection />        
+      <Box className="overlay" top={0} width={"100%"} height={"120vh"} >
+        <Box mt={"15rem"} />
+        <HeroSection />
       </Box>
+      <VStack w={"100%"} h={"100%"} p={8} gap={8} bgColor={"#F5F5F5"}>
+        <OurValues />
+        <OurServices />
+      </VStack>
     </VStack>
   )
 }

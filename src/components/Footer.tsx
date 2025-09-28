@@ -33,6 +33,10 @@ export const Footer: FC = () => {
       w={"100%"}
       p={8}
       pt={8}
+      bg={"transparent"}
+      bgPos={"center"}
+      bgSize={"cover"}
+      bgRepeat={"no-repeat"}
       bgImage={'url(./website-footer.png)'}
       color={'white'}
     >

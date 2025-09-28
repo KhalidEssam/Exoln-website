@@ -6,8 +6,8 @@ import { SkippingGrid } from "./SkippingGrid";
 export const HeroSection = () => {
     return (
         <VStack>
-            <HStack color={"white"} justify={"space-between"} width={"95%"} height={"100%"} align={"stretch"}  >
-                <VStack alignItems={"flex-start"} w={"45%"} height={"100%"}>
+            <HStack color={"white"} justify={"space-between"} flexDir={{ base: "column", lg: "row" }} width={"95%"} height={"100%"} align={"stretch"}  >
+                <VStack alignItems={"flex-start"} w={{ base: "100%", lg: "45%" }} height={"100%"}>
                     <Text fontSize={{ base: "2rem", md: "3rem", lg: "4rem", xl: "4rem" }}
                         fontWeight={"300"}
                         fontFamily={`'Montserrat', 'Regular'`}
@@ -32,7 +32,7 @@ export const HeroSection = () => {
                         Get a custom plan
                     </Box>
                 </VStack >
-                
+
                 <SkippingGrid />
 
             </HStack>

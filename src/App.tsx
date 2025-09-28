@@ -4,13 +4,13 @@ import { VStack } from '@chakra-ui/react';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
-// import { About } from './pages/About';
+import { AboutUs } from './pages/AboutUs';
 // import { Services } from './pages/Services';
 // import { ServiceDetails } from './pages/ServiceDetails';
 import { Blog } from './pages/Blog';
 // import { ArticleDetails } from './pages/ArticleDetails';
 // import { ViewAllArtciles } from './pages/ViewAllArtciles';
-// import { Contact } from './pages/Contact';
+import { Contact } from './pages/Contact';
 // import { TermsandConditions } from './pages/TermsandConditions';
 // import { PrivacyPolicy } from './pages/PrivacyPolicy';
 // import { FrequentQuestions } from './pages/FrequentQuestions';
@@ -38,14 +38,14 @@ function App() {
           {/* <TimedPopup /> */}
           <Routes>
             <Route path="/" element={<Home />} />
-            {/* <Route path="/about" element={<About />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/services/:slug" element={<ServiceDetails />} />
+            <Route path="/about" element={<AboutUs />} />
+            {/* <Route path="/services" element={<Services />} />
+            {/* <Route path="/services/:slug" element={<ServiceDetails />} />
             <Route path="/knowledge-center" element={<KnowledgeCenter />} />
             <Route path="/knowledge-center/:id" element={<ArticleDetails />} /> */}
             <Route path="/blogs" element={<Blog />} />
-            {/* <Route path="/contact" element={<Contact />} />
-            <Route path="/terms-and-conditions" element={<TermsandConditions />} />
+            <Route path="/contact" element={<Contact />} />
+            {/* <Route path="/terms-and-conditions" element={<TermsandConditions />} />
             <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             <Route path="/faq" element={<FrequentQuestions />} /> */}
             <Route path="*" element={<NotFound />} />
