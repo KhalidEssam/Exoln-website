@@ -3,7 +3,7 @@ import { VStack, SimpleGrid, GridItem, Box, Text } from "@chakra-ui/react";
 const StyledBox = ({ label }: { label: string }) => (
     <Box
         w="10rem"
-        h="10rem"
+        h={{ base: "6rem", md: "8rem", lg: "10rem" }}
         borderRadius="25px"
         position="relative"
         overflow="hidden"

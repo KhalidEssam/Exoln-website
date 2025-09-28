@@ -12,7 +12,7 @@ export const Home = () => {
         position="relative"
         top={0}
         width="100%"
-        height="120vh"
+        height={{ md: "150vh", lg: "120vh" }}
         overflow="hidden"
         _before={{
           content: '""',
@@ -29,7 +29,8 @@ export const Home = () => {
       >
         {/* your content here */}
       </HStack>
-      <Box className="overlay" top={0} width={"100%"} height={"120vh"} >
+      <Box className="overlay" top={0} width={"100%"} height={{ md: "150vh", lg: "120vh" }}
+      >
         <Box mt={"15rem"} />
         <HeroSection />
       </Box>
