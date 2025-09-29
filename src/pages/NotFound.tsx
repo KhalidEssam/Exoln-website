@@ -9,12 +9,14 @@ export const NotFound = () => {
     return (
         <MotionBox
             minH="100vh"
+            minW={"100vw"}
             display="flex"
             alignItems="center"
             justifyContent="center"
             bgGradient="linear(to-br, #f0f4f8, #d9e2ec)"
             px="4"
             color={"black"}
+            bgColor={"#e2dff5ff"}
         >
             <VStack gap={6} textAlign="center" maxW="lg">
                 <Box

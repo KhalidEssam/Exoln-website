@@ -4,7 +4,36 @@ import { OurValues } from "@/components/home-components/OurValues.tsx";
 import { OurServices } from "@/components/home-components/OurServices.tsx";
 import { Whyus } from "@/components/home-components/WhyUs.tsx";
 import { OurPartners } from "@/components/home-components/OurPartners.tsx";
+import { type Props } from "@/components/home-components/WhyUs.tsx";
 export const Home = () => {
+
+  const Reasons: Props = {
+    title: "WHY CHOOSE EXOLN",
+    description: "At Exoln, we redefine partnership by delivering more than just services – we deliver integrated results that drive sustainable growth.",
+    Array: [
+      {
+        title: "ONE INTEGRATED ECOSYSTEM",
+        description: "Five specialized divisions providing a unified strategy."
+      },
+      {
+        title: "TAILORED SOLUTIONS",
+        description: "Custom strategies for your unique challenges."
+      },
+      {
+        title: "MEASURABLE IMPACT",
+        description: "Focus on tangible outcomes and clear ROI."
+      },
+      {
+        title: "SEAMLESS COLLABORATION",
+        description: "Smooth, transparent partnership throughout."
+      },
+      {
+        title: "TRUSTED PARTNERSHIP",
+        description: "Relationships built on reliability and quality."
+      }
+    ]
+  }
+
   return (
     <VStack w={"100vw"} >
       <HStack
@@ -48,7 +77,7 @@ export const Home = () => {
       <VStack w={"100%"} h={"100%"} p={8} gap={8} bgColor={"#F5F5F5"}>
         <OurValues />
         <OurServices />
-        <Whyus />
+        <Whyus title={Reasons.title} description={Reasons.description} Array={Reasons.Array} />
         <OurPartners />
         <HStack
           align="stretch"
@@ -74,6 +103,7 @@ export const Home = () => {
               bgPos="center"
               transform="scaleX(-1)"
               zIndex={1}
+              filter="blur(4px)"
             />
 
             {/* Blend Overlay */}
@@ -88,7 +118,7 @@ export const Home = () => {
               color="white"
               fontSize={{ base: "1rem", md: "1.5rem", lg: "2rem" }}
               justifyContent={"flex-start"}
-              w={{ base: "100%" }}
+              w={{ base: "100%", md: "80%" }}
               textAlign={{ base: "center", md: "start" }}
               px={6}
               fontWeight="bold">
@@ -99,7 +129,7 @@ export const Home = () => {
               zIndex={3}
               color="white"
               fontSize={{ base: "1rem", md: "1.5rem", lg: "2rem" }}
-              w={{ base: "100%" }}
+              w={{ base: "100%", md: "80%" }}
 
               textAlign={{ base: "center", md: "start" }}
               px={6}
@@ -115,7 +145,7 @@ export const Home = () => {
               textAlign={{ base: "center", md: "end" }}
               px={6}
               fontWeight="bold"
-              w={{ base: "90%" }}
+              w={{ base: "100%", md: "80%" }}
             >
               "
             </Text>

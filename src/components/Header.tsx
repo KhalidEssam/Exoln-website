@@ -69,12 +69,12 @@ export const Header = () => {
           p={4}
           gap={6}
           align="stretch"
-          bg="blackAlpha.800"
+          bg="blackAlpha.900"
           borderRadius="lg"
           display={{ base: "flex", lg: "none" }}
         >
           <Navbar />
-          <HStack>
+          <HStack w="100%" justify="center" gap={2}>
             {lang === "ar" ? "AR" : "EN"} <FaAngleDown size="1rem" />
           </HStack>
           <Box

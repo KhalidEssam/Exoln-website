@@ -5,7 +5,10 @@ import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { Home } from './pages/Home';
 import { AboutUs } from './pages/AboutUs';
-import { Services } from './pages/Services';
+import { Exolnix } from './pages/Services/Exolnix';
+import { Exomark } from './pages/Services/Exomark';
+import { Exonext } from './pages/Services/Exonext';
+import { Exobiz } from './pages/Services/Exobiz';
 // import { ServiceDetails } from './pages/ServiceDetails';
 import { Blog } from './pages/Blog';
 // import { ArticleDetails } from './pages/ArticleDetails';
@@ -40,14 +43,12 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<AboutUs />} />
             {/* <Route path="/service" element={<Services />} /> */}
-            <Route path="/services/:slug" element={<Services />} />
-            {/* <Route path="/knowledge-center" element={<KnowledgeCenter />} />
-            <Route path="/knowledge-center/:id" element={<ArticleDetails />} />  */}
+            <Route path="/services/exolnix" element={<Exolnix />} />
+            <Route path="/services/exomark" element={<Exomark />} />
+            <Route path="/services/exonext" element={<Exonext />} />
+            <Route path="/services/exobiz" element={<Exobiz />} />
             <Route path="/blogs" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
-            {/* <Route path="/terms-and-conditions" element={<TermsandConditions />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/faq" element={<FrequentQuestions />} /> */}
             <Route path="*" element={<NotFound />} />
           </Routes>
           {/* <Toaster /> */}
