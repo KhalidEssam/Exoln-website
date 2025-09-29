@@ -32,10 +32,36 @@ export const AboutUs = () => {
                     bg="blackAlpha.600" // or your glaze color
                     zIndex={1}
                 />
-                <Box w="40%" fontFamily={`'Montserrat', 'Regular'`} textAlign={"start"} marginInlineStart={"10%"} zIndex={2} mt={{ base: "8rem", md: "12rem" }} mb={{ base: "5rem", md: 0 }}>
-                    <Text fontSize={{ base: "2rem", xl: "4rem" }} fontWeight={"semibold"} color={"white"}> ABOUT</Text>
-                    <Text fontSize={{ base: "5rem", xl: "8rem" }} fontWeight={"bold"} color={"white"}> EXOLN</Text>
+                <Box
+                    w={{ base: "100%", md: "50%" }}
+                    fontFamily={`'Montserrat', 'Regular'`}
+                    textAlign="start"
+                    marginInlineStart="10%"
+                    zIndex={2}
+                    mt={{ base: "8rem", md: "12rem" }}
+                    mb={{ base: "5rem", md: 0 }}
+                >
+                    <Text
+                        fontSize={{ base: "2rem", xl: "2rem" }}
+                        fontWeight="semibold"
+                        color="white"
+                        lineHeight="1"   // removes vertical padding/spacing
+                        m="0"            // reset margins
+                    >
+                        ABOUT
+                    </Text>
+
+                    <Text
+                        fontSize={{ base: "5rem", xl: "8rem" }}
+                        fontWeight="bold"
+                        color="white"
+                        lineHeight="0.62"   // makes letters snug
+                        ml="-3"            // reset margins
+                    >
+                        EXOLN
+                    </Text>
                 </Box>
+
             </HStack>
         </VStack>
     )

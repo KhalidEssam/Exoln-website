@@ -13,11 +13,11 @@ const StyledBox = ({ label }: { label: string }) => (
     >
         {/* Background layer with blend effect */}
         <Box
-            opacity={0.7}
+            opacity={1}
             position="absolute"
             inset={0}
             bg="#226CFF"
-            style={{ mixBlendMode:"color-burn" }}
+            style={{ mixBlendMode:"multiply" }}
         />
 
         {/* Text layer unaffected by blend */}

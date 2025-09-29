@@ -40,7 +40,7 @@ export const Navbar = () => {
                   bg={useColorModeValue("transparent", "gray.400")}
                   color={
                     activeLink === link.href
-                      ? useColorModeValue("#eeededff", "gray.100")
+                      ? useColorModeValue("#b3b3b3ff", "gray.100")
                       : useColorModeValue("white", "gray.400")
                   }
                   _hover={{ color: useColorModeValue("#226CFF", "gray.100") }}

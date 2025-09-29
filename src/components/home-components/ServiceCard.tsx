@@ -1,10 +1,12 @@
 import { VStack, Text, Box } from "@chakra-ui/react";
+import { Link as ChakraLink } from "@chakra-ui/react";
 
 export type ServiceProps = {
     title: string;
     description: string;
     icon: string;
     overlay: string;
+    href?: string;
 };
 type ServiceCardProps = {
     number: number;
@@ -26,34 +28,36 @@ export const ServiceCard = ({ number, service }: ServiceCardProps) => {
             h="300px"
             overflow="hidden" // ensures overlay respects border radius
         >
-            {/* Overlay */}
-            < Box
-                position="absolute"
-                top={0}
-                left={0}
-                w="100%"
-                h="100%"
-                bg={service.overlay || "#FC8000"}
-                mixBlendMode="multiply"
-                opacity={1}
-            />
+            <ChakraLink href={service.href} target="_blank" style={{ textDecoration: 'none', width: '100%', height: '100%' }}>
+                {/* Overlay */}
+                < Box
+                    position="absolute"
+                    top={0}
+                    left={0}
+                    w="100%"
+                    h="100%"
+                    bg={service.overlay || "#FC8000"}
+                    mixBlendMode="multiply"
+                    opacity={1}
+                />
 
-            {/* Content */}
-            < Box
-                justifyContent={"space-between"}
-                h={"100%"}
-                p={4}
-                gap={16}
-                position="relative" zIndex={1}
-                color="white" >
-                <VStack textAlign="start" w={"100%"}  justifyContent={"space-between"} alignItems={"flex-start"}>
-                    <Text fontFamily={"Agency FB"}
-                        opacity={0.4} fontWeight={"bold"} fontSize={"3rem"}> 0{number}</Text>
+                {/* Content */}
+                < Box
+                    justifyContent={"space-between"}
+                    h={"100%"}
+                    p={4}
+                    gap={16}
+                    position="relative" zIndex={1}
+                    color="white" >
+                    <VStack textAlign="start" w={"100%"} justifyContent={"space-between"} alignItems={"flex-start"}>
+                        <Text fontFamily={"Agency FB"}
+                            opacity={0.4} fontWeight={"bold"} fontSize={"3rem"}> 0{number}</Text>
 
-                    <Text fontWeight={"extrabold"} fontSize={"2rem"} >{service.title}</Text>
-                    <Text fontSize={"1.5rem"} fontWeight={"light"}>{service.description}</Text>
-                </VStack>
-            </Box >
+                        <Text fontWeight={"extrabold"} fontSize={"2rem"} >{service.title}</Text>
+                        <Text fontSize={"1.5rem"} fontWeight={"light"}>{service.description}</Text>
+                    </VStack>
+                </Box >
+            </ChakraLink>
         </VStack >
 
     );
