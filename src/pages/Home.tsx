@@ -24,7 +24,7 @@ export const Home = () => {
           bgSize: "cover",
           bgPos: "center",
           transform: "scaleX(-1)",
-          zIndex: 0, // background
+          // zIndex: 0, // background
         }}
       >
         {/* Overlay layer */}
@@ -36,11 +36,11 @@ export const Home = () => {
           w="100%"
           h="100%"
           bg="blackAlpha.600" // or your glaze color
-          zIndex={1}
+        // zIndex={1}
         />
 
         {/* Foreground content */}
-        <Box w="100%" zIndex={2} mt={{ base: "8rem", md: "12rem" }} mb={{ base: "5rem", md: 0 }}>
+        <Box w="100%" mt={{ base: "8rem", md: "12rem" }} mb={{ base: "5rem", md: 0 }}>
           <HeroSection />
         </Box>
       </HStack>

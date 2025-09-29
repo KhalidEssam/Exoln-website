@@ -1,6 +1,7 @@
 import { HStack, Image, Box, IconButton, VStack } from "@chakra-ui/react";
 import { Navbar } from "./Navbar";
-import { FaArrowDown, FaBars, FaTimes } from "react-icons/fa";
+import { FaAngleDown, FaBars, FaTimes } from "react-icons/fa";
+
 import { useSelector } from "react-redux";
 import { selectLanguage } from "../store/slices/languageSlice";
 import { useState } from "react";
@@ -29,7 +30,7 @@ export const Header = () => {
           <Navbar />
 
           <HStack>
-            {lang === "ar" ? "ar" : "en"} <FaArrowDown size="1rem" />
+            {lang === "ar" ? "AR" : "EN"} <FaAngleDown size="1rem" />
 
             <Box
               as="button"
@@ -74,7 +75,7 @@ export const Header = () => {
         >
           <Navbar />
           <HStack>
-            {lang === "ar" ? "ar" : "en"} <FaArrowDown size="1rem" />
+            {lang === "ar" ? "AR" : "EN"} <FaAngleDown size="1rem" />
           </HStack>
           <Box
             as="button"

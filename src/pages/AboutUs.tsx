@@ -1,15 +1,13 @@
-import { VStack, HStack, Box } from "@chakra-ui/react";
+import { VStack, HStack, Box, Text } from "@chakra-ui/react";
 
 export const AboutUs = () => {
     return (
-        <VStack w={"100vw"}> 
-
-
+        <VStack w={"100vw"}>
             <HStack
                 position="relative"
                 top={0}
                 width="100%"
-                height="100vh"
+                height={{ md: "150vh", lg: "120vh" }}
                 overflow="hidden"
                 _before={{
                     content: '""',
@@ -21,13 +19,23 @@ export const AboutUs = () => {
                     bgImage: "url(./About.png)",
                     bgSize: "cover",
                     bgPos: "center",
-                    // transform: "scaleX(-1)",
+                    zIndex: 0, // background
                 }}
-            >      <Box className="overlay-darker" top={0} width={"100%"} height={"100vh"} />
-                    {/* <Box mt={"15rem"} /> */}
-                    {/* <HeroSection /> */}
-                  {/* </Box> */}
-                {/* your content here */}
+            >
+                <Box
+                    className="overlay"
+                    position="absolute"
+                    top={0}
+                    left={0}
+                    w="100%"
+                    h="100%"
+                    bg="blackAlpha.600" // or your glaze color
+                    zIndex={1}
+                />
+                <Box w="40%" fontFamily={`'Montserrat', 'Regular'`} textAlign={"start"} marginInlineStart={"10%"} zIndex={2} mt={{ base: "8rem", md: "12rem" }} mb={{ base: "5rem", md: 0 }}>
+                    <Text fontSize={{ base: "2rem", xl: "4rem" }} fontWeight={"semibold"} color={"white"}> ABOUT</Text>
+                    <Text fontSize={{ base: "5rem", xl: "8rem" }} fontWeight={"bold"} color={"white"}> EXOLN</Text>
+                </Box>
             </HStack>
         </VStack>
     )
