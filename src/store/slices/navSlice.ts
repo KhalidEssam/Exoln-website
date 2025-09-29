@@ -17,13 +17,15 @@ interface NavState {
 
 const initialState: NavState = {
   links: [
-    { href: "/", label: "Home",en: "Home", ar: "الرئيسية" },
-    { href: "/services", label: "Services", en: "Services", ar: "خدماتنا", subNav: [
-      { href: "/exolnix", label: "EXOLNIX", en: "EXOLNIX", ar: "اكسولنكس" },
-      { href: "/exomark", label: "EXOMARK", en: "EXOMARK", ar: "اكسومارك" },
-      { href: "/exonext", label: "EXONEXT", en: "EXONEXT", ar: "اكسونكست" },
-      { href: "/exobiz", label: "EXOBIZ", en: "EXOBIZ", ar: "اكسوبيز" },
-    ] },
+    { href: "/", label: "Home", en: "Home", ar: "الرئيسية" },
+    {
+      href: "/Services", label: "Services", en: "Services", ar: "خدماتنا", subNav: [
+        { href: "/exolnix", label: "EXOLNIX", en: "EXOLNIX", ar: "اكسولنكس" },
+        { href: "/exomark", label: "EXOMARK", en: "EXOMARK", ar: "اكسومارك" },
+        { href: "/exonext", label: "EXONEXT", en: "EXONEXT", ar: "اكسونكست" },
+        { href: "/exobiz", label: "EXOBIZ", en: "EXOBIZ", ar: "اكسوبيز" },
+      ]
+    },
     { href: "/blogs", label: "Blogs", en: "Blogs", ar: "المدونات" },
     { href: "/about", label: "About", en: "About", ar: "من نحن" },
     { href: "/contact", label: "Contact", en: "Contact", ar: "اتصل بنا" },

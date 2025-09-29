@@ -1,7 +1,7 @@
 import { HStack, Image, Box, IconButton, VStack } from "@chakra-ui/react";
 import { Navbar } from "./Navbar";
 import { FaAngleDown, FaBars, FaTimes } from "react-icons/fa";
-
+import { Link as ChakraLink } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { selectLanguage } from "../store/slices/languageSlice";
 import { useState } from "react";
@@ -26,8 +26,9 @@ export const Header = () => {
     >
       <HStack justify="space-between" align="center">
         {/* Logo */}
-        <Image src={activeLink === "/" ? "/logo.png" : "/logo2.png"} alt="logo" h="2rem" />
-
+        <ChakraLink href="/">
+          <Image src={activeLink === "/" ? "/logo.png" : "/logo2.png"} alt="logo" h="2rem" />
+        </ChakraLink>
         {/* Desktop Navbar + Actions: show ONLY on lg and up */}
         <HStack display={{ base: "none", lg: "flex" }} w={"75%"} justifyContent={"space-between"} gap={6} align="center">
           <Navbar />

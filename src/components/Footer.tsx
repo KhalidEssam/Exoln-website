@@ -131,7 +131,9 @@ export const Footer: FC = () => {
           <Text fontSize="30px" w={"100%"} fontWeight="bold" pb={4} textAlign={{ base: "center", md: "start" }}>
             {lang === "ar" ? "روابط سريعة" : "Useful Links"}
           </Text>
-          {links?.map((link) => (
+          {links?.map((link) => 
+          (
+            link.subNav ? null :
             <Box key={link.href}>
               <RouterLink
                 to={link.href}
