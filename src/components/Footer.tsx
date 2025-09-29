@@ -54,15 +54,15 @@ export const Footer: FC = () => {
         gap={{ base: 8, md: 0 }} // 🔹 Add spacing on mobile
       >
         {/* Logo Section */}
-        <VStack justifyContent={"space-between"} align={{ base: "center", md: "flex-start" }} height={"100%"} maxW={{ base: "100%", md: "15%" }}>
+        <VStack justifyContent={"space-between"} align={{ base: "center", md: "flex-start" }} gap={8} maxW={{ base: "100%", md: "15%" }}>
           <ChakraLink href="/">
             <Image
               src={`/logo2.png`}
               alt="Logo"
-              width={{ base: "4rem", md: "6rem", lg: "10rem" }}
+              width={{ base: "8rem", md: "6rem", lg: "10rem" }}
             />
           </ChakraLink>
-          <Text textAlign={"start"} fontWeight={"600"} fontSize={"1.8rem"}  > {t("footer.text")} </Text>
+          <Text textAlign={{ base: "center", md: "left" }} fontWeight={"600"} fontSize={{ base: "1rem", md: "1.2rem", lg: "1.8rem" }}  > {t("footer.text")} </Text>
           <HStack align={{ base: "center", md: "flex-start" }}>
 
             <Circle bgColor={"transparent"} border={" 2px solid white"} size={"3rem"}>
@@ -79,12 +79,12 @@ export const Footer: FC = () => {
 
 
         {/* Contact Info */}
-        <VStack height={"100%"} w={"30%"} justifyContent={"space-between"} align={{ base: "center", md: "flex-start" }}>
-          <Text fontSize="30px" fontWeight="bold" pb={4} textAlign="start">
+        <VStack height={"100%"} alignItems={{ base: "flex-start" }} w={{ base: "100%", md: "40%" }} justifyContent={"space-between"} align={{ base: "center", md: "flex-start" }}>
+          <Text fontSize="30px" w={"100%"} fontWeight="bold" pb={4} textAlign={{ base: "center", md: "start" }}>
             {lang === "ar" ? "اتصل بنا" : "CONTACT US"}
           </Text>
-          <HStack align={{ base: "center", md: "flex-start" }}  gap={4}>
-            <TfiLocationPin size={"2rem"} />
+          <HStack justifyContent={"space-between"} align={{ base: "start", md: "flex-start" }} gap={4}>
+            <TfiLocationPin size={"5rem"} />
             <Text
               display="flex"
               alignItems="center"
@@ -96,8 +96,8 @@ export const Footer: FC = () => {
               2930, First Floor Office 98 - Northern Ring Road, Branch Street Al Wadi District - Riyadh 13313 - 6137 Kingdom of Saudi Arabia
             </Text>
           </HStack>
-          <HStack align={{ base: "center", md: "flex-start" }} gap={4}>
-            <MdOutlinePhoneInTalk size={"1.5rem"} />
+          <HStack justifyContent={"space-between"} align={{ base: "start", md: "flex-start" }} gap={4}>
+            <MdOutlinePhoneInTalk size={"2rem"} />
 
             <Text
               display="flex"
@@ -110,8 +110,8 @@ export const Footer: FC = () => {
               0573641125
             </Text>
           </HStack>
-          <HStack align={{ base: "center", md: "flex-start" }} gap={4}>
-            <IoMail size={"1.5rem"} />
+          <HStack justifyContent={"space-between"} align={{ base: "start", md: "flex-start" }} gap={4}>
+            <IoMail size={"2rem"} />
 
             <Text
               display="flex"
@@ -127,8 +127,8 @@ export const Footer: FC = () => {
         </VStack>
 
         {/* Links */}
-        <VStack gap={2} flexDir={"column"} maxH={"15rem"} alignItems={{ base: "center", md: "flex-start" }} flexWrap={"wrap"} >
-          <Text fontSize="30px" fontWeight="bold" pb={4} textAlign="start">
+        <VStack gap={2} flexDir={"column"} alignItems={{ base: "center", md: "flex-start" }} flexWrap={{ base: "nowrap", md: "wrap" }} >
+          <Text fontSize="30px" w={"100%"} fontWeight="bold" pb={4} textAlign={{ base: "center", md: "start" }}>
             {lang === "ar" ? "روابط سريعة" : "Useful Links"}
           </Text>
           {links?.map((link) => (
