@@ -5,10 +5,13 @@ import { FaAngleDown, FaBars, FaTimes } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { selectLanguage } from "../store/slices/languageSlice";
 import { useState } from "react";
+import type { RootState } from "@/store";
+
 
 export const Header = () => {
   const lang = useSelector(selectLanguage);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { activeLink, } = useSelector((state: RootState) => state.nav);
 
   return (
     <Box
@@ -23,7 +26,7 @@ export const Header = () => {
     >
       <HStack justify="space-between" align="center">
         {/* Logo */}
-        <Image src="/logo.png" alt="logo" h="2rem" />
+        <Image src={activeLink === "/" ? "/logo.png" : "/logo2.png"} alt="logo" h="2rem" />
 
         {/* Desktop Navbar + Actions: show ONLY on lg and up */}
         <HStack display={{ base: "none", lg: "flex" }} w={"75%"} justifyContent={"space-between"} gap={6} align="center">

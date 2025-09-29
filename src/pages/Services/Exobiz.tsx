@@ -2,33 +2,33 @@ import { HStack, Text, VStack, Box } from "@chakra-ui/react";
 
 export const Exobiz = () => {
     return (
-        < VStack
+        <VStack
             position="relative"
             justify="center"
             align="center"
-            bgImage={`url(/4.png)`
-            }
+            bgImage="url(/4.png)"
             bgSize="cover"
             bgPos="center"
             bgRepeat="no-repeat"
             w={{ base: "90vw", md: "100vw" }}
-            h="50VH"
-            overflow="hidden" // ensures overlay respects border radius
+            h="50vh"
+            overflow="hidden"
         >
             {/* Overlay */}
-            < HStack
+            <HStack
                 position="absolute"
                 top={0}
                 left={0}
                 w="100%"
                 h="100%"
-                bg={"#FC8000"}
+                bg="#FC8000"
                 mixBlendMode="multiply"
                 opacity={1}
             />
+
             <Box
-                w={{ base: "100%", md: "100%" }}
-                fontFamily={`'Montserrat', 'Regular'`}
+                w="100%"
+                fontFamily="'Montserrat', sans-serif"
                 textAlign="start"
                 marginInlineStart="10%"
                 zIndex={1}
@@ -39,8 +39,8 @@ export const Exobiz = () => {
                     fontSize={{ base: "2.5rem", xl: "5rem" }}
                     fontWeight="semibold"
                     color="white"
-                    lineHeight="1"   // removes vertical padding/spacing
-                    m="0"            // reset margins
+                    lineHeight="1"
+                    m="0"
                 >
                     EXOBIZ
                 </Text>
@@ -49,8 +49,8 @@ export const Exobiz = () => {
                     fontSize={{ base: "1.5rem", xl: "2rem" }}
                     fontWeight="bold"
                     color="white"
-                    lineHeight="0.62"   // makes letters snug
-                    ml="-3"            // reset margins
+                    lineHeight="1.2"
+                    m="0"
                 >
                     BUSINESS CONSULTING & ORGANIZATIONAL DEVELOPMENT DIVISION
                 </Text>

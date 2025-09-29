@@ -175,7 +175,8 @@ export const Home = () => {
 
             {/* Blog Items */}
             <HStack w="100%" gap={4}>
-              <Image src="./blog3.jpg" w="25%" objectFit="cover" borderRadius="md" />
+              <Image src="./blog3.jpg" w="25%" objectFit="cover" borderRadius="md" loading="lazy" // 👈 native lazy load
+              />
               <VStack textAlign="start">
                 <Text w={"100%"} flex={1} color={"#226CFF"}>SAP Analytics Innovation Workshop</Text>
                 <Text w={"100%"} flex={1} color={"#707070"}>21 Sep, 2025</Text>
@@ -183,7 +184,8 @@ export const Home = () => {
             </HStack>
 
             <HStack w="100%" gap={4}>
-              <Image src="./blog2.jpg" w="25%" objectFit="cover" borderRadius="md" />
+              <Image src="./blog2.jpg" w="25%" objectFit="cover" borderRadius="md" loading="lazy" // 👈 native lazy load
+              />
               <VStack textAlign="start">
                 <Text w={"100%"} flex={1} color={"#226CFF"}>SAP Analytics Innovation Workshop</Text>
                 <Text w={"100%"} flex={1} color={"#707070"}>21 Sep, 2025</Text>
@@ -191,7 +193,8 @@ export const Home = () => {
             </HStack>
 
             <HStack w="100%" gap={4}>
-              <Image src="./blog1.jpg" w="25%" objectFit="cover" borderRadius="md" />
+              <Image src="./blog1.jpg" w="25%" objectFit="cover" borderRadius="md" loading="lazy" // 👈 native lazy load
+              />
               <VStack textAlign="start">
                 <Text w={"100%"} flex={1} color={"#226CFF"}>SAP Analytics Innovation Workshop</Text>
                 <Text w={"100%"} flex={1} color={"#707070"}>21 Sep, 2025</Text>

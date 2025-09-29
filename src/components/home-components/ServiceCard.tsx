@@ -1,5 +1,4 @@
-import { VStack, Text, Box } from "@chakra-ui/react";
-import { Link as ChakraLink } from "@chakra-ui/react";
+import { VStack, Text, Box, Link as ChakraLink } from "@chakra-ui/react";
 
 export type ServiceProps = {
     title: string;
@@ -8,6 +7,7 @@ export type ServiceProps = {
     overlay: string;
     href?: string;
 };
+
 type ServiceCardProps = {
     number: number;
     service: ServiceProps;
@@ -15,50 +15,68 @@ type ServiceCardProps = {
 
 export const ServiceCard = ({ number, service }: ServiceCardProps) => {
     return (
-        < VStack
+        <VStack
             position="relative"
             justify="center"
             align="center"
-            bgImage={`url(${service.icon})`
-            }
-            bgSize="cover"
-            bgPos="center"
-            bgRepeat="no-repeat"
             w={{ base: "90vw", md: "300px" }}
             h="300px"
-            overflow="hidden" // ensures overlay respects border radius
+            borderRadius="lg"
+            overflow="hidden"
+            role="group"
         >
-            <ChakraLink href={service.href} target="_blank" style={{ textDecoration: 'none', width: '100%', height: '100%' }}>
-                {/* Overlay */}
-                < Box
-                    position="absolute"
-                    top={0}
-                    left={0}
-                    w="100%"
+            {/* Background Image */}
+            <Box
+                position="absolute"
+                inset={0}
+                bgImage={`url(${service.icon})`}
+                bgSize="cover"
+                bgPos="center"
+                bgRepeat="no-repeat"
+                zIndex={0}
+                transition="transform 0.3s ease"
+                _groupHover={{ transform: "scale(1.05)" }}
+            />
+
+            {/* Overlay */}
+            <Box
+                position="absolute"
+                inset={0}
+                bg={service.overlay || "#FC8000"}
+                mixBlendMode="multiply"
+                opacity={0.9}
+                zIndex={1}
+            />
+
+            {/* Content */}
+            <ChakraLink
+                href={service.href}
+                target="_blank"
+                w="100%"
+                h="100%"
+                _hover={{ textDecoration: "none" }}
+                zIndex={2}
+            >
+                <VStack
+                    align="flex-start"
+                    justify="space-between"
                     h="100%"
-                    bg={service.overlay || "#FC8000"}
-                    mixBlendMode="multiply"
-                    opacity={1}
-                />
-
-                {/* Content */}
-                < Box
-                    justifyContent={"space-between"}
-                    h={"100%"}
                     p={4}
-                    gap={16}
-                    position="relative" zIndex={1}
-                    color="white" >
-                    <VStack textAlign="start" w={"100%"} justifyContent={"space-between"} alignItems={"flex-start"}>
-                        <Text fontFamily={"Agency FB"}
-                            opacity={0.4} fontWeight={"bold"} fontSize={"3rem"}> 0{number}</Text>
+                    color="white"
+                >
+                    <Text fontFamily="Agency FB" opacity={0.4} fontWeight="bold" fontSize="3rem">
+                        0{number}
+                    </Text>
 
-                        <Text fontWeight={"extrabold"} fontSize={"2rem"} >{service.title}</Text>
-                        <Text fontSize={"1.5rem"} fontWeight={"light"}>{service.description}</Text>
-                    </VStack>
-                </Box >
+                    <Text fontWeight="extrabold" fontSize="2rem">
+                        {service.title}
+                    </Text>
+
+                    <Text fontSize="1.5rem" fontWeight="light">
+                        {service.description}
+                    </Text>
+                </VStack>
             </ChakraLink>
-        </VStack >
-
+        </VStack>
     );
 };
