@@ -2,7 +2,8 @@ import { HStack, Text, VStack, Box } from "@chakra-ui/react";
 import { AboutServices } from "../../components/service-components/AboutServices";
 import { WhoWeSurve } from "@/components/service-components/WhoWeServe";
 import { Whyus } from "@/components/home-components/WhyUs";
-
+import { Center, Spinner } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
 
 export const Exomark = () => {
     const AboutExomark = {
@@ -12,6 +13,14 @@ export const Exomark = () => {
         imageUrl: "/EXOMARK.png",
         color: "#DC0800"
     };
+
+    const [loading, setLoading] = useState(true);
+
+    // Simulate content loading (replace with real API/image load logic)
+    useEffect(() => {
+        const timer = setTimeout(() => setLoading(false), 1500); // 1.5s fake loading
+        return () => clearTimeout(timer);
+    }, []);
 
     const Reasons = {
         title: "PROBLEMS WE ADDRESS",
@@ -36,6 +45,14 @@ export const Exomark = () => {
             },
         ]
     }
+        if (loading) {
+            return (
+                <Center w="100vw" h="100vh" bg="white">
+                    <Spinner size="xl" color="orange.400" />
+                </Center>
+            );
+        }
+    
     return (
         <VStack w={"100vw"}
             mb={8}

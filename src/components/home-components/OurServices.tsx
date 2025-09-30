@@ -33,7 +33,8 @@ export const OurServices = () => {
         },
     ]
     return (
-        <VStack justifyContent={"center"} alignItems={"center"} gap={8}>
+        <VStack style={{ contentVisibility: "auto" }} // 👈 huge perf boost
+            justifyContent={"center"} alignItems={"center"} gap={8}>
 
             <HStack w={"100%"} align={"stretch"} color={"white"} flexDir={{ base: "column", md: "row" }} justify={"center"} flexWrap={"wrap"} justifyContent={"space-between"}>
                 {Services.map((service, index) => (

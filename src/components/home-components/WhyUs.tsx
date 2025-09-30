@@ -1,4 +1,4 @@
-import { VStack, Text, HStack, Circle } from "@chakra-ui/react";
+import { VStack, Text, HStack, Circle, Box, Spinner } from "@chakra-ui/react";
 import { FaCheck } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
@@ -11,25 +11,57 @@ export interface Props {
 
 export const Whyus = (Reasons: Props) => {
     const [bgUrl, setBgUrl] = useState<string>("");
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // pick provided image or fallback
         const url = `/${Reasons.image ? Reasons.image : "Whyus.jpg"}`;
         const img = new Image();
         img.src = url;
-        img.onload = () => setBgUrl(url); // only set when fully loaded
+        img.onload = () => {
+            setBgUrl(url);
+            setLoading(false);
+        };
+        img.onerror = () => {
+            setLoading(false); // fallback to gradient
+        };
     }, [Reasons.image]);
 
     return (
         <VStack
+            position="relative"
             width="100vw"
-            // minH="0vh"
+            style={{ contentVisibility: "auto" }} // 👈 huge perf boost
+            minH="0vh"
+            justify="center"
+            align="center"
             bgImage={bgUrl ? `url(${bgUrl})` : "none"}
             bgSize="cover"
             bgPos="center"
             bgRepeat="no-repeat"
-            transition="background-image 0.3s ease-in-out"
+            transition="background-image 0.5s ease-in-out"
+            _before={{
+                content: '""',
+                position: "absolute",
+                inset: 0,
+                bgGradient: bgUrl
+                    ? "linear(to-b, blackAlpha.600, blackAlpha.800)"
+                    : "linear(to-b, gray.700, black)",
+                zIndex: 0,
+            }}
         >
+            {/* Loading indicator while bg is fetching */}
+            {loading && (
+                <Box
+                    position="absolute"
+                    top="50%"
+                    left="50%"
+                    transform="translate(-50%, -50%)"
+                    zIndex={2}
+                >
+                    <Spinner size="xl" color="white" />
+                </Box>
+            )}
+
             {/* Title */}
             <Text
                 fontWeight="bold"
@@ -37,6 +69,7 @@ export const Whyus = (Reasons: Props) => {
                 pt={8}
                 color="white"
                 fontFamily="Montserrat, sans-serif"
+                zIndex={1}
             >
                 {Reasons.title}
             </Text>
@@ -48,6 +81,7 @@ export const Whyus = (Reasons: Props) => {
                 textAlign="center"
                 fontWeight="300"
                 color="white"
+                zIndex={1}
             >
                 {Reasons.description}
             </Text>
@@ -60,6 +94,7 @@ export const Whyus = (Reasons: Props) => {
                 justify="center"
                 flexWrap="wrap"
                 pb={16}
+                zIndex={1}
             >
                 {Reasons.Array.map((reason, index) => (
                     <VStack
