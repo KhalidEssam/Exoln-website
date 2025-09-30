@@ -30,7 +30,7 @@ export const AboutUs = () => {
                 position="relative"
                 top={0}
                 width="100%"
-                height={{ md: "150vh", lg: "120vh" }}
+                height={{ md: "100vh", lg: "100vh" }}
                 overflow="hidden"
                 _before={{
                     content: '""',
@@ -56,13 +56,12 @@ export const AboutUs = () => {
                     zIndex={1}
                 />
                 <Box
-                    w={{ base: "100%", md: "50%" }}
                     fontFamily={`'Montserrat', 'Regular'`}
                     textAlign="start"
+                    position={"absolute"}
                     marginInlineStart="10%"
                     zIndex={1}
-                    mt={{ base: "8rem", md: "12rem" }}
-                    mb={{ base: "5rem", md: 0 }}
+                    bottom="10vw"
                 >
                     <Text
                         fontSize={{ base: "2rem", xl: "2rem" }}

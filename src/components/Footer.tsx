@@ -19,6 +19,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { setActiveLink } from "@/store/slices/navSlice";
 import type { RootState } from "@/store";
 import { useTranslation } from "@/hooks/useTranslation";
+import footerBg from "/website-footer.png"; // vite will optimize & cache
+
 export const Footer: FC = () => {
   const lang = useSelector(selectLanguage);
   const t = useTranslation;
@@ -37,9 +39,19 @@ export const Footer: FC = () => {
       bgPos={"center"}
       bgSize={"cover"}
       bgRepeat={"no-repeat"}
-      bgImage={'url(./website-footer.png)'}
+      bgImage={`url(${footerBg})`}
+      bgColor="gray.900"  // fallback if image is loading
       color={'white'}
     >
+      <Box
+        w="100%"
+        h="100%"
+        backgroundImage={`url(${footerBg})`}
+        backgroundSize="cover"
+        backgroundPosition="center"
+      // fallback="blur"
+      />
+
       <HStack
         borderBottom={"1px solid white"}
         w={"90%"}
@@ -131,30 +143,30 @@ export const Footer: FC = () => {
           <Text fontSize="30px" w={"100%"} fontWeight="bold" pb={4} textAlign={{ base: "center", md: "start" }}>
             {lang === "ar" ? "روابط سريعة" : "Useful Links"}
           </Text>
-          {links?.map((link) => 
+          {links?.map((link) =>
           (
             link.subNav ? null :
-            <Box key={link.href}>
-              <RouterLink
-                to={link.href}
-                onClick={() => dispatch(setActiveLink(link.href))}
-              >
-                <Text
-                  textAlign="start"
-                  width="100%"
-                  fontSize={{ base: "1rem", md: "1.2rem" }}
-                  fontWeight={400}
-                  _hover={{
-                    color: useColorModeValue("#4d7cb1", "gray.100"),
-                    textDecoration: "underline",
-                  }}
-                  color={useColorModeValue("white", "gray.400")}
-                  m={2}
+              <Box key={link.href}>
+                <RouterLink
+                  to={link.href}
+                  onClick={() => dispatch(setActiveLink(link.href))}
                 >
-                  {lang === "en" ? link.en : link.ar}
-                </Text>
-              </RouterLink>
-            </Box>
+                  <Text
+                    textAlign="start"
+                    width="100%"
+                    fontSize={{ base: "1rem", md: "1.2rem" }}
+                    fontWeight={400}
+                    _hover={{
+                      color: useColorModeValue("#4d7cb1", "gray.100"),
+                      textDecoration: "underline",
+                    }}
+                    color={useColorModeValue("white", "gray.400")}
+                    m={2}
+                  >
+                    {lang === "en" ? link.en : link.ar}
+                  </Text>
+                </RouterLink>
+              </Box>
           ))}
         </VStack>
 
