@@ -49,7 +49,7 @@ export const AboutUs = () => {
                 position="relative"
                 top={0}
                 width="100%"
-                height={{ md: "100vh", lg: "100vh" }}
+                height={"100vh"}
                 overflow="hidden"
                 _before={{
                     content: '""',
