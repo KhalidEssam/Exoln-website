@@ -2,7 +2,7 @@ import { VStack, HStack, Text, Box } from "@chakra-ui/react";
 
 export const OurValues = () => {
     return <VStack
-        w="90%"
+        w={{ base: "95vw", md: "80vw", xl: "90vw" }}
         marginTop={-100}
         zIndex={3}
         borderRadius={"md"} boxShadow={"md"}
