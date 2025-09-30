@@ -1,9 +1,38 @@
 import { HStack, Text, VStack, Box } from "@chakra-ui/react";
 import { AboutServices } from "../../components/service-components/AboutServices";
 import { WhoWeSurve } from "@/components/service-components/WhoWeServe";
+import { Whyus } from "@/components/home-components/WhyUs";
 export const Exonext = () => {
+
+    const Reasons = {
+        title: "PROBLEMS WE ADDRESS",
+        description: "",
+        image: "exonext.jpg",
+        Array: [
+            {
+                title: "Heavy reliance on manual processes and weak automation.",
+                description: ""
+            },
+            {
+                title: "Difficulty tracking operations and resources.",
+                description: ""
+            },
+            {
+                title: "Data security vulnerabilities and weak cybersecurity.",
+                description: ""
+            },
+            {
+                title: "Need for modern websites and applications that enable digital presence and sales.",
+                description: ""
+            },
+
+        ]
+    }
     return (
-        <>
+        <VStack w={"100vw"}
+            mb={8}
+            gap={16}
+        >
             < VStack
                 position="relative"
                 justify="center"
@@ -82,6 +111,8 @@ export const Exonext = () => {
                     overlay: "#FED036"
                 }
             ]} />
-        </>
+            <Whyus title={Reasons.title} description={Reasons.description} Array={Reasons.Array} image={Reasons.image} />
+
+        </ VStack>
     );
 };

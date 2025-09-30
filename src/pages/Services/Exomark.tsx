@@ -1,6 +1,9 @@
 import { HStack, Text, VStack, Box } from "@chakra-ui/react";
 import { AboutServices } from "../../components/service-components/AboutServices";
 import { WhoWeSurve } from "@/components/service-components/WhoWeServe";
+import { Whyus } from "@/components/home-components/WhyUs";
+
+
 export const Exomark = () => {
     const AboutExomark = {
         title: "ABOUT EXOMARK",
@@ -9,21 +12,47 @@ export const Exomark = () => {
         imageUrl: "/EXOMARK.png",
         color: "#DC0800"
     };
+
+    const Reasons = {
+        title: "PROBLEMS WE ADDRESS",
+        description: "",
+        image: "exomark.jpg",
+        Array: [
+            {
+                title: "Weak or missing visual identity.",
+                description: ""
+            },
+            {
+                title: "Lack of strong presence on digital and social platforms.",
+                description: ""
+            },
+            {
+                title: "Marketing campaigns with no clear objectives.",
+                description: ""
+            },
+            {
+                title: "Repetitive or unprofessional content.",
+                description: ""
+            },
+        ]
+    }
     return (
-        <>
-            < VStack
-                position="relative"
-                justify="center"
-                align="center"
-                bgImage={`url(/2.png)`
-                }
-                bgSize="cover"
-                bgPos="center"
-                bgRepeat="no-repeat"
-                w={{ base: "100vw" }}
-                h="100vh"
-                overflow="hidden" // ensures overlay respects border radius
-            >
+        <VStack w={"100vw"}
+            mb={8}
+            gap={16}
+        >            < VStack
+            position="relative"
+            justify="center"
+            align="center"
+            bgImage={`url(/2.png)`
+            }
+            bgSize="cover"
+            bgPos="center"
+            bgRepeat="no-repeat"
+            w={{ base: "100vw" }}
+            h="100vh"
+            overflow="hidden" // ensures overlay respects border radius
+        >
                 {/* Overlay */}
                 < HStack
                     position="absolute"
@@ -82,6 +111,8 @@ export const Exomark = () => {
                     overlay: "#F12D26"
                 },
             ]} />
-        </>
+
+            <Whyus title={Reasons.title} description={Reasons.description} Array={Reasons.Array} image={Reasons.image} />
+        </VStack>
     );
 };

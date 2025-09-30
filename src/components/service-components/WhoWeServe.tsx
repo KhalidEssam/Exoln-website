@@ -7,7 +7,7 @@ type WhoWeSurveProps = {
 
 export const WhoWeSurve = ({ Services }: WhoWeSurveProps) => {
     return (
-        <VStack justifyContent="center" alignItems="center" gap={8}>
+        <VStack justifyContent="center" alignItems="center" w={"100%"} gap={8}>
             <HStack
                 w="90%"
                 align="stretch"

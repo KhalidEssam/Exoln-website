@@ -1,6 +1,7 @@
 import { AboutServices } from "@/components/service-components/AboutServices";
 import { HStack, Text, VStack, Box } from "@chakra-ui/react";
 import { WhoWeSurve } from "@/components/service-components/WhoWeServe";
+import { Whyus } from "@/components/home-components/WhyUs";
 export const Exobiz = () => {
     const AboutExobiz = {
         title: "ABOUT EXOBIZ",
@@ -9,9 +10,35 @@ export const Exobiz = () => {
         imageUrl: "/EXOBIZ.png",
         color: "#FC8000"
     };
+
+    const Reasons = {
+        title: "PROBLEMS WE ADDRESS",
+        description: "ExoBiz specializes in solving complex organizational challenges that hinder growth and efficiency. Our expertise includes:",
+        image: "exobiz.jpg",
+        Array: [
+            {
+                title: "Lack of organizational structure or unclear hierarchy.",
+                description: ""
+            },
+            {
+                title: "Weak operational policies and procedures.",
+                description: ""
+            },
+            {
+                title: "Overlapping roles and difficulties in performance tracking.",
+                description: ""
+            },
+            {
+                title: "Absence of effective performance measurement indicators.",
+                description: ""
+            },
+        ]
+    }
     return (
-        <>
-            <VStack
+        <VStack w={"100vw"}
+            mb={8}
+            gap={16}
+        >            <VStack
                 position="relative"
                 justify="center"
                 align="center"
@@ -84,6 +111,8 @@ export const Exobiz = () => {
                 }
             ]} />
 
-        </>
+            <Whyus title={Reasons.title} description={Reasons.description} Array={Reasons.Array} image={Reasons.image} />
+
+        </VStack>
     );
 };

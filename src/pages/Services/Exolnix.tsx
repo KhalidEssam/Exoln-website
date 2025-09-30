@@ -1,23 +1,58 @@
 import { HStack, Text, VStack, Box } from "@chakra-ui/react";
 import { AboutServices } from "@/components/service-components/AboutServices";
 import { WhoWeSurve } from "@/components/service-components/WhoWeServe";
+import { Whyus } from "@/components/home-components/WhyUs";
+
 export const Exolnix = () => {
+    const Reasons = {
+        title: "PROBLEMS WE ADDRESS",
+        description: "",
+        image: "exolink.jpg",
+        Array: [
+            {
+                title: "Financial disorder or lack of cashflow visibility.",
+                description: ""
+            },
+            {
+                title: "Absence of regular reports for decision-making.",
+                description: ""
+            },
+            {
+                title: "Weak monitoring of daily expenses and income.",
+                description: ""
+            },
+            {
+                title: "Non-compliance with tax and zakat requirements.",
+                description: ""
+            },
+            {
+                title: "Lack of financial planning for upcoming projects.",
+                description: ""
+            },
+            {
+                title: "Poor internal accounting performance due to limited hiring capacity.",
+                description: ""
+            }
+        ]
+    }
     return (
-        <>
-            < VStack
-                position="relative"
-                justify="center"
-                align="center"
-                bgImage={`url(/1.png)`
-                }
-                bgColor={"#F8F8F8"}
-                bgSize="cover"
-                bgPos="center"
-                bgRepeat="no-repeat"
-                w={{ base: "100vw" }}
-                h="100vh"
-                overflow="hidden" // ensures overlay respects border radius
-            >
+        <VStack w={"100vw"}
+            mb={8}
+            gap={16}
+        >            < VStack
+            position="relative"
+            justify="center"
+            align="center"
+            bgImage={`url(/1.png)`
+            }
+            bgColor={"#F8F8F8"}
+            bgSize="cover"
+            bgPos="center"
+            bgRepeat="no-repeat"
+            w={{ base: "100vw" }}
+            h="100vh"
+            overflow="hidden" // ensures overlay respects border radius
+        >
                 {/* Overlay */}
                 < HStack
                     position="absolute"
@@ -87,6 +122,8 @@ export const Exolnix = () => {
                     overlay: "#1E9241"
                 }
             ]} />
-        </>
+            <Whyus title={Reasons.title} description={Reasons.description} Array={Reasons.Array} image={Reasons.image} />
+
+        </VStack >
     );
 };

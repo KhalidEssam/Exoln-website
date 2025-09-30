@@ -1,22 +1,49 @@
 import { HStack, Text, VStack, Box } from "@chakra-ui/react";
 import { AboutServices } from "../../components/service-components/AboutServices";
 import { WhoWeSurve } from "@/components/service-components/WhoWeServe";
+import { Whyus } from "@/components/home-components/WhyUs";
+
 export const ExoTale = () => {
+    const Reasons = {
+        title: "PROBLEMS WE ADDRESS",
+        description: "ExoBiz specializes in solving complex organizational challenges that hinder growth and efficiency. Our expertise includes:",
+        image: "exotale.jpg",
+        Array: [
+            {
+                title: "Identities without a story or message.",
+                description: ""
+            },
+            {
+                title: "Campaigns disconnected from the true spirit of the brand.",
+                description: ""
+            },
+            {
+                title: "Difficulty in creating emotional connections with audiences.",
+                description: ""
+            },
+            {
+                title: "Lack of a long-term creative strategy.",
+                description: ""
+            },
+        ]
+    }
     return (
-        <>
-            < VStack
-                position="relative"
-                justify="center"
-                align="center"
-                bgImage={`url(/5.png)`
-                }
-                bgSize="cover"
-                bgPos="center"
-                bgRepeat="no-repeat"
-                w={{ base: "100vw" }}
-                h="100vh"
-                overflow="hidden" // ensures overlay respects border radius
-            >
+        <VStack w={"100vw"}
+            mb={8}
+            gap={16}
+        >            < VStack
+            position="relative"
+            justify="center"
+            align="center"
+            bgImage={`url(/5.png)`
+            }
+            bgSize="cover"
+            bgPos="center"
+            bgRepeat="no-repeat"
+            w={{ base: "100vw" }}
+            h="100vh"
+            overflow="hidden" // ensures overlay respects border radius
+        >
                 {/* Overlay */}
                 < HStack
                     position="absolute"
@@ -81,6 +108,8 @@ export const ExoTale = () => {
                     overlay: "#9841FD"
                 },
             ]} />
-        </>
+            <Whyus title={Reasons.title} description={Reasons.description} Array={Reasons.Array} image={Reasons.image} />
+
+        </VStack>
     );
 };
