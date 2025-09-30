@@ -67,6 +67,7 @@ export const Navbar = () => {
                   overflow="hidden"
                   align="stretch"
                   minW="200px"
+                  zIndex={10}
                 >
                   {link.subNav.map((subLink) => (
                     <RouterLink key={subLink.href} to={link.href + subLink.href}>

@@ -19,7 +19,7 @@ export const Exobiz = () => {
                 bgSize="cover"
                 bgPos="center"
                 bgRepeat="no-repeat"
-                w={{ base: "90vw", md: "100vw" }}
+                w={{ base: "100vw" }}
                 h="100vh"
                 overflow="hidden"
             >

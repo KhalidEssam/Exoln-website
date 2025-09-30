@@ -20,7 +20,7 @@ export const Exomark = () => {
                 bgSize="cover"
                 bgPos="center"
                 bgRepeat="no-repeat"
-                w={{ base: "90vw", md: "100vw" }}
+                w={{ base: "100vw" }}
                 h="100vh"
                 overflow="hidden" // ensures overlay respects border radius
             >
@@ -45,7 +45,7 @@ export const Exomark = () => {
                     bottom="10vw"
                 >
                     <Text
-                        fontSize={{ base: "5rem", xl: "4rem" }}
+                        fontSize={{ base: "3rem", xl: "4rem" }}
                         fontWeight="semibold"
                         color="white"
                         lineHeight="1"   // removes vertical padding/spacing
