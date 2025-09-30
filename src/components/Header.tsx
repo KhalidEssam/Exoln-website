@@ -6,13 +6,19 @@ import { useSelector } from "react-redux";
 import { selectLanguage } from "../store/slices/languageSlice";
 import { useState } from "react";
 import type { RootState } from "@/store";
-
+import { useRef } from "react";
+import { useOutsideClick } from "./Navbar";
 
 export const Header = () => {
   const lang = useSelector(selectLanguage);
   const [menuOpen, setMenuOpen] = useState(false);
   const { activeLink, } = useSelector((state: RootState) => state.nav);
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
+  // ✅ Close menu when clicking outside
+  useOutsideClick(menuRef, () => {
+    if (menuOpen) setMenuOpen(false);
+  });
   return (
     <Box
       as="header"
@@ -69,6 +75,7 @@ export const Header = () => {
       {/* Mobile Menu (visible only when menuOpen AND on md and below) */}
       {menuOpen && (
         <VStack
+          ref={menuRef} // 👈 attach ref here
           mt={4}
           p={4}
           gap={6}
