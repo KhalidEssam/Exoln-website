@@ -1,21 +1,14 @@
 import { HStack, Text, VStack, Box } from "@chakra-ui/react";
 import { AboutServices } from "../../components/service-components/AboutServices";
 import { WhoWeSurve } from "@/components/service-components/WhoWeServe";
-export const Exomark = () => {
-    const AboutExomark = {
-        title: "ABOUT EXOMARK",
-        description: "ExoMark is the marketing and creative arm of Exoln, dedicated to building brands and launching impactful campaigns that leave a real mark.",
-        subtitle: "We accompany our clients from the search for a clear visual identity, through professional content creation and smart advertising campaigns, to managing their digital presence across platforms.",
-        imageUrl: "/EXOMARK.png",
-        color: "#DC0800"
-    };
+export const ExoTale = () => {
     return (
         <>
             < VStack
                 position="relative"
                 justify="center"
                 align="center"
-                bgImage={`url(/2.png)`
+                bgImage={`url(/5.png)`
                 }
                 bgSize="cover"
                 bgPos="center"
@@ -31,10 +24,11 @@ export const Exomark = () => {
                     left={0}
                     w="100%"
                     h="100%"
-                    bg={"#DC0800"}
+                    bg={"#9841FD"}
                     mixBlendMode="multiply"
                     opacity={1}
                 />
+
                 <Box
                     w={{ base: "100%", md: "100%" }}
                     fontFamily={`'Montserrat', 'Regular'`}
@@ -45,16 +39,16 @@ export const Exomark = () => {
                     bottom="10vw"
                 >
                     <Text
-                        fontSize={{ base: "5rem", xl: "4rem" }}
+                        fontSize={{ base: "2.5rem", xl: "4rem" }}
                         fontWeight="semibold"
                         color="white"
                         lineHeight="1"   // removes vertical padding/spacing
-                        m="0"
+                        m="0"            // reset margins
                     >
-                        EXOMARK
+                        EXOTALE
                     </Text>
 
-                    <Text w={{ base: "80%", md: "40%" }}
+                    <Text w={{ base: "80%", md: "20%" }}
 
 
                         fontSize={{ base: "1rem", xl: "1.5rem" }}
@@ -62,24 +56,29 @@ export const Exomark = () => {
                         color="white"
                         lineHeight="1"   // makes letters snug
                     >
-                        MARKETING & CREATIVE DIVISION
+                        BRAND AND CREATIVE STRATEGY DIVISION
                     </Text>
                 </Box>
             </VStack>
-            <AboutServices  {...AboutExomark} />
-
+            <AboutServices  {...{
+                title: "ABOUT EXOTALE",
+                description: "EXOTALE is the creative strategy and storytelling arm of Exoln. We don’t stop at designing logos or visuals — we craft living narratives that transform brands into inspiring stories, resonating deeply with their audiences.",
+                subtitle: "Our mission is to turn every brand into an emotional experience that reflects its values and message, translating them into authentic and impactful communication across all channels.",
+                imageUrl: "/EXOTALE.png",
+                color: "#9841FD"
+            }} />
             <WhoWeSurve Services={[
                 {
-                    description: "Startups seeking a strong launch and clear identity.",
-                    overlay: "#F12D26"
+                    description: "Startups seeking to build their story and identity from the very beginning.",
+                    overlay: "#9841FD"
                 },
                 {
-                    description: "Medium and large enterprises in need of effective, creative campaigns.",
-                    overlay: "#F12D26"
+                    description: "Established brands seeking refreshed positioning and narrative.",
+                    overlay: "#9841FD"
                 },
                 {
-                    description: "Entrepreneurs and individuals looking to build a unique personal brand.",
-                    overlay: "#F12D26"
+                    description: "Individuals building personal brands with stories that inspire their audiences.",
+                    overlay: "#9841FD"
                 },
             ]} />
         </>

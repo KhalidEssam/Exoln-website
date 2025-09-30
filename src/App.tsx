@@ -9,6 +9,7 @@ import { Exolnix } from './pages/Services/Exolnix';
 import { Exomark } from './pages/Services/Exomark';
 import { Exonext } from './pages/Services/Exonext';
 import { Exobiz } from './pages/Services/Exobiz';
+import { ExoTale } from './pages/Services/Exotale';
 // import { ServiceDetails } from './pages/ServiceDetails';
 import { Blog } from './pages/Blog';
 // import { ArticleDetails } from './pages/ArticleDetails';
@@ -47,6 +48,7 @@ function App() {
             <Route path="/services/exomark" element={<Exomark />} />
             <Route path="/services/exonext" element={<Exonext />} />
             <Route path="/services/exobiz" element={<Exobiz />} />
+            <Route path="/services/exotale" element={<ExoTale />} />
             <Route path="/blogs" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />

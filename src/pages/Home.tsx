@@ -53,7 +53,6 @@ export const Home = () => {
           bgSize: "cover",
           bgPos: "center",
           transform: "scaleX(-1)",
-          // zIndex: 0, // background
         }}
       >
         {/* Overlay layer */}

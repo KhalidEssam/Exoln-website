@@ -15,7 +15,7 @@ export const Blog = () => {
           bg="blackAlpha.600" // or your glaze color
           zIndex={0}
         />
-        <Box w={{ base: "100%", md: "50%" }}
+        <Box w={{ base: "100%", md: "80%" }}
           fontFamily={`'Montserrat', 'Regular'`} textAlign={"start"} p={16}
           zIndex={1}
           mt={{ base: "8rem", md: "20rem" }} mb={{ base: "5rem", md: 0 }}>
@@ -27,7 +27,10 @@ export const Blog = () => {
           >
             INSIGHTS <br /> BEYOND SERVICES
           </Text>
-          <Text fontSize={{ base: "1rem", xl: "1.5rem", md: "1.5rem" }} fontWeight={"bold"} color={"white"}> Our blog brings strategy and creativity together — sharing fresh ideas and stories across finance, branding, technology, and more, with insights that inspire growth and spark innovation.</Text>
+          <Text fontSize={{ base: "1rem", xl: "1.3rem", md: "1.2rem" }} 
+          fontWeight={"bold"} 
+          w={{ base: "100%", md: "80%" }}
+          color={"white"}> Our blog brings strategy and creativity together — sharing fresh ideas and stories across finance, branding, technology, and more, with insights that inspire growth and spark innovation.</Text>
         </Box>
       </HStack>
     </VStack>

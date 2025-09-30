@@ -1,9 +1,9 @@
 import { VStack, Text, Box, Link as ChakraLink } from "@chakra-ui/react";
 
 export type ServiceProps = {
-    title: string;
+    title?: string;
     description: string;
-    icon: string;
+    icon?: string;
     overlay: string;
     href?: string;
 };
@@ -67,12 +67,16 @@ export const ServiceCard = ({ number, service }: ServiceCardProps) => {
                     <Text fontFamily="Agency FB" opacity={0.4} fontWeight="bold" fontSize="3rem">
                         0{number}
                     </Text>
+                    <VStack gap={0} align="flex-start">
+                        <Text fontSize="1rem" fontWeight="300" textTransform="uppercase">
+                            Division
+                        </Text>
+                        <Text fontWeight="extrabold" fontSize="2rem">
+                            {service.title}
+                        </Text>
+                    </VStack>
 
-                    <Text fontWeight="extrabold" fontSize="2rem">
-                        {service.title}
-                    </Text>
-
-                    <Text fontSize="1.5rem" fontWeight="light">
+                    <Text textAlign={"left"} fontSize="1.5rem" fontWeight="light">
                         {service.description}
                     </Text>
                 </VStack>

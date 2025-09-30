@@ -24,6 +24,7 @@ const initialState: NavState = {
         { href: "/exomark", label: "EXOMARK", en: "EXOMARK", ar: "اكسومارك" },
         { href: "/exonext", label: "EXONEXT", en: "EXONEXT", ar: "اكسونكست" },
         { href: "/exobiz", label: "EXOBIZ", en: "EXOBIZ", ar: "اكسوبيز" },
+        { href: "/exotale", label: "EXOTALE", en: "EXOTALE", ar: "اكسوتيل" },
       ]
     },
     { href: "/blogs", label: "Blogs", en: "Blogs", ar: "المدونات" },
