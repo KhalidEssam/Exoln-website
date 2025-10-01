@@ -3,9 +3,39 @@ import { AboutServices } from "@/components/service-components/AboutServices";
 import { WhoWeSurve } from "@/components/service-components/WhoWeServe";
 import { Whyus } from "@/components/home-components/WhyUs";
 import { useState, useEffect } from "react";
+import { WhatYouGet } from "@/components/service-components/WhatYouGet";
+import { WhyThisService } from "@/components/service-components/WhyThisService";
+
 
 export const Exolnix = () => {
     const [loading, setLoading] = useState(true);
+
+    const WhyExolnix = {
+        title: "WHY EXOLNIX",
+        description: "",
+        points: [
+            { description: "We design solutions around the client — not around our products." },
+            { description: "We do not bind clients to us unless we truly add value." },
+            { description: "Our pricing is fair, and results are tangible." },
+            { description: "We empower clients to be independent if they wish, or we take full management if they prefer delegation." },
+            { description: "We provide an internal accounting system that clients can easily subscribe to." },
+            { description: "We deliver a professional experience with a human touch, tailored to real client needs and challenges." },
+
+        ],
+    };
+    const WhyExolnix1 = {
+        title: "How We Work",
+        description: "We start with a deep understanding of the business and its challenges, then provide solutions tailored to actual needs, such as:",
+        points: [
+            { description: "We design solutions around the client — not around our products." },
+            { description: "We do not bind clients to us unless we truly add value." },
+            { description: "Our pricing is fair, and results are tangible." },
+            { description: "We empower clients to be independent if they wish, or we take full management if they prefer delegation." },
+            { description: "We provide an internal accounting system that clients can easily subscribe to." },
+            { description: "We deliver a professional experience with a human touch, tailored to real client needs and challenges." },
+
+        ],
+    };
 
     // Simulate content loading (replace with real API/image load logic)
     useEffect(() => {
@@ -121,6 +151,7 @@ export const Exolnix = () => {
                 color: "#1E9241"
             }} />
 
+
             <WhoWeSurve Services={[
                 {
                     description: "Entrepreneurs starting their ventures who need someone to handle back-office tasks (invoicing, reporting, cashflow, tax, and zakat).",
@@ -140,6 +171,10 @@ export const Exolnix = () => {
                 }
             ]} />
             <Whyus title={Reasons.title} description={Reasons.description} Array={Reasons.Array} image={Reasons.image} />
+
+            <WhatYouGet {...WhyExolnix1} metadata={{ direction: "vertical", color: "#1E9241" }} />
+
+            <WhyThisService {...WhyExolnix} metadata={{ direction: "vertical", color: "#1E9241" }} />
 
         </VStack >
     );

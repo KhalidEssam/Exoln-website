@@ -12,7 +12,7 @@ import { Exobiz } from './pages/Services/Exobiz';
 import { ExoTale } from './pages/Services/Exotale';
 // import { ServiceDetails } from './pages/ServiceDetails';
 import { Blog } from './pages/Blog';
-// import { ArticleDetails } from './pages/ArticleDetails';
+import { ArticleDetails } from './components/blog-components/ArticleDetails';
 // import { ViewAllArtciles } from './pages/ViewAllArtciles';
 import { Contact } from './pages/Contact';
 // import { TermsandConditions } from './pages/TermsandConditions';
@@ -50,6 +50,7 @@ function App() {
             <Route path="/services/exobiz" element={<Exobiz />} />
             <Route path="/services/exotale" element={<ExoTale />} />
             <Route path="/blogs" element={<Blog />} />
+            <Route path="/blogs/:id" element={<ArticleDetails />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

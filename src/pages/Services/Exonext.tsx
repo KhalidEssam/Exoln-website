@@ -4,6 +4,8 @@ import { WhoWeSurve } from "@/components/service-components/WhoWeServe";
 import { Whyus } from "@/components/home-components/WhyUs";
 import { Center, Spinner } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
+import { WhyThisService } from "@/components/service-components/WhyThisService";
+import { WhatYouGet } from "@/components/service-components/WhatYouGet";
 export const Exonext = () => {
 
     const Reasons = {
@@ -45,6 +47,49 @@ export const Exonext = () => {
         );
     }
 
+
+
+    const WhyExonext = {
+        title: "OUR SOLUTIONS",
+        description: "",
+        points: [
+            { description: "Ready-made systems (ERP/CRM/HR)." },
+            { description: "Customized solutions based on client needs (modifications to existing systems or full development from scratch)." },
+            { description: "Integration and automation of existing systems (APIs & workflow automation)." },
+            {
+                description: "Two delivery models:SaaS(subscription- based). Custom development & implementation projects."
+            },
+
+        ],
+    };
+    const WhyExonext1 = {
+        title: "WHY Exonext ?",
+        description: "",
+        points: [
+            { description: "We focus on quality and client satisfaction above all else." },
+            { description: "We listen deeply and transform ideas into measurable results." },
+            { description: "We believe every investment must deliver greater value than its cost." },
+            { description: "We provide ongoing support to ensure sustainability." },
+            { description: "We provide ready-to-use systems at a lower cost than custom development." },
+
+        ],
+    };
+    const WhyExonext2 = {
+        title: "AVAILABLE SYSTEMS",
+        description: "",
+        points: [
+            { description: "eOctopus Document Management System (DMS)" },
+            { description: "eOctopus CRM (Mobile CRM)" },
+            { description: "eOctopus Asset Tracking (RFID)" },
+            { description: "eOctopus Help Desk & Call Center" },
+            { description: "eOctopus Warehouse Management System (eWMS)" },
+            { description: "ELS (Electronic Laboratory System)" },
+            { description: "eOctopus E-Commerce System" },
+            { description: "Tracking & Fleet Management System" },
+            { description: "HIS (Hospital Information System)" },
+
+        ],
+    };
     return (
         <VStack w={"100vw"}
             mb={8}
@@ -129,6 +174,9 @@ export const Exonext = () => {
                 }
             ]} />
             <Whyus title={Reasons.title} description={Reasons.description} Array={Reasons.Array} image={Reasons.image} />
+            <WhyThisService {...WhyExonext} metadata={{ direction: "horizontal", color: "#FED036" }} />
+            <WhyThisService {...WhyExonext1} metadata={{ direction: "horizontal", color: "#FED036" }} />
+            <WhatYouGet {...WhyExonext2} metadata={{ direction: "horizontal", color: "#FED036" }} />
 
         </ VStack>
     );

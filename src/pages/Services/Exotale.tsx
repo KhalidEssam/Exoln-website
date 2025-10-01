@@ -3,7 +3,8 @@ import { AboutServices } from "../../components/service-components/AboutServices
 import { WhoWeSurve } from "@/components/service-components/WhoWeServe";
 import { Whyus } from "@/components/home-components/WhyUs";
 import { useState, useEffect } from "react";
-
+import { WhyThisService } from "@/components/service-components/WhyThisService";
+import { WhatYouGet } from "@/components/service-components/WhatYouGet";
 export const ExoTale = () => {
     const Reasons = {
         title: "PROBLEMS WE ADDRESS",
@@ -42,7 +43,30 @@ export const ExoTale = () => {
             </Center>
         );
     }
+    const WhyExotale = {
+        title: "WHY Exotale ?",
+        description: "",
+        points: [
+            { description: "We sell stories, not just services." },
+            { description: "We transform brands into experiences that live in the audience’s memory." },
+            { description: "We connect creativity with cultural and social analysis." },
+            { description: "We provide an end-to-end strategy: from storytelling to impact measurement." },
 
+        ],
+    };
+    const WhyExotale1 = {
+        title: "what clients receive",
+        description: "",
+        points: [
+            { title: "Your Story", description: "Brand story and core messaging." },
+            { title:"Creative Pieces",description: "Visual assets (videos, social media content, landing pages)." },
+            { title: "Test Campaign", description: "Pilot campaign to validate the story’s success." },
+            { title: "Results Dashboard", description: "Before/after performance dashboard." },
+            { title: "Case Study", description: "A shareable success story." },
+
+
+        ],
+    };
     return (
         <VStack w={"100vw"}
             mb={8}
@@ -125,6 +149,9 @@ export const ExoTale = () => {
                 },
             ]} />
             <Whyus title={Reasons.title} description={Reasons.description} Array={Reasons.Array} image={Reasons.image} />
+            <WhatYouGet {...WhyExotale1} metadata={{ direction: "horizontal", color: "#9841FD" }} />
+
+            <WhyThisService {...WhyExotale} metadata={{ direction: "horizontal", color: "#9841FD" }} />
 
         </VStack>
     );

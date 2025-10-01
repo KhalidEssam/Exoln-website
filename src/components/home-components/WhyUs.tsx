@@ -100,18 +100,16 @@ export const Whyus = (Reasons: Props) => {
                     <VStack
                         key={index}
                         p={8}
-                        m={4}
                         borderRadius="8px"
                         boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)"
-                        maxW="300px"
-                        minH="200px"
+                        maxW="230px"
                         bg="whiteAlpha.100"
                         backdropFilter="blur(6px)"
                     >
                         <Circle border="2px solid white" size="50px" bg="transparent">
                             <FaCheck size="2rem" />
                         </Circle>
-                        <Text fontWeight="bold" fontSize="1.5rem" textAlign="center">
+                        <Text fontFamily={"Cairo"} fontWeight="400" fontSize="1.2rem" textAlign="center">
                             {reason.title}
                         </Text>
                         <Text fontSize="1rem" textAlign="center">

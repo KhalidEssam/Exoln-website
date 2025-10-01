@@ -4,7 +4,8 @@ import { WhoWeSurve } from "@/components/service-components/WhoWeServe";
 import { Whyus } from "@/components/home-components/WhyUs";
 import { Center, Spinner } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
-
+import { WhyThisService } from "@/components/service-components/WhyThisService";
+import { WhatYouGet } from "@/components/service-components/WhatYouGet";
 export const Exomark = () => {
     const AboutExomark = {
         title: "ABOUT EXOMARK",
@@ -22,6 +23,41 @@ export const Exomark = () => {
         return () => clearTimeout(timer);
     }, []);
 
+    const WhyExomark = {
+        title: "WHY Exomarkv ?",
+        description: "",
+        points: [
+            { description: "We don’t just sell services, we create meaningful, long-term partnerships." },
+            { description: "We listen carefully to understand needs before offering any proposal." },
+            { description: "We deliver practical, measurable solutions that drive real impact." },
+            { description: "We work with a global creative team bringing cultural and creative diversity." },
+            { description: "We compete not on price, but by ensuring lasting quality and trust." },
+
+        ],
+    };
+    const WhyExomark2 = {
+        title: "How We Work",
+        description: "",
+        points: [
+            { description: "Always begin with a discovery and analysis session." },
+            { description: "Design integrated or partial solutions based on client choice." },
+            { description: "Provide regular reports (monthly or project-based)." },
+            { description: "Continuously monitor campaigns to measure impact and ensure progress." },
+
+        ],
+    };
+    const WhyExomark1 = {
+        title: "OUR SOLUTIONS",
+        description: "",
+        points: [
+            { description: "Creating or redesigning visual identities that align with business goals." },
+            { description: "Writing professional content that conveys brand values and objectives." },
+            { description: "Managing advertising campaigns across Google, Meta, and TikTok." },
+            { description: "Producing videos, motion graphics, and creative visuals to boost marketing." },
+            { description: "Handling social media with scheduling, execution, monitoring, and SEO/SEM optimization." },
+            { description: "Driving ongoing brand development to adapt and stay ahead." },
+        ],
+    };
     const Reasons = {
         title: "PROBLEMS WE ADDRESS",
         description: "",
@@ -130,6 +166,12 @@ export const Exomark = () => {
             ]} />
 
             <Whyus title={Reasons.title} description={Reasons.description} Array={Reasons.Array} image={Reasons.image} />
+            <WhatYouGet {...WhyExomark2} metadata={{ direction: "horizontal", color: "#F12D26" }} />
+
+            <WhyThisService {...WhyExomark1} metadata={{ direction: "vertical", color: "#F12D26" }} />
+
+            <WhyThisService {...WhyExomark} metadata={{ direction: "horizontal", color: "#F12D26" }} />
+
         </VStack>
     );
 };

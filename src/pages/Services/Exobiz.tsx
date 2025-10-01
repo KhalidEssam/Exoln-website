@@ -3,6 +3,8 @@ import { VStack, HStack, Box, Text, Spinner, Center } from "@chakra-ui/react";
 import { AboutServices } from "@/components/service-components/AboutServices";
 import { WhoWeSurve } from "@/components/service-components/WhoWeServe";
 import { Whyus } from "@/components/home-components/WhyUs";
+import { WhyThisService } from "@/components/service-components/WhyThisService";
+import { WhatYouGet } from "@/components/service-components/WhatYouGet";
 
 export const Exobiz = () => {
     const [loading, setLoading] = useState(true);
@@ -33,6 +35,28 @@ export const Exobiz = () => {
             { title: "Weak operational policies and procedures.", description: "" },
             { title: "Overlapping roles and difficulties in performance tracking.", description: "" },
             { title: "Absence of effective performance measurement indicators.", description: "" },
+        ],
+    };
+
+    const WhysService = {
+        title: "WHY CHOOSE EXOBIZ?",
+        description: "",
+        points: [
+            { description: "Extensive, diverse experience, always updated to match evolving regulations and systems." },
+            { description: "Integrated consulting that can include technical solutions via ExoNext, bridging theory with practice." },
+            { description: "We never leave clients with “paper solutions” — we build together a practical, working reality." },
+            { description: "Flexible approach, adapting to each client’s needs instead of one-size-fits-all packages." },
+        ],
+    };
+    const WhysService1 = {
+        title: "how we work",
+        description: "",
+        points: [
+            { description: "We start with deep discovery sessions to fully understand the client’s reality." },
+            { description: "We analyze the situation carefully and design clear, practical solutions." },
+            { description: "We avoid unnecessary services, focusing only on what adds real value." },
+            { description: "We don’t push “bundles” — we provide honest, responsible advice." },
+            { description: "We stay with the client from consultation to implementation, sharing in their success." },
         ],
     };
 
@@ -115,6 +139,9 @@ export const Exobiz = () => {
                 ]}
             />
             <Whyus {...Reasons} />
+            <WhatYouGet {...WhysService1} metadata={{ direction: "horizontal", color: "#FC8000" }} />
+
+            <WhyThisService {...WhysService} metadata={{ direction: "horizontal", color: "#FC8000" }} />
         </VStack>
     );
 };
