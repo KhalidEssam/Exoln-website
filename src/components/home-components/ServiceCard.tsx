@@ -51,7 +51,6 @@ export const ServiceCard = ({ number, service }: ServiceCardProps) => {
             {/* Content */}
             <ChakraLink
                 href={service.href}
-                target="_blank"
                 w="100%"
                 h="100%"
                 _hover={{ textDecoration: "none" }}
