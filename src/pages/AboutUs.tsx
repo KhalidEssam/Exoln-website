@@ -15,7 +15,7 @@ export const AboutUs = () => {
     const Values: Props = {
         title: "Our Values",
         description: "",
-        image: "about.jpg",
+        image: "about1.webp",
         Array: [
             {
                 title: "TRUST",
@@ -58,7 +58,7 @@ export const AboutUs = () => {
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    bgImage: "url(./About.png)",
+                    bgImage: "url(./About.webp)",
                     bgSize: "cover",
                     bgPos: "center",
                     zIndex: 0, // background

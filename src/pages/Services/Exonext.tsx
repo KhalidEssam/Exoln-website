@@ -9,7 +9,7 @@ export const Exonext = () => {
     const Reasons = {
         title: "PROBLEMS WE ADDRESS",
         description: "",
-        image: "exonext.jpg",
+        image: "exonext1.webp",
         Array: [
             {
                 title: "Heavy reliance on manual processes and weak automation.",
@@ -54,7 +54,7 @@ export const Exonext = () => {
                 position="relative"
                 justify="center"
                 align="center"
-                bgImage={`url(/3.png)`
+                bgImage={`url(/3.webp)`
                 }
                 bgSize="cover"
                 bgPos="center"
@@ -110,7 +110,7 @@ export const Exonext = () => {
                 title: "ABOUT EXONEXT",
                 description: "ExoNext is the digital transformation and technology arm of Exoln, specialized in delivering innovative systems that help businesses automate their operations and shift from traditional methods to intelligent digital solutions.",
                 subtitle: "Through our expertise and global partnerships, we provide integrated solutions including ready-made systems, customized development, and system integrations to enhance efficiency and reduce costs.",
-                imageUrl: "/EXONEXT.png",
+                imageUrl: "/exonext.webp",
                 color: "#FED036"
             }} />
 

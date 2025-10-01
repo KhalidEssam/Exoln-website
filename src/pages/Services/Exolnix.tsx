@@ -15,7 +15,7 @@ export const Exolnix = () => {
     const Reasons = {
         title: "PROBLEMS WE ADDRESS",
         description: "",
-        image: "exolink.jpg",
+        image: "exolink.webp",
         Array: [
             {
                 title: "Financial disorder or lack of cashflow visibility.",
@@ -44,14 +44,14 @@ export const Exolnix = () => {
         ]
     }
 
-        if (loading) {
-            return (
-                <Center w="100vw" h="100vh" bg="white">
-                    <Spinner size="xl" color="orange.400" />
-                </Center>
-            );
-        }
-    
+    if (loading) {
+        return (
+            <Center w="100vw" h="100vh" bg="white">
+                <Spinner size="xl" color="orange.400" />
+            </Center>
+        );
+    }
+
     return (
         <VStack w={"100vw"}
             mb={8}
@@ -60,7 +60,7 @@ export const Exolnix = () => {
             position="relative"
             justify="center"
             align="center"
-            bgImage={`url(/1.png)`
+            bgImage={`url(/1.webp)`
             }
             bgColor={"#F8F8F8"}
             bgSize="cover"
@@ -117,7 +117,7 @@ export const Exolnix = () => {
                 title: "ABOUT EXOLNIX",
                 description: "Exolnix is a specialized unit within the Exoln Group that provides financial and accounting management solutions tailored for entrepreneurs and SMEs. Our approach reflects real market needs, offering clients operational ease and true digital confidence.",
                 subtitle: "At Exolnix, we don’t deliver cold, prepackaged programs. We listen carefully, analyze precisely, and provide solutions that empower clients to focus on building their businesses, while we restructure their financial operations into a growth enabler rather than a burden.",
-                imageUrl: "/EXOLNIX.png",
+                imageUrl: "/EXOLNIX.webp",
                 color: "#1E9241"
             }} />
 

@@ -4,7 +4,6 @@ import {
   HStack,
   VStack,
 } from "@chakra-ui/react";
-// import { toaster } from "./ui/toaster" // your custom toaster.tsx
 import { Image, Box, Text } from "@chakra-ui/react";
 import { Link as ChakraLink } from "@chakra-ui/react";
 import { type FC } from "react";
@@ -19,7 +18,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { setActiveLink } from "@/store/slices/navSlice";
 import type { RootState } from "@/store";
 import { useTranslation } from "@/hooks/useTranslation";
-import footerBg from "/website-footer.png"; // vite will optimize & cache
+import footerBg from "/website-footer.webp"; // vite will optimize & cache
 
 export const Footer: FC = () => {
   const lang = useSelector(selectLanguage);
@@ -40,17 +39,9 @@ export const Footer: FC = () => {
       bgSize={"cover"}
       bgRepeat={"no-repeat"}
       bgImage={`url(${footerBg})`}
-      bgColor="gray.900"  // fallback if image is loading
+      bgColor="gray.700"  // fallback if image is loading
       color={'white'}
     >
-      <Box
-        w="100%"
-        h="100%"
-        backgroundImage={`url(${footerBg})`}
-        backgroundSize="cover"
-        backgroundPosition="center"
-      // fallback="blur"
-      />
 
       <HStack
         borderBottom={"1px solid white"}
@@ -69,7 +60,7 @@ export const Footer: FC = () => {
         <VStack justifyContent={"space-between"} align={{ base: "center", md: "flex-start" }} gap={8} maxW={{ base: "100%", md: "15%" }}>
           <ChakraLink href="/">
             <Image
-              src={`/logo2.png`}
+              src={`/logo2.webp`}
               alt="Logo"
               width={{ base: "8rem", md: "6rem", lg: "10rem" }}
             />

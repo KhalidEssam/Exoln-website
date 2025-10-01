@@ -4,7 +4,7 @@ import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import useSwiperDirectionFix from "@/hooks/useSwiperDirectionFix";
 import "swiper/swiper-bundle.css";
 
-const Slides = Array(10).fill({ img: "partner.png" });
+const Slides = Array(10).fill({ img: "partner.webp" });
 
 export const OurPartners = () => {
     const { swiperRef, direction, key } = useSwiperDirectionFix();

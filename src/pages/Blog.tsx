@@ -11,7 +11,7 @@ export const dummyArticles: articleProbs[] = [
       en: "Learn proven strategies to scale your startup effectively while maintaining efficiency and culture.",
       ar: "تعرف على استراتيجيات مثبتة لتوسيع نطاق شركتك الناشئة مع الحفاظ على الكفاءة والثقافة."
     },
-    image: "/blog1.jpg",
+    image: "/blog1.webp",
     date: "2025-09-01",
     featured: true,
     ref: "how-to-scale-your-startup"
@@ -23,7 +23,7 @@ export const dummyArticles: articleProbs[] = [
       en: "Explore how AI and automation are reshaping industries worldwide.",
       ar: "اكتشف كيف يعيد الذكاء الاصطناعي والأتمتة تشكيل الصناعات حول العالم."
     },
-    image: "/blog2.jpg",
+    image: "/blog2.webp",
     date: "2025-08-15",
     ref: "digital-transformation-2025"
   },
@@ -35,7 +35,7 @@ export const dummyArticles: articleProbs[] = [
       en: "Strong leaders share common traits that inspire teams and drive innovation.",
       ar: "يشترك القادة الأقوياء في سمات مشتركة تلهم الفرق وتقود الابتكار."
     },
-    image: "/blog3.jpg",
+    image: "/blog3.webp",
     date: "2025-07-30",
     featured: false,
     ref: "top-5-traits-leaders"
@@ -47,7 +47,7 @@ export const dummyArticles: articleProbs[] = [
       en: "Companies adopting green initiatives are gaining both profit and brand trust.",
       ar: "الشركات التي تعتمد مبادرات خضراء تحقق الربح وثقة العلامة التجارية."
     },
-    image: "/blog1.jpg",
+    image: "/blog1.webp",
     date: "2025-06-20",
     ref: "sustainable-business"
   },
@@ -59,7 +59,7 @@ export const dummyArticles: articleProbs[] = [
       en: "Remote work is evolving with new technologies, creating hybrid opportunities.",
       ar: "يتطور العمل عن بُعد مع التقنيات الجديدة، مما يخلق فرصًا هجينة."
     },
-    image: "/blog2.jpg",
+    image: "/blog2.webp",
     date: "2025-05-10",
     featured: true,
     ref: "future-of-remote-work"
@@ -72,7 +72,7 @@ export const dummyArticles: articleProbs[] = [
       en: "Remote work is evolving with new technologies, creating hybrid opportunities.",
       ar: "يتطور العمل عن بُعد مع التقنيات الجديدة، مما يخلق فرصًا هجينة."
     },
-    image: "/blog2.jpg",
+    image: "/blog2.webp",
     date: "2025-05-10",
     featured: true,
     ref: "future-of-remote-work"
@@ -82,7 +82,7 @@ export const Blog = () => {
   return (
     <VStack gap={4}>
 
-      <HStack bgImage={"url(./pattern.png)"} top={0} width={"100%"} bgSize={"cover"} bgPos={"center"} height={"100vh"}>
+      <HStack bgImage={"url(./pattern.webp)"} top={0} width={"100%"} bgSize={"cover"} bgPos={"center"} height={"100vh"}>
         <Box
           className="overlay"
           position="absolute"

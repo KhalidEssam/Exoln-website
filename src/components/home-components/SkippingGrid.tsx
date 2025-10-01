@@ -45,7 +45,7 @@ export function SkippingGrid() {
 
 
     return (
-        <VStack w={{ base: "90%", lg: "50%" }} alignItems={"center"} justifyContent={"center"}>
+        <VStack w={{ base: "90%", lg: "40%" }} alignItems={"center"} justifyContent={"center"}>
             <SimpleGrid columns={3}>
                 {pattern.map((row, rowIndex) =>
                     row.map((cell, colIndex) => (

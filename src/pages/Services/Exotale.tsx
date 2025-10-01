@@ -8,7 +8,7 @@ export const ExoTale = () => {
     const Reasons = {
         title: "PROBLEMS WE ADDRESS",
         description: "ExoBiz specializes in solving complex organizational challenges that hinder growth and efficiency. Our expertise includes:",
-        image: "exotale.jpg",
+        image: "exotale1.webp",
         Array: [
             {
                 title: "Identities without a story or message.",
@@ -51,7 +51,7 @@ export const ExoTale = () => {
             position="relative"
             justify="center"
             align="center"
-            bgImage={`url(/5.png)`
+            bgImage={`url(/5.webp)`
             }
             bgSize="cover"
             bgPos="center"
@@ -107,7 +107,7 @@ export const ExoTale = () => {
                 title: "ABOUT EXOTALE",
                 description: "EXOTALE is the creative strategy and storytelling arm of Exoln. We don’t stop at designing logos or visuals — we craft living narratives that transform brands into inspiring stories, resonating deeply with their audiences.",
                 subtitle: "Our mission is to turn every brand into an emotional experience that reflects its values and message, translating them into authentic and impactful communication across all channels.",
-                imageUrl: "/EXOTALE.png",
+                imageUrl: "/exotale.webp",
                 color: "#9841FD"
             }} />
             <WhoWeSurve Services={[

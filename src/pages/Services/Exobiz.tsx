@@ -19,7 +19,7 @@ export const Exobiz = () => {
             "ExoBiz is the corporate consulting and business development arm of Exoln. We enable companies and institutions to reorganize their structures, develop policies and procedures, and enhance operational efficiency for sustainable growth.",
         subtitle:
             "We are not just consultants producing paperwork and theoretical opinions. At ExoBiz, we believe our clients’ success is our success. From the moment we step in, our focus is on practical, actionable solutions that directly impact performance and results.",
-        imageUrl: "/EXOBIZ.png",
+        imageUrl: "/exobiz.webp",
         color: "#FC8000",
     };
 
@@ -27,7 +27,7 @@ export const Exobiz = () => {
         title: "PROBLEMS WE ADDRESS",
         description:
             "ExoBiz specializes in solving complex organizational challenges that hinder growth and efficiency. Our expertise includes:",
-        image: "exobiz.jpg",
+        image: "exobiz1.webp",
         Array: [
             { title: "Lack of organizational structure or unclear hierarchy.", description: "" },
             { title: "Weak operational policies and procedures.", description: "" },
@@ -51,7 +51,7 @@ export const Exobiz = () => {
                 position="relative"
                 justify="center"
                 align="center"
-                bgImage="url(/4.png)"
+                bgImage="url(/4.webp)"
                 bgSize="cover"
                 bgPos="center"
                 bgRepeat="no-repeat"

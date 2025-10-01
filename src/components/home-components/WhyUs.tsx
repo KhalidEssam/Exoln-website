@@ -14,7 +14,7 @@ export const Whyus = (Reasons: Props) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const url = `/${Reasons.image ? Reasons.image : "Whyus.jpg"}`;
+        const url = `/${Reasons.image ? Reasons.image : "Whyus.webp"}`;
         const img = new Image();
         img.src = url;
         img.onload = () => {

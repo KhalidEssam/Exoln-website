@@ -10,7 +10,7 @@ export const Exomark = () => {
         title: "ABOUT EXOMARK",
         description: "ExoMark is the marketing and creative arm of Exoln, dedicated to building brands and launching impactful campaigns that leave a real mark.",
         subtitle: "We accompany our clients from the search for a clear visual identity, through professional content creation and smart advertising campaigns, to managing their digital presence across platforms.",
-        imageUrl: "/EXOMARK.png",
+        imageUrl: "/exomark.webp",
         color: "#DC0800"
     };
 
@@ -25,7 +25,7 @@ export const Exomark = () => {
     const Reasons = {
         title: "PROBLEMS WE ADDRESS",
         description: "",
-        image: "exomark.jpg",
+        image: "exomark1.webp",
         Array: [
             {
                 title: "Weak or missing visual identity.",
@@ -45,14 +45,14 @@ export const Exomark = () => {
             },
         ]
     }
-        if (loading) {
-            return (
-                <Center w="100vw" h="100vh" bg="white">
-                    <Spinner size="xl" color="orange.400" />
-                </Center>
-            );
-        }
-    
+    if (loading) {
+        return (
+            <Center w="100vw" h="100vh" bg="white">
+                <Spinner size="xl" color="orange.400" />
+            </Center>
+        );
+    }
+
     return (
         <VStack w={"100vw"}
             mb={8}
@@ -61,7 +61,7 @@ export const Exomark = () => {
             position="relative"
             justify="center"
             align="center"
-            bgImage={`url(/2.png)`
+            bgImage={`url(/2.webp)`
             }
             bgSize="cover"
             bgPos="center"

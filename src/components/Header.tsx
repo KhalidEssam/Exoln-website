@@ -33,7 +33,7 @@ export const Header = () => {
       <HStack justify="space-between" align="center">
         {/* Logo */}
         <ChakraLink href="/">
-          <Image src={activeLink === "/" ? "/logo.png" : "/logo2.png"} alt="logo" h="2rem" />
+          <Image src={activeLink === "/" ? "/logo.webp" : "/logo2.webp"} alt="logo" h="2rem" />
         </ChakraLink>
         {/* Desktop Navbar + Actions: show ONLY on lg and up */}
         <HStack display={{ base: "none", lg: "flex" }} w={"75%"} justifyContent={"space-between"} gap={6} align="center">

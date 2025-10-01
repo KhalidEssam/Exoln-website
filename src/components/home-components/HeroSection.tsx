@@ -5,11 +5,13 @@ import { SkippingGrid } from "./SkippingGrid";
 
 export const HeroSection = () => {
     return (
-        <VStack>
-            <HStack color={"white"} justify={"space-between"} flexDir={{ base: "column", lg: "row" }} width={"95%"} height={"100%"} align={"stretch"}  >
+        <VStack mt={{ base: "6rem", md: "4rem", lg: "3rem" }} mb={{ base: "6rem", md: "4rem", lg: "3rem" }}>
+            <HStack color={"white"} justify={"space-between"} align={"stretch"}
+                flexDir={{ base: "column", lg: "row" }}
+                width={"95%"} height={"100%"}>
                 <VStack style={{ contentVisibility: "auto" }} // 👈 huge perf boost
-                    zIndex={1} alignItems={{ base: "center", lg: "flex-start" }} w={{ base: "100%", lg: "45%" }} height={"100%"}>
-                    <Text fontSize={{ base: "2rem", md: "3rem", lg: "4rem", xl: "4rem" }}
+                    zIndex={1} alignItems={{ base: "center", lg: "flex-start" }} w={{ base: "100%", lg: "45%" }} gap={4}>
+                    <Text fontSize={{ base: "2rem", md: "2.5rem", lg: "3rem", xl: "3.5rem" }}
                         fontWeight={"300"}
                         fontFamily={`'Montserrat', 'Regular'`}
                         lineHeight={"100%"}

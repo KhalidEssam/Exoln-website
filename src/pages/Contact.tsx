@@ -19,14 +19,14 @@ export const Contact = () => {
                     left: 0,
                     right: 0,
                     bottom: 0,
-                    bgImage: "url(./Contact.png)",
+                    bgImage: "url(./Contact.webp)",
                     bgSize: "cover",
                     bgPos: "center",
                     // transform: "scaleX(-1)",
                 }}
             >
-                <Box w={{ base: "100%", md: "50%" }} fontFamily={`'Montserrat', 'Regular'`} 
-                textAlign={"start"} p={16} zIndex={1} mt={{ base: "4rem", md: "5rem" }} mb={{ base: "5rem", md: 0 }}>
+                <Box w={{ base: "100%", md: "50%" }} fontFamily={`'Montserrat', 'Regular'`}
+                    textAlign={"start"} p={16} zIndex={1} mt={{ base: "4rem", md: "5rem" }} mb={{ base: "5rem", md: 0 }}>
                     <Text
                         fontSize={{ base: "1.5rem", xl: "2.5rem", md: "2rem" }}
                         fontWeight="bold"

@@ -4,7 +4,7 @@ type Props = {
     title: string;
     description: string;
     subtitle?: string;
-    imageUrl: string;
+    imageUrl?: string;
     color?: string;
 };
 
@@ -23,7 +23,7 @@ export const AboutServices = ({ title, description, subtitle, imageUrl, color }:
                         {subtitle}
                     </Text>
                 </VStack>
-                <Image src={(imageUrl ? imageUrl : `/AboutServices.jpg`)} style={{
+                <Image src={(imageUrl ? imageUrl : `/AboutServices.webp`)} style={{
                     transform: "scaleX(-1)",
                 }} alt="About Services" h={{ base: "10rem", xl: "15rem" }} />
             </HStack>

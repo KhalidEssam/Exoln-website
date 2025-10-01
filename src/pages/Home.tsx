@@ -58,7 +58,7 @@ export const Home = () => {
             position="relative"
             top={0}
             width="100%"
-            height={{ md: "150vh", lg: "120vh" }}
+            height={{ md: "100vh", lg: "100vh" }}
             overflow="hidden"
             _before={{
               content: '""',
@@ -67,7 +67,7 @@ export const Home = () => {
               left: 0,
               right: 0,
               bottom: 0,
-              bgImage: "url(./pattern.png)",
+              bgImage: "url(./pattern.webp)",
               bgSize: "cover",
               bgPos: "center",
               transform: "scaleX(-1)",
@@ -85,9 +85,7 @@ export const Home = () => {
             />
 
             {/* Foreground content */}
-            <Box w="100%" mt={{ base: "8rem", md: "12rem" }} mb={{ base: "5rem", md: 0 }}>
-              <HeroSection />
-            </Box>
+            <HeroSection />
           </HStack>
 
           {/* Content sections */}
@@ -120,7 +118,7 @@ export const Home = () => {
                 {/* Background Image */}
                 <Box position="absolute" inset={0} zIndex={1} overflow="hidden">
                   <Image
-                    src="./blog4.jpg"
+                    src="./blog4.webp"
                     alt="Blog Background"
                     objectFit="cover"
                     w="100%"
@@ -202,7 +200,7 @@ export const Home = () => {
                 {/* Blog Items */}
                 <HStack w="100%" gap={4}>
                   <Image
-                    src="./blog3.jpg"
+                    src="./blog3.webp"
                     w="25%"
                     objectFit="cover"
                     borderRadius="md"
@@ -220,7 +218,7 @@ export const Home = () => {
 
                 <HStack w="100%" gap={4}>
                   <Image
-                    src="./blog2.jpg"
+                    src="./blog2.webp"
                     w="25%"
                     objectFit="cover"
                     borderRadius="md"
@@ -238,7 +236,7 @@ export const Home = () => {
 
                 <HStack w="100%" gap={4}>
                   <Image
-                    src="./blog1.jpg"
+                    src="./blog1.webp"
                     w="25%"
                     objectFit="cover"
                     borderRadius="md"

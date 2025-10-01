@@ -6,28 +6,28 @@ export const OurServices = () => {
         {
             title: "EXOLNIX",
             description: "Smart Financial & Accounting Management.",
-            icon: "/1.png",
+            icon: "/1.webp",
             overlay: "#1E9241",
             href: "/services/exolnix"
         },
         {
             title: "EXOMARK",
             description: "Creative Marketing & Brand Identity.",
-            icon: "/2.png",
+            icon: "/2.webp",
             overlay: "#DC0800",
             href: "/services/exomark"
         },
         {
             title: "EXONEXT",
             description: "Digital Transformation & Technology Solutions.",
-            icon: "/3.png",
+            icon: "/3.webp",
             overlay: "#FED036",
             href: "/services/exonext"
         },
         {
             title: "EXOBIZ",
             description: "Business Consulting & Organizational Development",
-            icon: "/4.png",
+            icon: "/4.webp",
             overlay: "#FC8000",
             href: "/services/exobiz"
         },
