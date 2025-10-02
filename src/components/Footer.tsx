@@ -65,7 +65,7 @@ export const Footer: FC = () => {
               width={{ base: "8rem", md: "6rem", lg: "10rem" }}
             />
           </ChakraLink>
-          <Text textAlign={{ base: "center", md: "left" }} fontWeight={"600"} fontSize={{ base: "1rem", md: "1.2rem", lg: "1.8rem" }}  > {t("footer.text")} </Text>
+          <Text textAlign={{ base: "center", md: "start" }} fontWeight={"600"} fontSize={{ base: "1rem", md: "1.2rem", lg: "1.8rem" }}  > {t("footer.text")} </Text>
           <HStack align={{ base: "center", md: "flex-start" }}>
 
             <Circle bgColor={"transparent"} border={" 2px solid white"} size={"3rem"}>
@@ -86,8 +86,8 @@ export const Footer: FC = () => {
           <Text fontSize="30px" w={"100%"} fontWeight="bold" pb={4} textAlign={{ base: "center", md: "start" }}>
             {lang === "ar" ? "اتصل بنا" : "CONTACT US"}
           </Text>
-          <HStack justifyContent={"space-between"} align={{ base: "start", md: "flex-start" }} gap={4}>
-            <TfiLocationPin size={"5rem"} />
+          <HStack justifyContent={"space-between"} align={{ base: "start", md: "flex-start" }} >
+            <TfiLocationPin size={"2rem"} />
             <Text
               display="flex"
               alignItems="center"
@@ -95,11 +95,12 @@ export const Footer: FC = () => {
               fontSize={{ base: ".9rem", md: "1.1rem" }}
               fontWeight="400"
               textAlign="start"
+              w={{ base: "80%", md: "90%" }}
             >
-              2930, First Floor Office 98 - Northern Ring Road, Branch Street Al Wadi District - Riyadh 13313 - 6137 Kingdom of Saudi Arabia
+              {t("footer.address")}
             </Text>
           </HStack>
-          <HStack justifyContent={"space-between"} align={{ base: "start", md: "flex-start" }} gap={4}>
+          <HStack justifyContent={"space-between"} w={"100%"} align={{ base: "start", md: "flex-start" }} gap={4}>
             <MdOutlinePhoneInTalk size={"2rem"} />
 
             <Text
@@ -109,11 +110,13 @@ export const Footer: FC = () => {
               fontSize={{ base: ".9rem", md: "1.1rem" }}
               fontWeight="400"
               textAlign="start"
+              w={{ base: "80%", md: "90%" }}
+
             >
               0573641125
             </Text>
           </HStack>
-          <HStack justifyContent={"space-between"} align={{ base: "start", md: "flex-start" }} gap={4}>
+          <HStack justifyContent={"space-between"} w={"100%"} align={{ base: "start", md: "flex-start" }} gap={4}>
             <IoMail size={"2rem"} />
 
             <Text
@@ -123,6 +126,8 @@ export const Footer: FC = () => {
               fontSize={{ base: ".9rem", md: "1.1rem" }}
               fontWeight="400"
               textAlign="start"
+              w={{ base: "80%", md: "90%" }}
+
             >
               Info@exoln.com
             </Text>

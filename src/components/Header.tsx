@@ -68,7 +68,7 @@ export const Header = () => {
               border="2px solid white"
               p={4}
             >
-              Login
+              {lang === "ar" ? "تسجيل الدخول" : "Login"}
             </Box>
           </HStack>
         </HStack>
@@ -129,7 +129,7 @@ export const Header = () => {
             border="2px solid white"
             p={4}
           >
-            Login
+            {lang === "ar" ? "تسجيل الدخول" : "Login"}
           </Box>
         </VStack>
       )}
