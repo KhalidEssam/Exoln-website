@@ -1,15 +1,18 @@
 import { VStack, Text, HStack, Circle, Box, Spinner } from "@chakra-ui/react";
 import { FaCheck } from "react-icons/fa";
 import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { selectLanguage } from "@/store/slices/languageSlice";
 
 export interface Props {
-    title: string;
-    description: string;
+    title: { en: string, ar: string };
+    description: { en: string, ar: string };
     image?: string;
-    Array: { title: string; description: string }[];
+    Array: { title: { en: string; ar: string }; description: { en: string; ar: string } }[];
 }
 
 export const Whyus = (Reasons: Props) => {
+    const lang = useSelector(selectLanguage)
     const [bgUrl, setBgUrl] = useState<string>("");
     const [loading, setLoading] = useState(true);
 
@@ -68,10 +71,10 @@ export const Whyus = (Reasons: Props) => {
                 fontSize="2.5rem"
                 pt={8}
                 color="white"
-                fontFamily="Montserrat, sans-serif"
+                fontFamily={ lang === "ar" ? "Cairo, sans-serif" : "Montserrat, sans-serif"}
                 zIndex={1}
             >
-                {Reasons.title}
+                {lang === "ar" ? Reasons.title.ar : Reasons.title.en}
             </Text>
 
             {/* Description */}
@@ -83,7 +86,7 @@ export const Whyus = (Reasons: Props) => {
                 color="white"
                 zIndex={1}
             >
-                {Reasons.description}
+                {lang === "ar" ? Reasons.description.ar : Reasons.description.en}
             </Text>
 
             {/* Reasons List */}
@@ -110,10 +113,10 @@ export const Whyus = (Reasons: Props) => {
                             <FaCheck size="2rem" />
                         </Circle>
                         <Text fontFamily={"Cairo"} fontWeight="400" fontSize="1.2rem" textAlign="center">
-                            {reason.title}
+                            {lang === "ar" ? reason.title.ar : reason.title.en}
                         </Text>
                         <Text fontSize="1rem" textAlign="center">
-                            {reason.description}
+                            {lang === "ar" ? reason.description.ar : reason.description.en}
                         </Text>
                     </VStack>
                 ))}

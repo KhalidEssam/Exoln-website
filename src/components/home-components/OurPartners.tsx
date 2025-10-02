@@ -3,16 +3,19 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import useSwiperDirectionFix from "@/hooks/useSwiperDirectionFix";
 import "swiper/swiper-bundle.css";
+import { useSelector } from "react-redux";
+import { selectLanguage } from "@/store/slices/languageSlice";
 
 const Slides = Array(10).fill({ img: "partner.webp" });
 
 export const OurPartners = () => {
+    const lang = useSelector(selectLanguage);
     const { swiperRef, direction, key } = useSwiperDirectionFix();
 
     return (
         <VStack w="100%" maxW="1200px" mx="auto" gap={8}>
             <Text fontSize="2xl" fontWeight="bold">
-                OUR PARTNERS
+                {lang === "en" ? "OUR PARTNERS" : "شركاؤنا"}
             </Text>
 
             <Swiper

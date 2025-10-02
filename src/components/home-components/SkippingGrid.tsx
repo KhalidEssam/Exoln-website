@@ -1,6 +1,39 @@
 import { VStack, SimpleGrid, GridItem, Box, Text } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
+import { selectLanguage } from "@/store/slices/languageSlice";
 
-const StyledBox = ({ label }: { label: string }) => (
+// Bilingual labels
+const labels = [
+    {
+        en: "Smart Financial & Accounting Management",
+        ar: "الإدارة المالية والمحاسبية الذكية",
+    },
+    {
+        en: "Digital Transformation & Technology Solutions",
+        ar: "حلول التحول الرقمي والتكنولوجيا",
+    },
+    {
+        en: "Creative Marketing & Brand Identity",
+        ar: "الهوية التسويقية والعلامة التجارية الإبداعية",
+    },
+    {
+        en: "Business Consulting & Organizational Development",
+        ar: "الاستشارات الإدارية وتطوير المؤسسات",
+    },
+    {
+        en: "Creative Storytelling & Brand Strategy",
+        ar: "سرد القصص الإبداعي واستراتيجية العلامة التجارية",
+    },
+];
+
+// Styled box component with bilingual text
+const StyledBox = ({
+    label,
+    // subtitle,
+}: {
+    label: string;
+    // subtitle: string;
+}) => (
     <Box
         w="10rem"
         h={{ base: "6rem", md: "8rem", lg: "10rem" }}
@@ -10,6 +43,9 @@ const StyledBox = ({ label }: { label: string }) => (
         display="flex"
         alignItems="center"
         justifyContent="center"
+        flexDirection="column"
+        textAlign="center"
+        px={2}
     >
         {/* Background layer with blend effect */}
         <Box
@@ -17,24 +53,22 @@ const StyledBox = ({ label }: { label: string }) => (
             position="absolute"
             inset={0}
             bg="#226CFF"
-            style={{ mixBlendMode:"multiply" }}
+            style={{ mixBlendMode: "multiply" }}
         />
 
         {/* Text layer unaffected by blend */}
-        <Text zIndex={1} color="white" fontWeight="bold" fontSize="lg">
+        <Text zIndex={1} color="white" fontWeight="bold" fontSize="sm">
             {label}
         </Text>
+        {/* <Text zIndex={1} color="whiteAlpha.900" fontSize="xs">
+            {subtitle}
+        </Text> */}
     </Box>
 );
 
-
-
-// Texts for the 5 visible boxes
-const labels = ["Smart Financial & Accounting Management", "Digital Transformation & Technology Solutions",
-    "Creative Marketing & Brand Identity", "Business Consulting & Organizational Development",
-    "Creative Storytelling & Brand Strategy"];
-
 export function SkippingGrid() {
+    const lang = useSelector(selectLanguage);
+
     const pattern = [
         [true, false, true], // Row 1
         [false, true, false], // Row 2
@@ -43,14 +77,31 @@ export function SkippingGrid() {
 
     let labelIndex = 0;
 
-
     return (
-        <VStack w={{ base: "90%", lg: "40%" }} alignItems={"center"} justifyContent={"center"}>
+        <VStack
+            w={{ base: "90%", lg: "40%" }}
+            alignItems="center"
+            justifyContent="center"
+        >
             <SimpleGrid columns={3}>
                 {pattern.map((row, rowIndex) =>
                     row.map((cell, colIndex) => (
                         <GridItem key={`${rowIndex}-${colIndex}`}>
-                            {cell ? <StyledBox label={labels[labelIndex++]} /> : null}
+                            {cell ? (
+                                <StyledBox
+                                    label={
+                                        lang === "en"
+                                            ? labels[labelIndex].en
+                                            : labels[labelIndex].ar
+                                    }
+                                    // subtitle={
+                                    //     lang === "en"
+                                    //         ? labels[labelIndex].ar
+                                    //         : labels[labelIndex].en
+                                    // }
+                                />
+                            ) : null}
+                            {cell && labelIndex++}
                         </GridItem>
                     ))
                 )}

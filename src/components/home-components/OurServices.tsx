@@ -5,31 +5,50 @@ export const OurServices = () => {
     const Services: ServiceProps[] = [
         {
             title: "EXOLNIX",
-            description: "Smart Financial & Accounting Management.",
+            description: { en: "Smart Financial & Accounting Management.", ar: "الإدارة المالية والمحاسبية الذكية." },
             icon: "/1.webp",
             overlay: "#1E9241",
             href: "/services/exolnix"
         },
         {
             title: "EXOMARK",
-            description: "Creative Marketing & Brand Identity.",
+            description: {
+                en: "Creative Marketing & Brand Identity.",
+                ar: "الهوية التسويقية والعلامة التجارية الإبداعية."
+            },
             icon: "/2.webp",
             overlay: "#DC0800",
             href: "/services/exomark"
         },
         {
             title: "EXONEXT",
-            description: "Digital Transformation & Technology Solutions.",
+            description: {
+                en: "Digital Transformation & Technology Solutions.",
+                ar: "حلول التحول الرقمي والتكنولوجيا."
+            },
             icon: "/3.webp",
             overlay: "#FED036",
             href: "/services/exonext"
         },
         {
             title: "EXOBIZ",
-            description: "Business Consulting & Organizational Development",
+            description: {
+                en: "Business Consulting & Organizational Development",
+                ar: "الاستشارات الإدارية وتطوير المؤسسات"
+            },
             icon: "/4.webp",
             overlay: "#FC8000",
             href: "/services/exobiz"
+        },
+        {
+            title: "EXOTALE",
+            description: {
+                en: "BRAND AND CREATIVE STRATEGY DIVISION",
+                ar: "استراتيجية العلامة التجارية والإبداع"
+            },
+            icon: "/5.webp",
+            overlay: "#9841FD",
+            href: "/services/exotale"
         },
     ]
     return (

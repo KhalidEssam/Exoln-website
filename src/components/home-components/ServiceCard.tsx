@@ -1,8 +1,10 @@
+import { selectLanguage } from "@/store/slices/languageSlice";
 import { VStack, Text, Box, Link as ChakraLink } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
 
 export type ServiceProps = {
     title?: string;
-    description: string;
+    description: { en: string; ar: string };
     icon?: string;
     overlay: string;
     href?: string;
@@ -14,6 +16,7 @@ type ServiceCardProps = {
 };
 
 export const ServiceCard = ({ number, service }: ServiceCardProps) => {
+    const lang = useSelector(selectLanguage);
     return (
         <VStack
             position="relative"
@@ -44,7 +47,6 @@ export const ServiceCard = ({ number, service }: ServiceCardProps) => {
                 inset={0}
                 bg={service.overlay || "#FC8000"}
                 mixBlendMode="multiply"
-                opacity={0.9}
                 zIndex={1}
             />
 
@@ -63,20 +65,20 @@ export const ServiceCard = ({ number, service }: ServiceCardProps) => {
                     p={4}
                     color="white"
                 >
-                    <Text fontFamily="Agency FB" opacity={0.4} fontWeight="bold" fontSize="3rem">
+                    <Text fontFamily="Agency FB" opacity={1} fontWeight="bold" fontSize="3rem">
                         0{number}
                     </Text>
                     <VStack gap={0} align="flex-start">
                         <Text fontSize="1rem" fontWeight="300" textTransform="uppercase">
-                            Division
+                            {lang === "en" ? "Division" : "قسم"}
                         </Text>
                         <Text fontWeight="extrabold" fontSize="2rem">
                             {service.title}
                         </Text>
                     </VStack>
 
-                    <Text textAlign={"left"} fontSize="1.5rem" fontWeight="light">
-                        {service.description}
+                    <Text textAlign={"start"} fontSize="1.5rem" fontWeight="light">
+                        {lang === "en" ? service.description.en : service.description.ar}
                     </Text>
                 </VStack>
             </ChakraLink>

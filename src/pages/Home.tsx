@@ -6,6 +6,8 @@ import { OurServices } from "@/components/home-components/OurServices.tsx";
 import { Whyus } from "@/components/home-components/WhyUs.tsx";
 import { OurPartners } from "@/components/home-components/OurPartners.tsx";
 import { type Props } from "@/components/home-components/WhyUs.tsx";
+import { useSelector } from "react-redux";
+import { selectLanguage } from "@/store/slices/languageSlice.ts";
 
 export const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -15,31 +17,68 @@ export const Home = () => {
     const timer = setTimeout(() => setLoading(false), 1500); // 1.5s fake loading
     return () => clearTimeout(timer);
   }, []);
+  const lang = useSelector(selectLanguage)
+
 
   const Reasons: Props = {
-    title: "WHY CHOOSE EXOLN",
-    description:
-      "At Exoln, we redefine partnership by delivering more than just services – we deliver integrated results that drive sustainable growth.",
+    title: {
+      en: "WHY CHOOSE EXOLN",
+      ar: "لماذا تختار إكسولن",
+    },
+    description: {
+      en: "At Exoln, we redefine partnership by delivering more than just services – we deliver integrated results that drive sustainable growth.",
+      ar: "في إكسولن، نعيد تعريف الشراكة من خلال تقديم أكثر من مجرد خدمات – نحن نقدم نتائج متكاملة تدفع نحو نمو مستدام.",
+    },
     Array: [
       {
-        title: "ONE INTEGRATED ECOSYSTEM",
-        description: "Five specialized divisions providing a unified strategy.",
+        title: {
+          en: "ONE INTEGRATED ECOSYSTEM",
+          ar: "منظومة متكاملة واحدة",
+        },
+        description: {
+          en: "Five specialized divisions providing a unified strategy.",
+          ar: "خمس وحدات متخصصة تقدم استراتيجية موحدة.",
+        },
       },
       {
-        title: "TAILORED SOLUTIONS",
-        description: "Custom strategies for your unique challenges.",
+        title: {
+          en: "TAILORED SOLUTIONS",
+          ar: "حلول مخصصة",
+        },
+        description: {
+          en: "Custom strategies for your unique challenges.",
+          ar: "استراتيجيات مخصصة لتحدياتك الفريدة.",
+        },
       },
       {
-        title: "MEASURABLE IMPACT",
-        description: "Focus on tangible outcomes and clear ROI.",
+        title: {
+          en: "MEASURABLE IMPACT",
+          ar: "أثر قابل للقياس",
+        },
+        description: {
+          en: "Focus on tangible outcomes and clear ROI.",
+          ar: "تركيز على نتائج ملموسة وعائد استثمار واضح.",
+        },
       },
       {
-        title: "SEAMLESS COLLABORATION",
-        description: "Smooth, transparent partnership throughout.",
+        title: {
+          en: "SEAMLESS COLLABORATION",
+          ar: "تعاون سلس",
+        },
+        description: {
+          en: "Smooth, transparent partnership throughout.",
+          ar: "شراكة سلسة وشفافة في جميع المراحل.",
+        },
       },
       {
-        title: "TRUSTED PARTNERSHIP",
-        description: "Relationships built on reliability and quality.",
+        title: {
+          en: "TRUSTED PARTNERSHIP",
+          ar: "شراكة موثوقة",
+        },
+        description: {
+          en: "Relationships built on reliability and quality.",
+          ar: "علاقات مبنية على الموثوقية والجودة.",
+        },
       },
     ],
   };
@@ -144,7 +183,7 @@ export const Home = () => {
                   color="white"
                   fontSize={{ base: "1rem", md: "1.5rem", lg: "2rem" }}
                   justifyContent="flex-start"
-                  w={{ base: "100%", md: "80%" }}
+                  w={{ base: "100%", md: "70%" }}
                   textAlign={{ base: "center", md: "start" }}
                   px={6}
                   fontWeight="bold"
@@ -154,14 +193,14 @@ export const Home = () => {
                 <Text
                   zIndex={3}
                   color="white"
-                  fontSize={{ base: "1rem", md: "1.5rem", lg: "2rem" }}
-                  w={{ base: "100%", md: "80%" }}
+                  fontSize={{ base: "1rem", md: "1.8rem", lg: "2.5rem" }}
+                  w={{ base: "100%", md: "70%" }}
                   textAlign={{ base: "center", md: "start" }}
                   px={6}
                   fontWeight="bold"
                 >
-                  OUR PROMISE IS SIMPLE — TO BE THE PARTNER WHO GROWS WITH YOU,
-                  EVERY STEP OF THE WAY.
+                  {lang == "ar" ? "- وعدنا بسيط أن نكون الشريك الذي ينمو معك، في كل خطوة على الطريق" :
+                    "OUR PROMISE IS SIMPLE — TO BE THE PARTNER WHO GROWS WITH YOU, EVERY STEP OF THE WAY."}
                 </Text>
                 <Text
                   zIndex={3}
@@ -170,7 +209,7 @@ export const Home = () => {
                   textAlign={{ base: "center", md: "end" }}
                   px={6}
                   fontWeight="bold"
-                  w={{ base: "100%", md: "80%" }}
+                  w={{ base: "100%", md: "70%" }}
                 >
                   "
                 </Text>
@@ -194,7 +233,7 @@ export const Home = () => {
                   fontWeight="bold"
                   color="#000"
                 >
-                  Blog & News
+                    {lang === "ar" ? "منشورات المدونة" : "Blog & News"}
                 </Text>
 
                 {/* Blog Items */}
