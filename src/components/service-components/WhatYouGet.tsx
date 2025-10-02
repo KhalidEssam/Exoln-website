@@ -25,16 +25,16 @@ const Demo = ({
                 gap={8}
                 justifyContent="space-around"
                 alignItems="stretch"
-                maxW="100vw"
+                maxW="100%"
                 h="100%"
-                maxH={direction === "horizontal" ? "none" : "50vh"}
+                maxH={{ base: "100vh", md: direction === "horizontal" ? "none" : "40vh" }}
             >
                 {steps.map((step, index) => (
                     <Steps.Item
                         key={index}
                         index={index}
                         flex="1 1 30%"
-                        maxW={direction === "horizontal" ? "17%" : "40%"}
+                        maxW={{ base: "80%", md: direction === "horizontal" ? "17%" : "40%" }}
                         minH="100px"
                         display="flex"
                         h="100%"
@@ -71,7 +71,8 @@ const Demo = ({
 export const WhatYouGet = (props: Props) => {
     return (
         <VStack
-            w="80%"
+            maxW={"85vw"}
+            // w="80%"
             p={{ base: 4, md: 8 }}
             gap={8}
         >

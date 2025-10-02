@@ -83,9 +83,10 @@ export const Exolnix = () => {
     }
 
     return (
-        <VStack w={"100vw"}
+        <VStack 
+            // w={"100vw"}
             mb={8}
-            gap={16}
+            // gap={16}
         >            < VStack
             position="relative"
             justify="center"
