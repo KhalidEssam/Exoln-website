@@ -37,6 +37,7 @@ const Demo = ({
                         key={index}
                         index={index}
                         flex="1 1 30%"
+                        // justifyContent={"inline-start"}
                         maxW={{ base: "80%", md: direction === "horizontal" ? "17%" : "40%" }}
                         minH="100px"
                         display="flex"
@@ -49,13 +50,13 @@ const Demo = ({
                             w="100%"
                             h="100%"
                         >
-                            <Steps.Indicator color="white" width={"50px"} height={"50px"} bgColor={color} border="none">
+                            <Steps.Indicator order={(lang === "en") ? 0 : 1} color="white" width={"50px"} height={"50px"} bgColor={color} border="none">
                                 <Text fontFamily="Agency FB" fontSize="2xl">
                                     {String(index + 1).padStart(2, "0")}
                                 </Text>
                             </Steps.Indicator>
 
-                            <Stack pl={4} maxW="100%" textAlign="center" gap={1} flexShrink={0}>
+                            <Stack w={"90%"} order={direction === "horizontal" ? 1 : 0} pl={4} maxW="100%" textAlign="center" gap={1} flexShrink={0}>
                                 <Steps.Description fontSize="lg" color="#707070">
                                     {lang === "en" ? step.description.en : step.description.ar}
                                 </Steps.Description>

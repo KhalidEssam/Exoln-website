@@ -49,7 +49,7 @@ const Demo = ({
                             w="100%"
                             h="100%"
                         >
-                            <Circle size="50px" bg={"transparent"} color="white" display="flex"
+                            <Circle order={(lang === "en") ? 0 : 1} size="50px" bg={"transparent"} color="white" display="flex"
                                 alignItems="center" justifyContent="center" fontFamily={"Agency FB"}
                                 border={"3px solid " + color}>
                                 <Steps.Indicator color={color} fontSize={"3rem"} bgColor={"transparent"} border={"none"}>
@@ -58,7 +58,7 @@ const Demo = ({
                             </Circle>
 
 
-                            <Stack pl={4} p={2} maxW={{ base: "100%", md: "50%", xl: "60%" }} textAlign="center" gap={1} flexShrink={0}>
+                            <Stack order={direction === "horizontal" ? 1 : 0} pl={4} p={2} maxW={{ base: "100%", md: "50%", xl: "60%" }} textAlign="center" gap={1} flexShrink={0}>
                                 <Steps.Title fontWeight={"bold"} fontSize="lg" color="#707070">{step.title}</Steps.Title>
                                 <Steps.Description fontSize="lg" color="#707070">{lang === "en" ? step.description.en : step.description.ar}</Steps.Description>
                             </Stack>

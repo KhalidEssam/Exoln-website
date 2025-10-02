@@ -30,7 +30,6 @@ export const AboutServices = ({ title, description, subtitle, imageUrl, color }:
                             as="span"
                             color={color}
                             fontWeight="bold"
-                            mr="0.5rem"
                         >
                             {lang === "en" ? title.en.split(" ")[1] : title.ar.split(" ")[1]}{" "}
                         </Text>
