@@ -1,4 +1,4 @@
-import { VStack, HStack, Box, Text, Spinner, Center } from "@chakra-ui/react";
+import { VStack, HStack, Box, Text, Spinner, Center, Image } from "@chakra-ui/react";
 import { AboutServices } from "@/components/service-components/AboutServices";
 import { WhoWeSurve } from "@/components/service-components/WhoWeServe";
 import { Whyus } from "@/components/home-components/WhyUs";
@@ -83,10 +83,10 @@ export const Exolnix = () => {
     }
 
     return (
-        <VStack 
+        <VStack
             // w={"100vw"}
             mb={8}
-            // gap={16}
+        // gap={16}
         >            < VStack
             position="relative"
             justify="center"
@@ -173,10 +173,65 @@ export const Exolnix = () => {
             ]} />
             <Whyus title={Reasons.title} description={Reasons.description} Array={Reasons.Array} image={Reasons.image} />
 
-            <WhatYouGet {...WhyExolnix1} metadata={{ direction: "vertical", color: "#1E9241" }} />
+            <WhatYouGet {...WhyExolnix1} metadata={{ direction: "horizontal", color: "#1E9241" }} />
 
+            <VStack h="25rem" w="100vw" position="relative" overflow="hidden">
+                {/* Background image */}
+                <Image
+                    src="/accounting-bg.webp"
+                    position="absolute"
+                    top={0}
+                    left={0}
+                    w="100%"
+                    h="100%"
+                    objectFit="fill"        // cover, contain, fill
+                    objectPosition="center"  // top, bottom, left, right, or "x% y%"
+                />
+
+                {/* Green overlay */}
+                <Box
+                    position="absolute"
+                    top={0}
+                    left={0}
+                    w="100%"
+                    h="100%"
+                    zIndex={1}
+                    bg="#1E9241"
+                    style={{ mixBlendMode: "multiply" }}
+                >
+                    <VStack
+
+                        h="100%" w="100%" justify="center" align="center" p={4} textAlign={"center"}
+                        zIndex={2} gap={4}>
+                        <Box w={{ base: "100%", md: "90%", lg: "80%" }} textAlign={"center"} color={"white"} fontFamily={`'Montserrat', 'Regular'`} gap={4} display={"flex"} flexDir={"column"} alignItems={"center"}>
+                            <Text fontSize={{ base: "1.5rem", md: "2rem", lg: "2.5rem", xl: "3rem" }}
+                                fontWeight="semibold"
+                                color="white">
+                                Our Accounting System
+                            </Text>
+                            <Text
+
+                                fontSize={{ base: "1rem", md: "1.2rem", lg: "1.5rem", xl: "1.8rem" }}
+                                fontWeight="500"
+                                color="white">
+                                We offer a simple, accessible system for clients. If they lack a team, we handle the entire process, and if they already have one, we provide guidance and support with minimal interference.
+                            </Text>
+                            <Box as={"button"}
+                                border={"2px solid white"}
+                                borderRadius={"4xl"}
+                                p={2} px={8}
+                                fontSize={{ base: "0.8rem", md: "1rem" }}
+                                fontFamily={`'Montserrat', 'Regular'`}
+                                color={"white"}
+                                _hover={{ bg: "white", color: "#1E9241" }}
+                            >
+                                Sign up
+                            </Box>
+                        </Box>
+                    </VStack>
+                </Box>
+            </VStack>
             <WhyThisService {...WhyExolnix} metadata={{ direction: "vertical", color: "#1E9241" }} />
-
         </VStack >
     );
 };

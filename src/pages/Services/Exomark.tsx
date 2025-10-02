@@ -6,6 +6,7 @@ import { Center, Spinner } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { WhyThisService } from "@/components/service-components/WhyThisService";
 import { WhatYouGet } from "@/components/service-components/WhatYouGet";
+import { ProjectsSwiper } from "@/components/service-components/ProjectsSwiper";
 export const Exomark = () => {
     const AboutExomark = {
         title: "ABOUT EXOMARK",
@@ -24,7 +25,7 @@ export const Exomark = () => {
     }, []);
 
     const WhyExomark = {
-        title: "WHY Exomarkv ?",
+        title: "WHY Exomark ?",
         description: "",
         points: [
             { description: "We don’t just sell services, we create meaningful, long-term partnerships." },
@@ -170,6 +171,7 @@ export const Exomark = () => {
 
             <WhyThisService {...WhyExomark1} metadata={{ direction: "vertical", color: "#F12D26" }} />
 
+            <ProjectsSwiper />
             <WhyThisService {...WhyExomark} metadata={{ direction: "horizontal", color: "#F12D26" }} />
 
         </VStack>

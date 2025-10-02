@@ -7,18 +7,20 @@ import { selectLanguage } from "../store/slices/languageSlice";
 import { useState } from "react";
 import type { RootState } from "@/store";
 import { useRef } from "react";
-import { useOutsideClick } from "./Navbar";
-
+// import { useOutsideClick } from "./Navbar";
+import { Menu, Portal } from "@chakra-ui/react"
+import { setLanguage } from "../store/slices/languageSlice";
+import { useDispatch } from "react-redux";
 export const Header = () => {
   const lang = useSelector(selectLanguage);
   const [menuOpen, setMenuOpen] = useState(false);
   const { activeLink, } = useSelector((state: RootState) => state.nav);
   const menuRef = useRef<HTMLDivElement | null>(null);
-
+  const dispatch = useDispatch();
   // ✅ Close menu when clicking outside
-  useOutsideClick(menuRef, () => {
-    if (menuOpen) setMenuOpen(false);
-  });
+  // useOutsideClick(menuRef, () => {
+  //   if (menuOpen) setMenuOpen(false);
+  // });
   return (
     <Box
       as="header"
@@ -40,8 +42,22 @@ export const Header = () => {
           <Navbar />
 
           <HStack>
-            {lang === "ar" ? "AR" : "EN"} <FaAngleDown size="1rem" />
+            <Menu.Root>
+              <Menu.Trigger asChild>
+                <HStack>
+                  {lang === "ar" ? "AR" : "EN"}  <FaAngleDown size="1rem" />
 
+                </HStack>
+              </Menu.Trigger>
+              <Portal>
+                <Menu.Positioner>
+                  <Menu.Content>
+                    <Menu.Item value="new-txt" onClick={() => dispatch(setLanguage('en'))}>English</Menu.Item>
+                    <Menu.Item value="new-file" onClick={() => dispatch(setLanguage('ar'))}>العربية</Menu.Item>
+                  </Menu.Content>
+                </Menu.Positioner>
+              </Portal>
+            </Menu.Root>
             <Box
               as="button"
               _hover={{ bg: "whiteAlpha.300", cursor: "pointer" }}
@@ -86,7 +102,22 @@ export const Header = () => {
         >
           <Navbar />
           <HStack w="100%" justify="center" gap={2}>
-            {lang === "ar" ? "AR" : "EN"} <FaAngleDown size="1rem" />
+            <Menu.Root>
+              <Menu.Trigger asChild>
+                <HStack>
+                  {lang === "ar" ? "AR" : "EN"}  <FaAngleDown size="1rem" />
+
+                </HStack>
+              </Menu.Trigger>
+              <Portal>
+                <Menu.Positioner>
+                  <Menu.Content>
+                    <Menu.Item onClick={() => dispatch(setLanguage('en'))} value="new-txt">English</Menu.Item>
+                    <Menu.Item onClick={() => dispatch(setLanguage('ar'))} value="new-file">العربية</Menu.Item>
+                  </Menu.Content>
+                </Menu.Positioner>
+              </Portal>
+            </Menu.Root>
           </HStack>
           <Box
             as="button"

@@ -34,7 +34,7 @@ const Demo = ({
                         key={index}
                         index={index}
                         flex="1 1 30%"
-                        maxW={{ base: "80%", md: direction === "horizontal" ? "17%" : "40%" }}
+                        maxW={{ base: "80%", md: direction === "horizontal" ? "22%" : "40%" }}
                         minH="100px"
                         display="flex"
                         h="100%"
@@ -55,7 +55,7 @@ const Demo = ({
                             </Circle>
 
 
-                            <Stack pl={4} p={2} maxW="100%" textAlign="center" gap={1} flexShrink={0}>
+                            <Stack pl={4} p={2} maxW={{ base: "100%", md: "50%", xl: "60%" }} textAlign="center" gap={1} flexShrink={0}>
                                 <Steps.Title fontWeight={"bold"} fontSize="lg" color="#707070">{step.title}</Steps.Title>
                                 <Steps.Description fontSize="lg" color="#707070">{step.description}</Steps.Description>
                             </Stack>

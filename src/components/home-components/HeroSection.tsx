@@ -32,6 +32,11 @@ export const HeroSection = () => {
                         mt={4}
                         fontSize={"1rem"}
                         fontFamily={`'Montserrat', 'Regular'`}
+                        _hover={{
+                            bg: "white", color: "black",
+                            transition: "0.3s ease-in-out"
+                        }}
+
                     >
                         Get a custom plan
                     </Box>
