@@ -2,10 +2,13 @@ import { Box, Button, Text, VStack } from "@chakra-ui/react";
 import { Link as RouterLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { TbError404 } from "react-icons/tb";
+import { useSelector } from "react-redux";
+import { selectLanguage } from "@/store/slices/languageSlice";
 
 const MotionBox = motion(Box);
 
 export const NotFound = () => {
+    const lang = useSelector(selectLanguage)
     return (
         <MotionBox
             minH="100vh"
@@ -20,7 +23,7 @@ export const NotFound = () => {
         >
             <VStack gap={6} textAlign="center" maxW="lg">
                 <Box
-                display={"flex"}
+                    display={"flex"}
                     as="h1"
                     fontSize={{ base: "7xl", md: "9xl" }}
                     bgGradient="linear(to-r, #4d7cb1, #649bd6)"
@@ -31,7 +34,7 @@ export const NotFound = () => {
                 </Box>
 
                 <Text fontSize="xl" color="black">
-                    Oops! The page you’re looking for doesn’t exist.
+                    {lang === "ar" ? "الصفحة التي تبحث عنها غير موجودة." : "The page you are looking for does not exist."}
                 </Text>
                 <RouterLink to="/" >
                     <Button
@@ -44,7 +47,7 @@ export const NotFound = () => {
                         rounded="xl"
                         px={8}
                     >
-                        Go back home
+                        {lang === "ar" ? "العودة إلى الصفحة الرئيسية" : "Go back to Home"}
                     </Button>
                 </RouterLink>
             </VStack>
