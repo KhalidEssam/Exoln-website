@@ -106,12 +106,13 @@ export const Blog = () => {
             fontWeight="semibold"
             color="white"
             textAlign="start"
+            whiteSpace={"pre-line"}
           >
             {useTranslation("blog.title")}
           </Text>
           <Text fontSize={{ base: "1rem", xl: "1.3rem", md: "1.2rem" }}
             fontWeight={"bold"}
-            w={{ base: "100%", md: "80%" }}
+            w={{ base: "100%", md: "75%" }}
             color={"white"}> {useTranslation("blog.description")}</Text>
         </Box>
       </HStack>
