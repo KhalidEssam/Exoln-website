@@ -22,8 +22,10 @@ export const ServiceCard = ({ number, service }: ServiceCardProps) => {
             position="relative"
             justify="center"
             align="center"
-            w={{ base: "90vw", md: "300px" }}
-            h="300px"
+            minW={"200px"}
+            maxW={{ base: "90vw", md: "200px", lg: "250px", "2xl": "300px" }}
+            // w={{ base: "90vw", md: "300px" }}
+            // h="300px"
             borderRadius="lg"
             overflow="hidden"
             role="group"

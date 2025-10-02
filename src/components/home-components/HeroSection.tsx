@@ -12,7 +12,7 @@ export const HeroSection = () => {
             <HStack color={"white"} justify={"space-between"} align={"stretch"}
                 flexDir={{ base: "column", lg: "row" }}
                 width={"95%"} height={"100%"}>
-                <VStack style={{ contentVisibility: "auto" }} // 👈 huge perf boost
+                <VStack justify={"center"} style={{ contentVisibility: "auto" }} // 👈 huge perf boost
                     zIndex={1} alignItems={{ base: "center", lg: "flex-start" }} w={{ base: "100%", lg: "45%" }} gap={4}>
                     <Text fontSize={{ base: "2rem", md: "2.5rem", lg: "3rem", xl: "3.5rem" }}
                         fontWeight={"300"}
@@ -34,7 +34,7 @@ export const HeroSection = () => {
                         p={4}
                         mt={4}
                         fontSize={"1rem"}
-                        fontFamily={ lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', 'Regular'`}
+                        fontFamily={lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', 'Regular'`}
                         _hover={{
                             bg: "white", color: "black",
                             transition: "0.3s ease-in-out"
