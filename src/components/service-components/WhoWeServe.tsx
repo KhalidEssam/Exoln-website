@@ -1,19 +1,22 @@
 import { Box, Text, VStack, HStack } from "@chakra-ui/react";
 import { type ServiceProps } from "../home-components/ServiceCard";
+import { useSelector } from "react-redux";
+import { selectLanguage } from "@/store/slices/languageSlice";
 
 type WhoWeSurveProps = {
     Services: ServiceProps[];
 };
 
 export const WhoWeSurve = ({ Services }: WhoWeSurveProps) => {
+    const lang = useSelector(selectLanguage)
     return (
-        <VStack justifyContent="center" alignItems="center" w={"100%"} gap={8}>
+        <VStack justifyContent="center" alignItems="center" w={"80%"} gap={8}>
             <HStack
                 w="90%"
                 align="stretch"
                 color="white"
                 flexDir={{ base: "column", md: "row" }}
-                justify="space-around"
+                justify="space-evenly"
                 flexWrap="wrap"
             >
                 {Services.map((service, index) => (
@@ -60,8 +63,8 @@ export const WhoWeSurve = ({ Services }: WhoWeSurveProps) => {
                                 0{index + 1}
                             </Text>
 
-                            <Text textAlign="left" fontSize="1.2rem" fontWeight="400">
-                                {service.description}
+                            <Text textAlign="start" fontSize="1.2rem" fontWeight="400">
+                                {lang === "en" ? service.description.en : service.description.ar}
                             </Text>
                         </VStack>
                     </VStack>

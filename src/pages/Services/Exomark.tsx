@@ -7,15 +7,28 @@ import { useState, useEffect } from "react";
 import { WhyThisService } from "@/components/service-components/WhyThisService";
 import { WhatYouGet } from "@/components/service-components/WhatYouGet";
 import { ProjectsSwiper } from "@/components/service-components/ProjectsSwiper";
+import { useTranslation } from "@/hooks/useTranslation";
+import { useSelector } from "react-redux";
+import { selectLanguage } from "@/store/slices/languageSlice";
 export const Exomark = () => {
     const AboutExomark = {
-        title: "ABOUT EXOMARK",
-        description: "ExoMark is the marketing and creative arm of Exoln, dedicated to building brands and launching impactful campaigns that leave a real mark.",
-        subtitle: "We accompany our clients from the search for a clear visual identity, through professional content creation and smart advertising campaigns, to managing their digital presence across platforms.",
+        title: {
+            en: "ABOUT EXOMARK",
+            ar: "عن إكسومارك",
+        },
+        description: {
+            en: " is the marketing and creative arm of Exoln, dedicated to building brands and launching impactful campaigns that leave a real mark.",
+            ar: " هي الذراع التسويقية والإبداعية لشركة إكسولن، مكرسة لبناء العلامات التجارية وإطلاق حملات مؤثرة تترك أثراً حقيقياً.",
+        },
+        subtitle: {
+            en: "We accompany our clients from the search for a clear visual identity, through professional content creation and smart advertising campaigns, to managing their digital presence across platforms.",
+            ar: "نرافق عملاءنا من البحث عن هوية بصرية واضحة، مروراً بإنشاء محتوى احترافي وحملات إعلانية ذكية، وصولاً إلى إدارة حضورهم الرقمي عبر المنصات.",
+        },
         imageUrl: "/exomark.webp",
-        color: "#DC0800"
+        color: "#DC0800",
     };
-
+    const lang = useSelector(selectLanguage)
+    const exomarkDescription = useTranslation("services.exomark.description");
     const [loading, setLoading] = useState(true);
 
     // Simulate content loading (replace with real API/image load logic)
@@ -24,64 +37,88 @@ export const Exomark = () => {
         return () => clearTimeout(timer);
     }, []);
 
+
     const WhyExomark = {
-        title: "WHY Exomark ?",
-        description: "",
+        title: { en: "WHY Exomark ?", ar: "لماذا إكسومارك؟" },
+        description: { en: "", ar: "" },
         points: [
-            { description: "We don’t just sell services, we create meaningful, long-term partnerships." },
-            { description: "We listen carefully to understand needs before offering any proposal." },
-            { description: "We deliver practical, measurable solutions that drive real impact." },
-            { description: "We work with a global creative team bringing cultural and creative diversity." },
-            { description: "We compete not on price, but by ensuring lasting quality and trust." },
-
+            { description: { en: "We don’t just sell services, we create meaningful, long-term partnerships.", ar: "لا نبيع خدمات فقط، بل نؤسس شراكات طويلة الأمد ذات قيمة." } },
+            { description: { en: "We listen carefully to understand needs before offering any proposal.", ar: "نستمع بعناية لفهم الاحتياجات قبل تقديم أي عرض." } },
+            { description: { en: "We deliver practical, measurable solutions that drive real impact.", ar: "نقدم حلولًا عملية قابلة للقياس تحقق أثرًا حقيقيًا." } },
+            { description: { en: "We work with a global creative team bringing cultural and creative diversity.", ar: "نعمل مع فريق إبداعي عالمي يجمع بين التنوع الثقافي والإبداعي." } },
+            { description: { en: "We compete not on price, but by ensuring lasting quality and trust.", ar: "ننافس بجودة مستدامة وثقة متبادلة، لا بالسعر فقط." } },
         ],
+        metadata: { direction: "vertical", color: "#FC8000" },
     };
+
     const WhyExomark2 = {
-        title: "How We Work",
-        description: "",
+        title: { en: "How We Work", ar: "كيف نعمل" },
+        description: { en: "", ar: "" },
         points: [
-            { description: "Always begin with a discovery and analysis session." },
-            { description: "Design integrated or partial solutions based on client choice." },
-            { description: "Provide regular reports (monthly or project-based)." },
-            { description: "Continuously monitor campaigns to measure impact and ensure progress." },
+            { description: { en: "Always begin with a discovery and analysis session.", ar: "نبدأ دائمًا بجلسة اكتشاف وتحليل." } },
+            { description: { en: "Design integrated or partial solutions based on client choice.", ar: "نصمم حلولًا متكاملة أو جزئية حسب اختيار العميل." } },
+            { description: { en: "Provide regular reports (monthly or project-based).", ar: "نقدم تقارير منتظمة (شهرية أو حسب المشروع)." } },
+            { description: { en: "Continuously monitor campaigns to measure impact and ensure progress.", ar: "نراقب الحملات باستمرار لقياس الأثر وضمان التقدم." } },
+        ],
+        metadata: { direction: "vertical", color: "#FED036" },
+    };
 
-        ],
-    };
     const WhyExomark1 = {
-        title: "OUR SOLUTIONS",
-        description: "",
+        title: { en: "OUR SOLUTIONS", ar: "حلولنا" },
+        description: { en: "", ar: "" },
         points: [
-            { description: "Creating or redesigning visual identities that align with business goals." },
-            { description: "Writing professional content that conveys brand values and objectives." },
-            { description: "Managing advertising campaigns across Google, Meta, and TikTok." },
-            { description: "Producing videos, motion graphics, and creative visuals to boost marketing." },
-            { description: "Handling social media with scheduling, execution, monitoring, and SEO/SEM optimization." },
-            { description: "Driving ongoing brand development to adapt and stay ahead." },
+            { description: { en: "Creating or redesigning visual identities that align with business goals.", ar: "إنشاء أو إعادة تصميم الهويات البصرية بما يتماشى مع أهداف العمل." } },
+            { description: { en: "Writing professional content that conveys brand values and objectives.", ar: "كتابة محتوى احترافي ينقل قيم وأهداف العلامة التجارية." } },
+            { description: { en: "Managing advertising campaigns across Google, Meta, and TikTok.", ar: "إدارة الحملات الإعلانية عبر Google وMeta وTikTok." } },
+            { description: { en: "Producing videos, motion graphics, and creative visuals to boost marketing.", ar: "إنتاج فيديوهات ورسوم متحركة ومرئيات إبداعية لتعزيز التسويق." } },
+            { description: { en: "Handling social media with scheduling, execution, monitoring, and SEO/SEM optimization.", ar: "إدارة وسائل التواصل الاجتماعي من خلال الجدولة والتنفيذ والمراقبة وتحسين SEO/SEM." } },
+            { description: { en: "Driving ongoing brand development to adapt and stay ahead.", ar: "دفع تطوير العلامة التجارية باستمرار للتكيف والبقاء في المقدمة." } },
         ],
+        metadata: { direction: "horizontal", color: "#152648" },
     };
+
     const Reasons = {
-        title: "PROBLEMS WE ADDRESS",
-        description: "",
+        title: {
+            en: "PROBLEMS WE ADDRESS",
+            ar: "المشاكل التي نعالجها",
+        },
+        description: {
+            en: "",
+            ar: "",
+        },
         image: "exomark1.webp",
         Array: [
             {
-                title: "Weak or missing visual identity.",
-                description: ""
+                title: {
+                    en: "Weak or missing visual identity.",
+                    ar: "هوية بصرية ضعيفة أو مفقودة.",
+                },
+                description: { en: "", ar: "" },
             },
             {
-                title: "Lack of strong presence on digital and social platforms.",
-                description: ""
+                title: {
+                    en: "Lack of strong presence on digital and social platforms.",
+                    ar: "غياب الحضور القوي على المنصات الرقمية والاجتماعية.",
+                },
+                description: { en: "", ar: "" },
             },
             {
-                title: "Marketing campaigns with no clear objectives.",
-                description: ""
+                title: {
+                    en: "Marketing campaigns with no clear objectives.",
+                    ar: "حملات تسويقية بدون أهداف واضحة.",
+                },
+                description: { en: "", ar: "" },
             },
             {
-                title: "Repetitive or unprofessional content.",
-                description: ""
+                title: {
+                    en: "Repetitive or unprofessional content.",
+                    ar: "محتوى متكرر أو غير احترافي.",
+                },
+                description: { en: "", ar: "" },
             },
-        ]
-    }
+        ],
+    };
+
     if (loading) {
         return (
             <Center w="100vw" h="100vh" bg="white">
@@ -120,7 +157,7 @@ export const Exomark = () => {
                 />
                 <Box
                     w={{ base: "100%", md: "100%" }}
-                    fontFamily={`'Montserrat', 'Regular'`}
+                    fontFamily={lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', 'Regular'`}
                     textAlign="start"
                     marginInlineStart="10%"
                     zIndex={1}
@@ -145,7 +182,7 @@ export const Exomark = () => {
                         color="white"
                         lineHeight="1"   // makes letters snug
                     >
-                        MARKETING & CREATIVE DIVISION
+                        {exomarkDescription}
                     </Text>
                 </Box>
             </VStack>
@@ -153,15 +190,24 @@ export const Exomark = () => {
 
             <WhoWeSurve Services={[
                 {
-                    description: "Startups seeking a strong launch and clear identity.",
+                    description: {
+                        en: "Startups seeking a strong launch and clear identity.",
+                        ar: "الشركات الناشئة التي تسعى لإطلاق قوي وهوية واضحة"
+                    },
                     overlay: "#F12D26"
                 },
                 {
-                    description: "Medium and large enterprises in need of effective, creative campaigns.",
+                    description: {
+                        en: "Medium and large enterprises in need of effective, creative campaigns.",
+                        ar: "الشركات المتوسطة والكبيرة التي تحتاج إلى حملات إبداعية وفعالة"
+                    },
                     overlay: "#F12D26"
                 },
                 {
-                    description: "Entrepreneurs and individuals looking to build a unique personal brand.",
+                    description: {
+                        en: "Entrepreneurs and individuals looking to build a unique personal brand.",
+                        ar: "رواد الأعمال والأفراد الذين يسعون لبناء علامة شخصية فريدة"
+                    },
                     overlay: "#F12D26"
                 },
             ]} />

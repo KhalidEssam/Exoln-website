@@ -1,9 +1,11 @@
+import { selectLanguage } from "@/store/slices/languageSlice";
 import { VStack, Stack, Steps, Text } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
 
 export type Props = {
-    title: string;
-    description: string;
-    points?: { description: string }[];
+    title: { en: string; ar: string };
+    description: { en: string; ar: string };
+    points?: { description: { en: string; ar: string } }[];
     metadata?: { direction: "horizontal" | "vertical"; color: string };
 };
 
@@ -11,10 +13,12 @@ const Demo = ({
     steps,
     direction = "horizontal",
     color,
+    lang
 }: {
-    steps: { description: string }[];
+    steps: { description: { en: string; ar: string } }[];
     direction?: "horizontal" | "vertical";
     color?: string;
+    lang: string;
 }) => {
     return (
         <Steps.Root defaultStep={-1} count={steps.length} color={color}>
@@ -53,7 +57,7 @@ const Demo = ({
 
                             <Stack pl={4} maxW="100%" textAlign="center" gap={1} flexShrink={0}>
                                 <Steps.Description fontSize="lg" color="#707070">
-                                    {step.description}
+                                    {lang === "en" ? step.description.en : step.description.ar}
                                 </Steps.Description>
                             </Stack>
                         </Stack>
@@ -65,6 +69,8 @@ const Demo = ({
 };
 
 export const WhyThisService = (props: Props) => {
+    const lang = useSelector(selectLanguage)
+
     return (
         <VStack
             maxW={"80vw"}
@@ -73,13 +79,14 @@ export const WhyThisService = (props: Props) => {
             gap={8}
         >
             <Text fontSize="4xl" fontWeight="bold">
-                {props.title}
+                {lang === "en" ? props.title.en : props.title.ar}
             </Text>
 
             <Demo
                 steps={props.points || []}
                 color={props.metadata?.color}
                 direction={props.metadata?.direction || "horizontal"}
+                lang={lang}
             />
         </VStack>
     );

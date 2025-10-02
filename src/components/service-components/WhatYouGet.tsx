@@ -1,21 +1,24 @@
+import { selectLanguage } from "@/store/slices/languageSlice";
 import { VStack, Text, Stack, Steps, Circle } from "@chakra-ui/react";
 import { GiCheckMark } from "react-icons/gi";
+import { useSelector } from "react-redux";
 
 export type Props = {
-    title: string;
-    description: string;
-    points?: { title?: string; description: string }[];
+    title: { en: string; ar: string };
+    description: { en: string; ar: string };
+    points?: { description: { en: string; ar: string } }[];
     metadata?: { direction: "horizontal" | "vertical"; color: string };
 };
-
 const Demo = ({
     steps,
     direction = "horizontal",
     color,
+    lang
 }: {
-    steps: { title?: string; description: string }[];
+    steps: { title?: string; description: { en: string; ar: string } }[];
     direction?: "horizontal" | "vertical";
     color?: string;
+    lang: string;
 }) => {
     return (
         <Steps.Root defaultStep={10} count={steps.length} color={color}>
@@ -57,7 +60,7 @@ const Demo = ({
 
                             <Stack pl={4} p={2} maxW={{ base: "100%", md: "50%", xl: "60%" }} textAlign="center" gap={1} flexShrink={0}>
                                 <Steps.Title fontWeight={"bold"} fontSize="lg" color="#707070">{step.title}</Steps.Title>
-                                <Steps.Description fontSize="lg" color="#707070">{step.description}</Steps.Description>
+                                <Steps.Description fontSize="lg" color="#707070">{lang === "en" ? step.description.en : step.description.ar}</Steps.Description>
                             </Stack>
                         </Stack>
                     </Steps.Item>
@@ -69,6 +72,8 @@ const Demo = ({
 
 
 export const WhatYouGet = (props: Props) => {
+    const lang = useSelector(selectLanguage)
+
     return (
         <VStack
             maxW={"85vw"}
@@ -77,17 +82,18 @@ export const WhatYouGet = (props: Props) => {
             gap={8}
         >
             <Text fontSize="4xl" fontWeight="bold">
-                {props.title}
+                {lang === "en" ? props.title.en : props.title.ar}
             </Text>
 
             <Text fontSize="2xl" fontWeight="semibold">
-                {props.description}
+                {lang === "en" ? props.description.en : props.description.ar}
             </Text>
 
             <Demo
                 steps={props.points || []}
                 color={props.metadata?.color}
                 direction={props.metadata?.direction || "horizontal"}
+                lang={lang}
             />
         </VStack>
     );

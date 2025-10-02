@@ -5,37 +5,46 @@ import { Whyus } from "@/components/home-components/WhyUs";
 import { useState, useEffect } from "react";
 import { WhatYouGet } from "@/components/service-components/WhatYouGet";
 import { WhyThisService } from "@/components/service-components/WhyThisService";
+import { useTranslation } from "@/hooks/useTranslation";
+import { useSelector } from "react-redux";
+import { selectLanguage } from "@/store/slices/languageSlice";
 
 
 export const Exolnix = () => {
     const [loading, setLoading] = useState(true);
-
+    const exolnixDescription = useTranslation("services.exolnix.description");
+    const lang = useSelector(selectLanguage)
     const WhyExolnix = {
-        title: "WHY EXOLNIX",
-        description: "",
+        title: { en: "WHY EXOLNIX", ar: "لماذا إكسولنيكس؟" },
+        description: { en: "", ar: "" },
         points: [
-            { description: "We design solutions around the client — not around our products." },
-            { description: "We do not bind clients to us unless we truly add value." },
-            { description: "Our pricing is fair, and results are tangible." },
-            { description: "We empower clients to be independent if they wish, or we take full management if they prefer delegation." },
-            { description: "We provide an internal accounting system that clients can easily subscribe to." },
-            { description: "We deliver a professional experience with a human touch, tailored to real client needs and challenges." },
-
+            { description: { en: "We design solutions around the client — not around our products.", ar: "نصمم الحلول حول العميل، وليس حول منتجاتنا." } },
+            { description: { en: "We do not bind clients to us unless we truly add value.", ar: "لا نلزم العملاء بنا إلا إذا قدمنا قيمة حقيقية." } },
+            { description: { en: "Our pricing is fair, and results are tangible.", ar: "تسعيرنا عادل، ونتائجنا ملموسة." } },
+            { description: { en: "We empower clients to be independent if they wish, or we take full management if they prefer delegation.", ar: "نمكّن العملاء من الاستقلال إذا رغبوا، أو نتولى الإدارة الكاملة إذا فضلوا التفويض." } },
+            { description: { en: "We provide an internal accounting system that clients can easily subscribe to.", ar: "نوفر نظام محاسبة داخلي يمكن للعملاء الاشتراك فيه بسهولة." } },
+            { description: { en: "We deliver a professional experience with a human touch, tailored to real client needs and challenges.", ar: "نقدم تجربة احترافية بلمسة إنسانية، مصممة لتلبية احتياجات وتحديات العملاء الفعلية." } },
         ],
+        metadata: { direction: "vertical", color: "#1B998B" },
     };
+
     const WhyExolnix1 = {
-        title: "How We Work",
-        description: "We start with a deep understanding of the business and its challenges, then provide solutions tailored to actual needs, such as:",
+        title: { en: "How We Work", ar: "كيف نعمل" },
+        description: {
+            en: "We start with a deep understanding of the business and its challenges, then provide solutions tailored to actual needs, such as:",
+            ar: "نبدأ بفهم عميق للأعمال وتحدياتها، ثم نقدم حلولاً مخصصة للاحتياجات الفعلية مثل:"
+        },
         points: [
-            { description: "We design solutions around the client — not around our products." },
-            { description: "We do not bind clients to us unless we truly add value." },
-            { description: "Our pricing is fair, and results are tangible." },
-            { description: "We empower clients to be independent if they wish, or we take full management if they prefer delegation." },
-            { description: "We provide an internal accounting system that clients can easily subscribe to." },
-            { description: "We deliver a professional experience with a human touch, tailored to real client needs and challenges." },
-
+            { description: { en: "We design solutions around the client — not around our products.", ar: "نصمم الحلول حول العميل، وليس حول منتجاتنا." } },
+            { description: { en: "We do not bind clients to us unless we truly add value.", ar: "لا نلزم العملاء بنا إلا إذا قدمنا قيمة حقيقية." } },
+            { description: { en: "Our pricing is fair, and results are tangible.", ar: "تسعيرنا عادل، ونتائجنا ملموسة." } },
+            { description: { en: "We empower clients to be independent if they wish, or we take full management if they prefer delegation.", ar: "نمكّن العملاء من الاستقلال إذا رغبوا، أو نتولى الإدارة الكاملة إذا فضلوا التفويض." } },
+            { description: { en: "We provide an internal accounting system that clients can easily subscribe to.", ar: "نوفر نظام محاسبة داخلي يمكن للعملاء الاشتراك فيه بسهولة." } },
+            { description: { en: "We deliver a professional experience with a human touch, tailored to real client needs and challenges.", ar: "نقدم تجربة احترافية بلمسة إنسانية، مصممة لتلبية احتياجات وتحديات العملاء الفعلية." } },
         ],
+        metadata: { direction: "horizontal", color: "#FED036" },
     };
+
 
     // Simulate content loading (replace with real API/image load logic)
     useEffect(() => {
@@ -43,36 +52,61 @@ export const Exolnix = () => {
         return () => clearTimeout(timer);
     }, []);
     const Reasons = {
-        title: "PROBLEMS WE ADDRESS",
-        description: "",
+        title: {
+            en: "PROBLEMS WE ADDRESS",
+            ar: "المشاكل التي نعالجها",
+        },
+        description: {
+            en: "",
+            ar: "",
+        },
         image: "exolink.webp",
         Array: [
             {
-                title: "Financial disorder or lack of cashflow visibility.",
-                description: ""
+                title: {
+                    en: "Financial disorder or lack of cashflow visibility.",
+                    ar: "الاضطراب المالي أو عدم وضوح التدفق النقدي.",
+                },
+                description: { en: "", ar: "" },
             },
             {
-                title: "Absence of regular reports for decision-making.",
-                description: ""
+                title: {
+                    en: "Absence of regular reports for decision-making.",
+                    ar: "غياب التقارير الدورية لدعم اتخاذ القرار.",
+                },
+                description: { en: "", ar: "" },
             },
             {
-                title: "Weak monitoring of daily expenses and income.",
-                description: ""
+                title: {
+                    en: "Weak monitoring of daily expenses and income.",
+                    ar: "ضعف متابعة المصروفات والإيرادات اليومية.",
+                },
+                description: { en: "", ar: "" },
             },
             {
-                title: "Non-compliance with tax and zakat requirements.",
-                description: ""
+                title: {
+                    en: "Non-compliance with tax and zakat requirements.",
+                    ar: "عدم الامتثال لمتطلبات الضرائب والزكاة.",
+                },
+                description: { en: "", ar: "" },
             },
             {
-                title: "Lack of financial planning for upcoming projects.",
-                description: ""
+                title: {
+                    en: "Lack of financial planning for upcoming projects.",
+                    ar: "غياب التخطيط المالي للمشاريع القادمة.",
+                },
+                description: { en: "", ar: "" },
             },
             {
-                title: "Poor internal accounting performance due to limited hiring capacity.",
-                description: ""
-            }
-        ]
-    }
+                title: {
+                    en: "Poor internal accounting performance due to limited hiring capacity.",
+                    ar: "ضعف الأداء المحاسبي الداخلي بسبب محدودية القدرة على التوظيف.",
+                },
+                description: { en: "", ar: "" },
+            },
+        ],
+    };
+
 
     if (loading) {
         return (
@@ -83,24 +117,21 @@ export const Exolnix = () => {
     }
 
     return (
-        <VStack
-            // w={"100vw"}
-            mb={8}
-        // gap={16}
-        >            < VStack
-            position="relative"
-            justify="center"
-            align="center"
-            bgImage={`url(/1.webp)`
-            }
-            bgColor={"#F8F8F8"}
-            bgSize="cover"
-            bgPos="center"
-            bgRepeat="no-repeat"
-            w={{ base: "100vw" }}
-            h="100vh"
-            overflow="hidden" // ensures overlay respects border radius
-        >
+        <VStack mb={8}>
+            < VStack
+                position="relative"
+                justify="center"
+                align="center"
+                bgImage={`url(/1.webp)`
+                }
+                bgColor={"#F8F8F8"}
+                bgSize="cover"
+                bgPos="center"
+                bgRepeat="no-repeat"
+                w={{ base: "100vw" }}
+                h="100vh"
+                overflow="hidden" // ensures overlay respects border radius
+            >
                 {/* Overlay */}
                 < HStack
                     position="absolute"
@@ -114,7 +145,7 @@ export const Exolnix = () => {
                 />
                 <Box
                     w={{ base: "100%", md: "100%" }}
-                    fontFamily={`'Montserrat', 'Regular'`}
+                    fontFamily={lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', 'Regular'`}
                     textAlign="start"
                     marginInlineStart="10%"
                     zIndex={1}
@@ -132,42 +163,61 @@ export const Exolnix = () => {
                     </Text>
 
                     <Text w={{ base: "80%", md: "40%" }}
-
-
                         fontSize={{ base: "1rem", xl: "1.5rem" }}
                         fontWeight="500"
                         color="white"
                         lineHeight="1"   // makes letters snug
                     >
-                        SMART FINANCIAL & ACCOUNTING MANAGEMENT
+                        {exolnixDescription}
                     </Text>
                 </Box>
             </VStack>
 
             <AboutServices  {...{
-                title: "ABOUT EXOLNIX",
-                description: "Exolnix is a specialized unit within the Exoln Group that provides financial and accounting management solutions tailored for entrepreneurs and SMEs. Our approach reflects real market needs, offering clients operational ease and true digital confidence.",
-                subtitle: "At Exolnix, we don’t deliver cold, prepackaged programs. We listen carefully, analyze precisely, and provide solutions that empower clients to focus on building their businesses, while we restructure their financial operations into a growth enabler rather than a burden.",
+                title: {
+                    en: "ABOUT EXOLNIX",
+                    ar: "عن إكسولنكس",
+                },
+                description: {
+                    en: " is a specialized unit within the Exoln Group that provides financial and accounting management solutions tailored for entrepreneurs and SMEs. Our approach reflects real market needs, offering clients operational ease and true digital confidence.",
+                    ar: " هي وحدة متخصصة ضمن مجموعة إكسولن تقدم حلولاً للإدارة المالية والمحاسبية مصممة خصيصاً لرواد الأعمال والشركات الصغيرة والمتوسطة. يعكس نهجنا احتياجات السوق الحقيقية، مما يوفر للعملاء سهولة في العمليات وثقة رقمية حقيقية.",
+                },
+                subtitle: {
+                    en: "At Exolnix, we don’t deliver cold, prepackaged programs. We listen carefully, analyze precisely, and provide solutions that empower clients to focus on building their businesses, while we restructure their financial operations into a growth enabler rather than a burden.",
+                    ar: "في إكسولنكس، لا نقدم برامج جاهزة وجامدة. نحن نصغي بعناية، ونحلل بدقة، ونوفر حلولاً تمكن العملاء من التركيز على بناء أعمالهم بينما نعيد هيكلة عملياتهم المالية لتصبح ممكنة للنمو بدلاً من أن تكون عبئاً.",
+                },
                 imageUrl: "/EXOLNIX.webp",
-                color: "#1E9241"
+                color: "#1E9241",
             }} />
 
 
             <WhoWeSurve Services={[
                 {
-                    description: "Entrepreneurs starting their ventures who need someone to handle back-office tasks (invoicing, reporting, cashflow, tax, and zakat).",
+                    description: {
+                        en: "Entrepreneurs starting their ventures who need someone to handle back-office tasks (invoicing, reporting, cashflow, tax, and zakat).",
+                        ar: "رواد الأعمال الذين بدأوا مشاريعهم حديثاً ويحتاجون إلى من يدير المهام الإدارية (الفواتير، التقارير، التدفق النقدي، الضرائب، والزكاة)"
+                    },
                     overlay: "#1E9241"
                 },
                 {
-                    description: "SMEs working with limited teams, where the business owner struggles with financial staff lacking analytical and reporting skills.",
+                    description: {
+                        en: "SMEs working with limited teams, where the business owner struggles with financial staff lacking analytical and reporting skills.",
+                        ar: "الشركات الصغيرة والمتوسطة التي تعمل بفرق محدودة، حيث يواجه صاحب العمل صعوبات مع الموظفين الماليين الذين يفتقرون إلى مهارات التحليل وإعداد التقارير"
+                    },
                     overlay: "#1E9241"
                 },
                 {
-                    description: "Companies with accounting disarray that require precise restructuring instead of paying high costs to external consultants who add little value.",
+                    description: {
+                        en: "Companies with accounting disarray that require precise restructuring instead of paying high costs to external consultants who add little value.",
+                        ar: "الشركات التي تعاني من فوضى محاسبية وتحتاج إلى إعادة هيكلة دقيقة بدلاً من دفع تكاليف باهظة للمستشارين الخارجيين الذين يقدمون قيمة محدودة"
+                    },
                     overlay: "#1E9241"
                 },
                 {
-                    description: "Businesses seeking funding or investors and needing a reliable financial file that reflects their current performance and potential growth.",
+                    description: {
+                        en: "Businesses seeking funding or investors and needing a reliable financial file that reflects their current performance and potential growth.",
+                        ar: "الشركات التي تسعى للحصول على تمويل أو مستثمرين وتحتاج إلى ملف مالي موثوق يعكس أداءها الحالي وإمكاناتها للنمو"
+                    },
                     overlay: "#1E9241"
                 }
             ]} />

@@ -6,32 +6,56 @@ import { Center, Spinner } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { WhyThisService } from "@/components/service-components/WhyThisService";
 import { WhatYouGet } from "@/components/service-components/WhatYouGet";
+import { useTranslation } from "@/hooks/useTranslation";
+import { useSelector } from "react-redux";
+import { selectLanguage } from "@/store/slices/languageSlice";
+
 export const Exonext = () => {
+    const lang = useSelector(selectLanguage)
+    const exonextDescription = useTranslation("services.exonext.description");
 
     const Reasons = {
-        title: "PROBLEMS WE ADDRESS",
-        description: "",
+        title: {
+            en: "PROBLEMS WE ADDRESS",
+            ar: "المشاكل التي نعالجها",
+        },
+        description: {
+            en: "",
+            ar: "",
+        },
         image: "exonext1.webp",
         Array: [
             {
-                title: "Heavy reliance on manual processes and weak automation.",
-                description: ""
+                title: {
+                    en: "Heavy reliance on manual processes and weak automation.",
+                    ar: "الاعتماد الكبير على العمليات اليدوية وضعف الأتمتة.",
+                },
+                description: { en: "", ar: "" },
             },
             {
-                title: "Difficulty tracking operations and resources.",
-                description: ""
+                title: {
+                    en: "Difficulty tracking operations and resources.",
+                    ar: "صعوبة تتبع العمليات والموارد.",
+                },
+                description: { en: "", ar: "" },
             },
             {
-                title: "Data security vulnerabilities and weak cybersecurity.",
-                description: ""
+                title: {
+                    en: "Data security vulnerabilities and weak cybersecurity.",
+                    ar: "ثغرات في أمن البيانات وضعف في الأمن السيبراني.",
+                },
+                description: { en: "", ar: "" },
             },
             {
-                title: "Need for modern websites and applications that enable digital presence and sales.",
-                description: ""
+                title: {
+                    en: "Need for modern websites and applications that enable digital presence and sales.",
+                    ar: "الحاجة إلى مواقع وتطبيقات حديثة تمكّن من الحضور الرقمي والمبيعات.",
+                },
+                description: { en: "", ar: "" },
             },
+        ],
+    };
 
-        ]
-    }
     const [loading, setLoading] = useState(true);
 
     // Simulate content loading (replace with real API/image load logic)
@@ -48,48 +72,48 @@ export const Exonext = () => {
     }
 
 
-
     const WhyExonext = {
-        title: "OUR SOLUTIONS",
-        description: "",
+        title: { en: "OUR SOLUTIONS", ar: "حلولنا" },
+        description: { en: "", ar: "" },
         points: [
-            { description: "Ready-made systems (ERP/CRM/HR)." },
-            { description: "Customized solutions based on client needs (modifications to existing systems or full development from scratch)." },
-            { description: "Integration and automation of existing systems (APIs & workflow automation)." },
-            {
-                description: "Two delivery models:SaaS(subscription- based). Custom development & implementation projects."
-            },
-
+            { description: { en: "Ready-made systems (ERP/CRM/HR).", ar: "أنظمة جاهزة (ERP/CRM/HR)." } },
+            { description: { en: "Customized solutions based on client needs (modifications to existing systems or full development from scratch).", ar: "حلول مخصصة حسب احتياجات العميل (تعديلات على الأنظمة الحالية أو تطوير كامل من الصفر)." } },
+            { description: { en: "Integration and automation of existing systems (APIs & workflow automation).", ar: "تكامل وأتمتة الأنظمة الحالية (APIs وأتمتة سير العمل)." } },
+            { description: { en: "Two delivery models: SaaS (subscription-based). Custom development & implementation projects.", ar: "نموذجان للتسليم: SaaS (اشتراك شهري/سنوي). تطوير مخصص وتنفيذ المشاريع." } },
         ],
+        metadata: { direction: "vertical", color: "#FED036" },
     };
+
     const WhyExonext1 = {
-        title: "WHY Exonext ?",
-        description: "",
+        title: { en: "WHY Exonext ?", ar: "لماذا إكسونكست؟" },
+        description: { en: "", ar: "" },
         points: [
-            { description: "We focus on quality and client satisfaction above all else." },
-            { description: "We listen deeply and transform ideas into measurable results." },
-            { description: "We believe every investment must deliver greater value than its cost." },
-            { description: "We provide ongoing support to ensure sustainability." },
-            { description: "We provide ready-to-use systems at a lower cost than custom development." },
-
+            { description: { en: "We focus on quality and client satisfaction above all else.", ar: "نركز على الجودة ورضا العملاء قبل أي شيء آخر." } },
+            { description: { en: "We listen deeply and transform ideas into measurable results.", ar: "نستمع بعمق ونحوّل الأفكار إلى نتائج قابلة للقياس." } },
+            { description: { en: "We believe every investment must deliver greater value than its cost.", ar: "نؤمن أن كل استثمار يجب أن يحقق قيمة أكبر من تكلفته." } },
+            { description: { en: "We provide ongoing support to ensure sustainability.", ar: "نوفر دعماً مستمراً لضمان الاستدامة." } },
+            { description: { en: "We provide ready-to-use systems at a lower cost than custom development.", ar: "نوفر أنظمة جاهزة للاستخدام بتكلفة أقل من التطوير المخصص." } },
         ],
+        metadata: { direction: "horizontal", color: "#226CFF" },
     };
+
     const WhyExonext2 = {
-        title: "AVAILABLE SYSTEMS",
-        description: "",
+        title: { en: "AVAILABLE SYSTEMS", ar: "الأنظمة المتاحة" },
+        description: { en: "", ar: "" },
         points: [
-            { description: "eOctopus Document Management System (DMS)" },
-            { description: "eOctopus CRM (Mobile CRM)" },
-            { description: "eOctopus Asset Tracking (RFID)" },
-            { description: "eOctopus Help Desk & Call Center" },
-            { description: "eOctopus Warehouse Management System (eWMS)" },
-            { description: "ELS (Electronic Laboratory System)" },
-            { description: "eOctopus E-Commerce System" },
-            { description: "Tracking & Fleet Management System" },
-            { description: "HIS (Hospital Information System)" },
-
+            { description: { en: "eOctopus Document Management System (DMS)", ar: "نظام إدارة المستندات eOctopus (DMS)" } },
+            { description: { en: "eOctopus CRM (Mobile CRM)", ar: "نظام إدارة علاقات العملاء eOctopus (CRM موبايل)" } },
+            { description: { en: "eOctopus Asset Tracking (RFID)", ar: "نظام تتبع الأصول eOctopus (RFID)" } },
+            { description: { en: "eOctopus Help Desk & Call Center", ar: "مكتب المساعدة ومركز الاتصالات eOctopus" } },
+            { description: { en: "eOctopus Warehouse Management System (eWMS)", ar: "نظام إدارة المستودعات eOctopus (eWMS)" } },
+            { description: { en: "ELS (Electronic Laboratory System)", ar: "نظام المختبر الإلكتروني (ELS)" } },
+            { description: { en: "eOctopus E-Commerce System", ar: "نظام التجارة الإلكترونية eOctopus" } },
+            { description: { en: "Tracking & Fleet Management System", ar: "نظام تتبع وإدارة الأسطول" } },
+            { description: { en: "HIS (Hospital Information System)", ar: "نظام معلومات المستشفى (HIS)" } },
         ],
+        metadata: { direction: "vertical", color: "#1E9241" },
     };
+
     return (
         <VStack w={"100vw"}
             mb={8}
@@ -122,7 +146,8 @@ export const Exonext = () => {
 
                 <Box
                     w={{ base: "100%", md: "100%" }}
-                    fontFamily={`'Montserrat', 'Regular'`}
+                    fontFamily={lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', 'Regular'`}
+
                     textAlign="start"
                     marginInlineStart="10%"
                     zIndex={1}
@@ -147,29 +172,39 @@ export const Exonext = () => {
                         color="white"
                         lineHeight="1"   // makes letters snug
                     >
-                        DIGITAL TRANSFORMATION & TECHNOLOGY DIVISION
-                    </Text>
+                        {exonextDescription}                    </Text>
                 </Box>
             </VStack>
             <AboutServices  {...{
-                title: "ABOUT EXONEXT",
-                description: "ExoNext is the digital transformation and technology arm of Exoln, specialized in delivering innovative systems that help businesses automate their operations and shift from traditional methods to intelligent digital solutions.",
-                subtitle: "Through our expertise and global partnerships, we provide integrated solutions including ready-made systems, customized development, and system integrations to enhance efficiency and reduce costs.",
+                title: {
+                    en: "ABOUT EXONEXT",
+                    ar: "عن إكسونكست",
+                },
+                description: {
+                    en: " is the digital transformation and technology arm of Exoln, specialized in delivering innovative systems that help businesses automate their operations and shift from traditional methods to intelligent digital solutions.",
+                    ar: " هي الذراع المتخصص في التحول الرقمي والتكنولوجيا ضمن مجموعة إكسولن، حيث يقدم أنظمة مبتكرة تساعد الشركات على أتمتة عملياتها والانتقال من الأساليب التقليدية إلى حلول رقمية ذكية.",
+                },
+                subtitle: {
+                    en: "Through our expertise and global partnerships, we provide integrated solutions including ready-made systems, customized development, and system integrations to enhance efficiency and reduce costs.",
+                    ar: "من خلال خبرتنا وشراكاتنا العالمية، نقدم حلولاً متكاملة تشمل أنظمة جاهزة، وتطويراً مخصصاً، وتكامل الأنظمة بهدف تعزيز الكفاءة وتقليل التكاليف.",
+                },
                 imageUrl: "/exonext.webp",
-                color: "#FED036"
+                color: "#FED036",
             }} />
 
             <WhoWeSurve Services={[
                 {
-                    description: "Companies aiming to automate operations and increase efficiency.",
+                    description: { en: "Companies aiming to automate operations and increase efficiency.", ar: "الشركات التي تهدف إلى أتمتة العمليات وزيادة الكفاءة" },
                     overlay: "#FED036"
                 },
                 {
-                    description: "Organizations looking for comprehensive ERP/CRM solutions.",
+                    description: {
+                        en: "Organizations looking for comprehensive ERP/CRM solutions.", ar: "المؤسسات التي تبحث عن حلول شاملة للأنظمة الإدارية وعلاقات العملاء."
+                    },
                     overlay: "#FED036"
                 },
                 {
-                    description: "Small projects requiring modern websites or applications to sell products and services.",
+                    description: { en: "Small projects requiring modern websites or applications to sell products and services.", ar: "المشاريع الصغيرة التي تحتاج إلى مواقع ويب أو تطبيقات حديثة لبيع المنتجات والخدمات" },
                     overlay: "#FED036"
                 }
             ]} />
