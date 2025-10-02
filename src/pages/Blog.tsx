@@ -1,6 +1,9 @@
 import { ArticleList } from "@/components/blog-components/ArticleList";
 import { VStack, HStack, Box, Text } from "@chakra-ui/react";
 import type { articleProbs } from "@/types/types";
+import { useTranslation } from "@/hooks/useTranslation";
+import { useSelector } from "react-redux";
+import { selectLanguage } from "@/store/slices/languageSlice";
 
 export const dummyArticles: articleProbs[] = [
   {
@@ -79,6 +82,7 @@ export const dummyArticles: articleProbs[] = [
   }
 ];
 export const Blog = () => {
+  const lang = useSelector(selectLanguage);
   return (
     <VStack gap={4}>
 
@@ -94,7 +98,7 @@ export const Blog = () => {
           zIndex={0}
         />
         <Box w={{ base: "100%", md: "80%" }}
-          fontFamily={`'Montserrat', 'Regular'`} textAlign={"start"} p={16}
+          fontFamily={lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', 'Regular'`} textAlign={"start"} p={16}
           zIndex={1}
           mt={{ base: "8rem", md: "20rem" }} mb={{ base: "5rem", md: 0 }}>
           <Text
@@ -103,12 +107,12 @@ export const Blog = () => {
             color="white"
             textAlign="start"
           >
-            INSIGHTS <br /> BEYOND SERVICES
+            {useTranslation("blog.title")}
           </Text>
           <Text fontSize={{ base: "1rem", xl: "1.3rem", md: "1.2rem" }}
             fontWeight={"bold"}
             w={{ base: "100%", md: "80%" }}
-            color={"white"}> Our blog brings strategy and creativity together — sharing fresh ideas and stories across finance, branding, technology, and more, with insights that inspire growth and spark innovation.</Text>
+            color={"white"}> {useTranslation("blog.description")}</Text>
         </Box>
       </HStack>
       <VStack w={{ base: "100%", md: "90%" }}>

@@ -1,11 +1,14 @@
 import { Whyus, type Props } from "@/components/home-components/WhyUs";
+import { useTranslation } from "@/hooks/useTranslation";
 import { VStack, HStack, Box, Text, Spinner, Center } from "@chakra-ui/react";
+import { useSelector } from "react-redux";
+import { selectLanguage } from "@/store/slices/languageSlice";
 import { useState, useEffect } from "react";
-
 export const AboutUs = () => {
 
-
+    const lang = useSelector(selectLanguage);
     const [loading, setLoading] = useState(true);
+    const aboutTitle = useTranslation("about.title");
 
     // Simulate content loading (replace with real API/image load logic)
     useEffect(() => {
@@ -13,27 +16,59 @@ export const AboutUs = () => {
         return () => clearTimeout(timer);
     }, []);
     const Values: Props = {
-        title: "Our Values",
-        description: "",
+        title: {
+            en: "Our Values",
+            ar: "قيمنا",
+        },
+        description: {
+            en: "",
+            ar: "",
+        },
         image: "about1.webp",
         Array: [
             {
-                title: "TRUST",
-                description: "Building genuine partnerships with clients."
+                title: {
+                    en: "TRUST",
+                    ar: "الثقة",
+                },
+                description: {
+                    en: "Building genuine partnerships with clients.",
+                    ar: "بناء شراكات حقيقية مع العملاء.",
+                },
             },
             {
-                title: "QUALITY",
-                description: "Delivering measurable impact, not just promises."
+                title: {
+                    en: "QUALITY",
+                    ar: "الجودة",
+                },
+                description: {
+                    en: "Delivering measurable impact, not just promises.",
+                    ar: "تقديم تأثير ملموس وليس مجرد وعود.",
+                },
             },
             {
-                title: "CREATIVITY",
-                description: "Crafting solutions that inspire and engage."
+                title: {
+                    en: "CREATIVITY",
+                    ar: "الإبداع",
+                },
+                description: {
+                    en: "Crafting solutions that inspire and engage.",
+                    ar: "ابتكار حلول تلهم وتبني التفاعل.",
+                },
             },
             {
-                title: "INTEGRATION",
-                description: "Connecting expertise across divisions for holistic value."
-            }]
-    }
+                title: {
+                    en: "INTEGRATION",
+                    ar: "التكامل",
+                },
+                description: {
+                    en: "Connecting expertise across divisions for holistic value.",
+                    ar: "ربط الخبرات بين الأقسام لتقديم قيمة متكاملة.",
+                },
+            },
+        ],
+    };
+
 
     if (loading) {
         return (
@@ -75,7 +110,7 @@ export const AboutUs = () => {
                     zIndex={1}
                 />
                 <Box
-                    fontFamily={`'Montserrat', 'Regular'`}
+                    fontFamily={lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', 'Regular'`}
                     textAlign="start"
                     position={"absolute"}
                     marginInlineStart="10%"
@@ -86,17 +121,17 @@ export const AboutUs = () => {
                         fontSize={{ base: "2rem", xl: "2rem" }}
                         fontWeight="semibold"
                         color="white"
+                        textTransform={"uppercase"}
                         lineHeight="1"   // removes vertical padding/spacing
-                        m="0"            // reset margins
+                    // m="0"            // reset margins
                     >
-                        ABOUT
+                        {aboutTitle}
                     </Text>
-
                     <Text
                         fontSize={{ base: "5rem", xl: "8rem" }}
                         fontWeight="bold"
                         color="white"
-                        lineHeight="0.62"   // makes letters snug
+                        lineHeight="0.82"   // makes letters snug
                         ml="-3"            // reset margins
                     >
                         EXOLN
