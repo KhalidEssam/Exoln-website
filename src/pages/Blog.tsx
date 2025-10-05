@@ -84,7 +84,7 @@ export const dummyArticles: articleProbs[] = [
 export const Blog = () => {
   const lang = useSelector(selectLanguage);
   return (
-    <VStack gap={4}>
+    <VStack gap={4} mb={16} w="100%" align="center" bgColor={"#F9F9F9"}>
 
       <HStack bgImage={"url(./pattern.webp)"} top={0} width={"100%"} bgSize={"cover"} bgPos={"center"} height={"100vh"}>
         <Box

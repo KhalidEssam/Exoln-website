@@ -29,8 +29,8 @@ const Demo = ({
                 justifyContent="space-around"
                 alignItems="stretch"
                 maxW="100%"
-                h="100%"
-                maxH={{ base: "100vh", md: direction === "horizontal" ? "none" : "40vh" }}
+                // h="100%"
+                maxH={{ base: "auto", md: direction === "horizontal" ? "none" : "60vh" }}
             >
                 {steps.map((step, index) => (
                     <Steps.Item

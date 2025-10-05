@@ -28,9 +28,8 @@ const StepComp = ({
                 gap={8}
                 justifyContent="space-around"
                 alignItems="stretch"
-                maxW="100%"
-                h="100%"
-            maxH={{ base: "100vh", md: direction === "horizontal" ? "none" : "40vh" }}
+                // maxW="90vw"
+                maxH={{ base: "auto", md: direction === "horizontal" ? "none" : "60vh" }}
             >
                 {steps.map((step, index) => (
                     <Steps.Item
@@ -39,6 +38,7 @@ const StepComp = ({
                         flex="1 1 43%"
                         // justifyContent={"inline-start"}
                         w={{ base: "80%", md: direction === "horizontal" ? "17%" : "40%" }}
+                        // maxW={{ base: "80%", md: direction === "horizontal" ? "22%" : "40%" }}
                         minH="100px"
                         display="flex"
                         h="100%"
