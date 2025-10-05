@@ -148,6 +148,10 @@
       "en": "Send Message",
       "ar": "تواصل معنا"
     },
+    "Sending": {
+      "en": "Sending...",
+      "ar": "جاري الارسال..."
+    },
     "Name": {
       "en": "Name",
       "ar": "الاسم"
@@ -190,7 +194,7 @@
         "ar": "معلومات عنا"
       },
       "description": {
-        "en": "Exoln was founded to be more than just a service provider; it is a comprehensive ecosystem that enables businesses and entrepreneurs to manage their operations efficiently, develop organizational structures, embrace digital transformation, build strong bra",
+        "en": "Exoln was founded to be more than just a service provider; it is a comprehensive ecosystem that enables businesses and entrepreneurs to manage their operations efficiently, develop organizational structures, embrace digital transformation, build strong brands, and reach their customers in the most creative and effective ways.",
         "ar": "تأسست إكسولن لتكون أكثر من مجرد مزود للخدمات؛ فهي نظام متكامل يمكن الشركات ورواد الأعمال من إدارة عملياتهم بكفاءة، وتطوير الهياكل التنظيمية، وتبني التحول الرقمي، وبناء علامات تجارية قوية، والوصول إلى عملائهم بأكثر الطرق إبداعاً وفعالية"
       },
       "subdescription": {

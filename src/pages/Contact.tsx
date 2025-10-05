@@ -1,125 +1,257 @@
-
 import { useTranslation } from "@/hooks/useTranslation";
 import { selectLanguage } from "@/store/slices/languageSlice";
-import { VStack, HStack, Box, Text, Input } from "@chakra-ui/react";
+import {
+    VStack,
+    HStack,
+    Box,
+    Text,
+    Input,
+    Image,
+    Skeleton
+} from "@chakra-ui/react";
 import { useSelector } from "react-redux";
+import { useState, useCallback, memo } from "react";
+
+// Memoized Contact Hero Background Component
+const ContactHeroBackground = memo(() => {
+    const [imageLoaded, setImageLoaded] = useState(false);
+    const [imageError, setImageError] = useState(false);
+
+    const handleImageLoad = useCallback(() => {
+        setImageLoaded(true);
+    }, []);
+
+    const handleImageError = useCallback(() => {
+        setImageError(true);
+        console.error("Failed to load Contact.webp");
+    }, []);
+
+    return (
+        <>
+            {/* Background Image Layer */}
+            {!imageError && (
+                <Box
+                    position="absolute"
+                    inset={0}
+                    zIndex={0}
+                    opacity={imageLoaded ? 1 : 0}
+                    transition="opacity 0.6s ease-in-out"
+                >
+                    <Image
+                        src="./Contact.webp"
+                        alt=""
+                        role="presentation"
+                        objectFit="cover"
+                        objectPosition="center"
+                        w="100%"
+                        h="100%"
+                        loading="eager"
+                        decoding="async"
+                        onLoad={handleImageLoad}
+                        onError={handleImageError}
+                    />
+                </Box>
+            )}
+
+            {/* Fallback gradient (shows while loading OR if image fails) */}
+            <Box
+                position="absolute"
+                inset={0}
+                zIndex={0}
+                bgGradient={imageError
+                    ? "linear(to-br, blue.600, blue.800)"
+                    : "linear(to-br, gray.700, gray.900)"
+                }
+                opacity={imageLoaded && !imageError ? 0 : 1}
+                transition="opacity 0.6s ease-in-out"
+            />
+
+            {/* Dark overlay for better text readability */}
+            <Box
+                position="absolute"
+                inset={0}
+                bg="blackAlpha.500"
+                zIndex={1}
+                opacity={imageLoaded || imageError ? 1 : 0.8}
+                transition="opacity 0.6s ease-in-out"
+            />
+
+            {/* Loading Skeleton */}
+            {!imageLoaded && !imageError && (
+                <Skeleton
+                    loading
+                    position="absolute"
+                    inset={0}
+                    zIndex={0}
+                    colorPalette="blue"
+                    variant="pulse"
+                />
+            )}
+        </>
+    );
+});
+
+ContactHeroBackground.displayName = "ContactHeroBackground";
+
+// Memoized Form Input Component
+const ContactInput = memo(({
+    type = "text",
+    placeholder,
+    width = { base: "100%", md: "49%" }
+}: {
+    type?: string;
+    placeholder: string;
+    width?: { base: string; md: string };
+}) => (
+
+    <Input
+        dir={useSelector(selectLanguage)
+            === "en" ? "ltr" : "rtl"}
+        type={type}
+        bg="transparent"
+        p={4}
+        color="white"
+        placeholder={placeholder}
+        _placeholder={{ color: "white", opacity: 0.9 }}
+        width={width}
+        height="2.5rem"
+        mt={4}
+        border="2px solid white"
+        borderRadius="4xl"
+        _hover={{
+            borderColor: "whiteAlpha.800",
+            bg: "whiteAlpha.100"
+        }}
+        _focus={{
+            borderColor: "white",
+            boxShadow: "0 0 0 1px white",
+            bg: "whiteAlpha.50"
+        }}
+        transition="all 0.2s ease"
+    />
+));
+
+ContactInput.displayName = "ContactInput";
 
 export const Contact = () => {
-    const lang = useSelector(selectLanguage)
+    const lang = useSelector(selectLanguage);
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
+    const handleSubmit = useCallback(() => {
+        setIsSubmitting(true);
+        // Add your form submission logic here
+        setTimeout(() => setIsSubmitting(false), 2000);
+    }, []);
+
     return (
-        <VStack w={"100vw"}>
-
-
+        <VStack w="100vw">
             <HStack
                 position="relative"
                 top={0}
                 width="100%"
                 height="100vh"
                 overflow="hidden"
-                _before={{
-                    content: '""',
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    bgImage: "url(./Contact.webp)",
-                    bgSize: "cover",
-                    bgPos: "center",
-                }}
+                isolation="isolate"
             >
+                <ContactHeroBackground />
+
+                {/* Form Content */}
                 <Box
-                    fontFamily={lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', 'Regular'`}
+                    fontFamily={lang === "ar" ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"}
                     w={{ base: "100%", md: "50%" }}
-                    textAlign={"start"} p={16} zIndex={1} mt={{ base: "4rem", md: "5rem" }} mb={{ base: "5rem", md: 0 }}>
+                    textAlign="start"
+                    p={{ base: 8, md: 16 }}
+                    zIndex={2}
+                    mt={{ base: "4rem", md: "5rem" }}
+                    mb={{ base: "5rem", md: 0 }}
+                >
                     <Text
-                        fontSize={{ base: "1.5rem", xl: "2.5rem", md: "2rem" }}
+                        fontSize={{ base: "1.5rem", md: "2rem", xl: "2.5rem" }}
                         fontWeight="bold"
                         color="white"
                         textAlign="start"
+                        mb={2}
                     >
                         {useTranslation("contact.title")}
                     </Text>
-                    <Text fontSize={{ base: "1rem", xl: "1.5rem", md: "1.5rem" }} fontWeight={"400"} color={"white"}> {useTranslation("contact.subtitle")}</Text>
+                    <Text
+                        fontSize={{ base: "1rem", md: "1.5rem", xl: "1.5rem" }}
+                        fontWeight="400"
+                        color="white"
+                        mb={4}
+                    >
+                        {useTranslation("contact.subtitle")}
+                    </Text>
+
+                    {/* Contact Form */}
                     <HStack
                         justifyContent="space-between"
                         flexWrap="wrap"
                         color="white"
                         mt={8}
+                        as="form"
+                        onSubmit={(e) => {
+                            e.preventDefault();
+                            handleSubmit();
+                        }}
                     >
-                        <Input
+                        <ContactInput
                             type="text"
-                            bg="transparent"
-                            p={4}
-                            color="white"
                             placeholder={useTranslation("contact.Name")}
-                            _placeholder={{ color: "white", opacity: 1 }}
-                            width={{ base: "100%", md: "49%" }}
-                            height="2.5rem"
-                            mt={4}
-                            border="2px solid white"
-                            borderRadius="4xl"
                         />
 
-                        <Input
+                        <ContactInput
                             type="email"
-                            bg="transparent"
-                            p={4}
-                            color="white"
                             placeholder={useTranslation("contact.email")}
-                            _placeholder={{ color: "white", opacity: 1 }}
-                            width={{ base: "100%", md: "49%" }}
-                            height="2.5rem"
-                            mt={4}
-                            border="2px solid white"
-                            borderRadius="4xl"
                         />
 
-                        <Input
+                        <ContactInput
                             type="text"
-                            bg="transparent"
-                            p={4}
-                            color="white"
                             placeholder={useTranslation("contact.company")}
-                            _placeholder={{ color: "white", opacity: 1 }}
-                            width={{ base: "100%", md: "49%" }}
-                            height="2.5rem"
-                            mt={4}
-                            border="2px solid white"
-                            borderRadius="4xl"
                         />
 
-                        <Input
-                            type="number"
-                            bg="transparent"
-                            p={4}
-                            color="white"
+                        <ContactInput
+                            type="tel"
                             placeholder={useTranslation("contact.phone")}
-                            _placeholder={{ color: "white", opacity: 1 }}
-                            width={{ base: "100%", md: "49%" }}
-                            height="2.5rem"
-                            mt={4}
-                            border="2px solid white"
-                            borderRadius="4xl"
                         />
                     </HStack>
 
-                    <Box as="button"
-                        border={"2px solid white"}
-                        borderRadius={"4xl"}
-                        bg={"transparent"}
+                    {/* Submit Button */}
+                    <Box
+                        as="button"
+                        border="2px solid white"
+                        borderRadius="4xl"
+                        bg="transparent"
                         p={4}
                         mt={4}
-                        fontSize={"1rem"}
-                        color={"white"}
+                        fontSize="1rem"
+                        color="white"
+                        fontWeight="500"
                         width={{ base: "100%", md: "49%" }}
-                        _hover={{ bg: "white", color: "black", transition: "0.3s ease-in-out" }}
+                        cursor={isSubmitting ? "not-allowed" : "pointer"}
+                        opacity={isSubmitting ? 0.7 : 1}
+                        _hover={{
+                            bg: "white",
+                            color: "black",
+                            transform: "translateY(-2px)",
+                            boxShadow: "0 4px 12px rgba(255, 255, 255, 0.3)"
+                        }}
+                        _active={{
+                            transform: "translateY(0)",
+                        }}
+                        _disabled={{
+                            cursor: "not-allowed",
+                            opacity: 0.7
+                        }}
+                        transition="all 0.3s ease"
+                        onClick={handleSubmit}
                     >
-                        {useTranslation("contact.SendMessage")}
+                        {isSubmitting
+                            ? useTranslation("contact.Sending") || "Sending..."
+                            : useTranslation("contact.SendMessage")}
                     </Box>
-
                 </Box>
             </HStack>
         </VStack>
-    )
-}
+    );
+};  
