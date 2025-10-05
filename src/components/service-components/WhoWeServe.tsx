@@ -25,7 +25,7 @@ export const WhoWeSurve = ({ Services }: WhoWeSurveProps) => {
                         position="relative"
                         justify="center"
                         align="center"
-                        w={{ base: "90vw", md: "300px" }}
+                        maxW={{ base: "90vw", md: "300px" }}
                         minH="200px"
                         boxShadow={"0 4px 6px rgba(0, 0, 0, 0.1)"}
                         borderRadius="lg"

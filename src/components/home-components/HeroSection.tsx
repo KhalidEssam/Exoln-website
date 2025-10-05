@@ -1,6 +1,6 @@
 import { useTranslation } from "@/hooks/useTranslation";
 import { HStack, VStack, Text, Box } from "@chakra-ui/react";
-import { SkippingGrid } from "./SkippingGrid";
+// import { SkippingGrid } from "./SkippingGrid";
 import { useSelector } from "react-redux";
 import { selectLanguage } from "@/store/slices/languageSlice";
 
@@ -33,11 +33,12 @@ export const HeroSection = () => {
                         borderRadius={"4xl"}
                         p={4}
                         mt={4}
-                        fontSize={"1rem"}
+                        fontSize={"1.2rem"}
+                        bg={"transparent"}
                         fontFamily={lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', 'Regular'`}
                         _hover={{
                             bg: "white", color: "black",
-                            transition: "0.3s ease-in-out"
+                            transition: "all 0.2s ease-in-out"
                         }}
 
                     >
@@ -45,7 +46,7 @@ export const HeroSection = () => {
                     </Box>
                 </VStack >
 
-                <SkippingGrid />
+                {/* <SkippingGrid /> */}
 
             </HStack>
         </VStack>

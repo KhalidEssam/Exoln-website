@@ -152,7 +152,7 @@ export const AboutUs = () => {
                 </Text>
             </Box>
 
-            <VStack mt={{ base: "2rem", lg: "3rem" }} mb={{ base: "1rem", lg: "2rem" }} pt={{ base: "2rem", lg: "3rem" }} pb={{ base: "1rem", lg: "2rem" }} w={{ base: "100%", md: "100%" }} bgColor={"#F8F8F8"}>
+            <VStack mt={{ base: "2rem", lg: "3rem" }} pt={{ base: "2rem", lg: "3rem" }} pb={{ base: "1rem", lg: "2rem" }} w={{ base: "100%", md: "100%" }} bgColor={"#F8F8F8"}>
                 <Text color={"#3F3D3D"} fontSize={{ base: "2rem", md: "2.5rem", lg: "2.5rem" }} fontFamily={`'Montserrat', 'Regular'`} fontWeight="bold" >
                     VISION
                 </Text>

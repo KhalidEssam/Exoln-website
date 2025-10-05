@@ -41,15 +41,73 @@ export const Contact = () => {
                         {useTranslation("contact.title")}
                     </Text>
                     <Text fontSize={{ base: "1rem", xl: "1.5rem", md: "1.5rem" }} fontWeight={"400"} color={"white"}> {useTranslation("contact.subtitle")}</Text>
-                    <HStack justifyContent={"space-between"} flexWrap={"wrap"} color={"white"} mt={8}>
-                        <Input as={"input"} type="text" bg={"transparent"} p={4} placeholder={useTranslation("contact.Name")} width={{ base: "100%", md: "49%" }} height={"2.5rem"} mt={4} border={"2px solid white"} borderRadius={"4xl"} />
-                        <Input as={"input"} type="email" bg={"transparent"} p={4} placeholder={useTranslation("contact.email")} width={{ base: "100%", md: "49%" }} height={"2.5rem"} mt={4} border={"2px solid white"} borderRadius={"4xl"} />
-                        <Input as={"input"} type="text" bg={"transparent"} p={4} placeholder={useTranslation("contact.company")} width={{ base: "100%", md: "49%" }} height={"2.5rem"} mt={4} border={"2px solid white"} borderRadius={"4xl"} />
-                        <Input as={"input"} type="number" bg={"transparent"} p={4} placeholder={useTranslation("contact.phone")} width={{ base: "100%", md: "49%" }} height={"2.5rem"} mt={4} border={"2px solid white"} borderRadius={"4xl"} />
+                    <HStack
+                        justifyContent="space-between"
+                        flexWrap="wrap"
+                        color="white"
+                        mt={8}
+                    >
+                        <Input
+                            type="text"
+                            bg="transparent"
+                            p={4}
+                            color="white"
+                            placeholder={useTranslation("contact.Name")}
+                            _placeholder={{ color: "white", opacity: 1 }}
+                            width={{ base: "100%", md: "49%" }}
+                            height="2.5rem"
+                            mt={4}
+                            border="2px solid white"
+                            borderRadius="4xl"
+                        />
+
+                        <Input
+                            type="email"
+                            bg="transparent"
+                            p={4}
+                            color="white"
+                            placeholder={useTranslation("contact.email")}
+                            _placeholder={{ color: "white", opacity: 1 }}
+                            width={{ base: "100%", md: "49%" }}
+                            height="2.5rem"
+                            mt={4}
+                            border="2px solid white"
+                            borderRadius="4xl"
+                        />
+
+                        <Input
+                            type="text"
+                            bg="transparent"
+                            p={4}
+                            color="white"
+                            placeholder={useTranslation("contact.company")}
+                            _placeholder={{ color: "white", opacity: 1 }}
+                            width={{ base: "100%", md: "49%" }}
+                            height="2.5rem"
+                            mt={4}
+                            border="2px solid white"
+                            borderRadius="4xl"
+                        />
+
+                        <Input
+                            type="number"
+                            bg="transparent"
+                            p={4}
+                            color="white"
+                            placeholder={useTranslation("contact.phone")}
+                            _placeholder={{ color: "white", opacity: 1 }}
+                            width={{ base: "100%", md: "49%" }}
+                            height="2.5rem"
+                            mt={4}
+                            border="2px solid white"
+                            borderRadius="4xl"
+                        />
                     </HStack>
+
                     <Box as="button"
                         border={"2px solid white"}
                         borderRadius={"4xl"}
+                        bg={"transparent"}
                         p={4}
                         mt={4}
                         fontSize={"1rem"}

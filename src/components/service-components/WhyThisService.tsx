@@ -9,7 +9,7 @@ export type Props = {
     metadata?: { direction: "horizontal" | "vertical"; color: string };
 };
 
-const Demo = ({
+const StepComp = ({
     steps,
     direction = "horizontal",
     color,
@@ -30,15 +30,15 @@ const Demo = ({
                 alignItems="stretch"
                 maxW="100%"
                 h="100%"
-                maxH={{ base: "100vh", md: direction === "horizontal" ? "none" : "40vh" }}
+            maxH={{ base: "100vh", md: direction === "horizontal" ? "none" : "40vh" }}
             >
                 {steps.map((step, index) => (
                     <Steps.Item
                         key={index}
                         index={index}
-                        flex="1 1 30%"
+                        flex="1 1 43%"
                         // justifyContent={"inline-start"}
-                        maxW={{ base: "80%", md: direction === "horizontal" ? "17%" : "40%" }}
+                        w={{ base: "80%", md: direction === "horizontal" ? "17%" : "40%" }}
                         minH="100px"
                         display="flex"
                         h="100%"
@@ -56,7 +56,7 @@ const Demo = ({
                                 </Text>
                             </Steps.Indicator>
 
-                            <Stack w={"90%"} order={direction === "horizontal" ? 1 : 0} pl={4} maxW="100%" textAlign="center" gap={1} flexShrink={0}>
+                            <Stack w={"100%"} order={direction === "horizontal" ? 1 : 0} pl={4} textAlign="center" gap={1} flexShrink={0}>
                                 <Steps.Description fontSize="lg" color="#707070">
                                     {lang === "en" ? step.description.en : step.description.ar}
                                 </Steps.Description>
@@ -83,7 +83,7 @@ export const WhyThisService = (props: Props) => {
                 {lang === "en" ? props.title.en : props.title.ar}
             </Text>
 
-            <Demo
+            <StepComp
                 steps={props.points || []}
                 color={props.metadata?.color}
                 direction={props.metadata?.direction || "horizontal"}

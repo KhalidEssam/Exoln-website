@@ -58,7 +58,7 @@ export const Header = () => {
                 </Menu.Positioner>
               </Portal>
             </Menu.Root>
-            <Box
+            {/* <Box
               as="button"
               _hover={{ bg: "whiteAlpha.300", cursor: "pointer" }}
               fontSize="1.2rem"
@@ -69,7 +69,7 @@ export const Header = () => {
               p={4}
             >
               {lang === "ar" ? "تسجيل الدخول" : "Login"}
-            </Box>
+            </Box> */}
           </HStack>
         </HStack>
 
@@ -119,7 +119,7 @@ export const Header = () => {
               </Portal>
             </Menu.Root>
           </HStack>
-          <Box
+          {/* <Box
             as="button"
             _hover={{ bg: "whiteAlpha.300", cursor: "pointer" }}
             fontSize="1.2rem"
@@ -130,7 +130,7 @@ export const Header = () => {
             p={4}
           >
             {lang === "ar" ? "تسجيل الدخول" : "Login"}
-          </Box>
+          </Box> */}
         </VStack>
       )}
     </Box>

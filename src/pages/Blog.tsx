@@ -117,9 +117,10 @@ export const Blog = () => {
         </Box>
       </HStack>
       <VStack w={{ base: "100%", md: "90%" }}>
-        <Text w={{ base: "90%", md: "100%" }} textTransform={"uppercase"} fontSize={{ base: "2rem", md: "2.5rem", lg: "2.5rem" }} textAlign={"start"} fontFamily={`'Montserrat', 'Regular'`} fontWeight="bold" mt={{ base: "2rem", lg: "3rem" }} mb={{ base: "1rem", lg: "2rem" }}>
-          recent blog posts
-        </Text>
+        <Text w={{ base: "90%", md: "100%" }} textTransform={"uppercase"} fontSize={{ base: "2rem", md: "2.5rem", lg: "2.5rem" }} textAlign={"start"} fontFamily={lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', 'Regular'`} fontWeight="bold" mt={{ base: "2rem", lg: "3rem" }} mb={{ base: "1rem", lg: "2rem" }}>
+          {
+            lang === "ar" ? "مقالات حديثة" : "recent blog posts"
+          }        </Text>
 
         <ArticleList articles={dummyArticles} />
       </VStack>

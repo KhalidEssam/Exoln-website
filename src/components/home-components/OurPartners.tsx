@@ -5,8 +5,12 @@ import useSwiperDirectionFix from "@/hooks/useSwiperDirectionFix";
 import "swiper/swiper-bundle.css";
 import { useSelector } from "react-redux";
 import { selectLanguage } from "@/store/slices/languageSlice";
+const images = ["/Yallatech.webp", "/octo.webp", "/Novel.webp", "/o2host.webp"];
 
-const Slides = Array(10).fill({ img: "partner.webp" });
+// Repeat images until we reach 10 slides
+const Slides = Array.from({ length: 6 }, (_, i) => ({
+    img: images[i % images.length],
+}));
 
 export const OurPartners = () => {
     const lang = useSelector(selectLanguage);

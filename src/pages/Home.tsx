@@ -1,5 +1,14 @@
-import { useState, useEffect } from "react";
-import { VStack, HStack, Box, Text, Image, Spinner, Center } from "@chakra-ui/react";
+import { useState, useEffect, memo } from "react";
+import {
+  VStack,
+  HStack,
+  Box,
+  Text,
+  Image,
+  Spinner,
+  Center,
+  Skeleton
+} from "@chakra-ui/react";
 import { HeroSection } from "../components/home-components/HeroSection.tsx";
 import { OurValues } from "@/components/home-components/OurValues.tsx";
 import { OurServices } from "@/components/home-components/OurServices.tsx";
@@ -9,16 +18,194 @@ import { type Props } from "@/components/home-components/WhyUs.tsx";
 import { useSelector } from "react-redux";
 import { selectLanguage } from "@/store/slices/languageSlice.ts";
 
+// Memoized Hero Background Component
+const HeroBackground = memo(() => {
+  const [patternLoaded, setPatternLoaded] = useState(false);
+
+  return (
+    <>
+      {/* Pattern Image Layer */}
+      <Box
+        position="absolute"
+        inset={0}
+        zIndex={0}
+        opacity={patternLoaded ? 1 : 0}
+        transition="opacity 0.6s ease-in-out"
+      >
+        <Image
+          src="./pattern.webp"
+          alt=""
+          role="presentation"
+          objectFit="cover"
+          objectPosition="center"
+          w="100%"
+          h="100%"
+          transform="scaleX(-1)"
+          loading="eager"
+          decoding="async"
+          onLoad={() => setPatternLoaded(true)}
+        />
+      </Box>
+
+      {/* Fallback gradient while pattern loads */}
+      {!patternLoaded && (
+        <Box
+          position="absolute"
+          inset={0}
+          zIndex={0}
+          bgGradient="linear(to-br, gray.800, gray.900)"
+        />
+      )}
+
+      {/* Overlay layer */}
+      <Box
+        position="absolute"
+        inset={0}
+        bg="blackAlpha.600"
+        zIndex={1}
+        opacity={patternLoaded ? 1 : 0.8}
+        transition="opacity 0.6s ease-in-out"
+      />
+    </>
+  );
+});
+
+HeroBackground.displayName = "HeroBackground";
+
+// Memoized Blog Background Component
+const BlogBackground = memo(() => {
+  const [blogBgLoaded, setBlogBgLoaded] = useState(false);
+
+  return (
+    <>
+      {/* Skeleton Loader */}
+      <Skeleton
+        loading={!blogBgLoaded}
+        position="absolute"
+        inset={0}
+        zIndex={1}
+        colorPalette="blue"
+        variant="pulse"
+      />
+
+      {/* Background Image */}
+      <Box
+        position="absolute"
+        inset={0}
+        zIndex={1}
+        overflow="hidden"
+        opacity={blogBgLoaded ? 1 : 0}
+        transition="opacity 0.5s ease-in-out"
+      >
+        <Image
+          src="./blog4.webp"
+          alt=""
+          role="presentation"
+          objectFit="cover"
+          w="100%"
+          h="100%"
+          loading="lazy"
+          decoding="async"
+          transform="scaleX(-1)"
+          filter="blur(4px)"
+          onLoad={() => setBlogBgLoaded(true)}
+        />
+      </Box>
+
+      {/* Blend Overlay */}
+      <Box
+        position="absolute"
+        inset={0}
+        bg="#226CFF"
+        style={{ mixBlendMode: "multiply" }}
+        zIndex={2}
+        opacity={blogBgLoaded ? 1 : 0.3}
+        transition="opacity 0.5s ease-in-out"
+      />
+    </>
+  );
+});
+
+BlogBackground.displayName = "BlogBackground";
+
+// Memoized Blog Item Component
+const BlogItem = memo(({
+  imageSrc,
+  title,
+  date
+}: {
+  imageSrc: string;
+  title: string;
+  date: string;
+}) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  return (
+    <HStack w="100%" gap={4} align="center">
+      <Box
+        position="relative"
+        w="25%"
+        aspectRatio={4 / 3}
+        borderRadius="md"
+        overflow="hidden"
+        flexShrink={0}
+      >
+        <Skeleton
+          loading={!imageLoaded}
+          w="100%"
+          h="100%"
+          position="absolute"
+          inset={0}
+          colorPalette="gray"
+          variant="pulse"
+        />
+        <Image
+          src={imageSrc}
+          alt={title}
+          objectFit="cover"
+          w="100%"
+          h="100%"
+          borderRadius="md"
+          loading="lazy"
+          decoding="async"
+          onLoad={() => setImageLoaded(true)}
+          opacity={imageLoaded ? 1 : 0}
+          transition="opacity 0.3s ease-in-out"
+        />
+      </Box>
+      <VStack align="flex-start" flex={1} gap={1} textAlign="start">
+        <Text
+          w="100%"
+          color="#226CFF"
+          fontSize={{ base: "0.9rem", md: "1rem" }}
+          fontWeight="500"
+          lineHeight={1.3}
+        >
+          {title}
+        </Text>
+        <Text
+          w="100%"
+          color="#707070"
+          fontSize={{ base: "0.8rem", md: "0.9rem" }}
+        >
+          {date}
+        </Text>
+      </VStack>
+    </HStack>
+  );
+});
+
+BlogItem.displayName = "BlogItem";
+
 export const Home = () => {
   const [loading, setLoading] = useState(true);
+  const lang = useSelector(selectLanguage);
 
   // Simulate loading images & content
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500); // 1.5s fake loading
+    const timer = setTimeout(() => setLoading(false), 1500);
     return () => clearTimeout(timer);
   }, []);
-  const lang = useSelector(selectLanguage)
-
 
   const Reasons: Props = {
     title: {
@@ -84,47 +271,28 @@ export const Home = () => {
   };
 
   return (
-    <VStack w="100vw">
+    <VStack w="100vw" position="relative">
       {loading ? (
-        // 👇 Fullscreen centered Spinner
         <Center w="100%" h="100vh" bg="blackAlpha.800">
           <Spinner size="xl" color="blue.400" />
         </Center>
       ) : (
         <>
-          {/* Hero Section with overlay */}
+          {/* Hero Section with Optimized Background */}
           <HStack
             position="relative"
             top={0}
             width="100%"
-            height={{ md: "100vh", lg: "100vh" }}
+            height={{ md: "100vh", lg: "70vh" }}
             overflow="hidden"
-            _before={{
-              content: '""',
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              bgImage: "url(./pattern.webp)",
-              bgSize: "cover",
-              bgPos: "center",
-              transform: "scaleX(-1)",
-            }}
+            isolation="isolate"
           >
-            {/* Overlay layer */}
-            <Box
-              className="overlay"
-              position="absolute"
-              top={0}
-              left={0}
-              w="100%"
-              h="100%"
-              bg="blackAlpha.600"
-            />
+            <HeroBackground />
 
             {/* Foreground content */}
-            <HeroSection />
+            <Box position="relative" zIndex={2} w="100%">
+              <HeroSection />
+            </Box>
           </HStack>
 
           {/* Content sections */}
@@ -144,8 +312,9 @@ export const Home = () => {
               w="90%"
               justify="space-evenly"
               flexDir={{ base: "column", md: "row" }}
+              gap={{ base: 6, md: 4 }}
             >
-              {/* Left Column (Image + Overlay + Text) */}
+              {/* Left Column (Quote with Background) */}
               <VStack
                 position="relative"
                 w={{ base: "100%", md: "45%" }}
@@ -153,143 +322,92 @@ export const Home = () => {
                 overflow="hidden"
                 align="center"
                 justify="center"
+                borderRadius="lg"
+                isolation="isolate"
               >
-                {/* Background Image */}
-                <Box position="absolute" inset={0} zIndex={1} overflow="hidden">
-                  <Image
-                    src="./blog4.webp"
-                    alt="Blog Background"
-                    objectFit="cover"
-                    w="100%"
-                    h="100%"
-                    loading="lazy"
-                    transform="scaleX(-1)"
-                    filter="blur(4px)"
-                  />
-                </Box>
+                <BlogBackground />
 
-                {/* Blend Overlay */}
-                <Box
-                  position="absolute"
-                  inset={0}
-                  bg="#226CFF"
-                  style={{ mixBlendMode: "multiply" }}
-                  zIndex={2}
-                />
-
-                {/* Quotes + Text */}
-                <Text
-                  zIndex={3}
-                  color="white"
-                  fontSize={{ base: "1rem", md: "1.5rem", lg: "2rem" }}
-                  justifyContent="flex-start"
-                  w={{ base: "100%", md: "70%" }}
-                  textAlign={{ base: "center", md: "start" }}
-                  px={6}
-                  fontWeight="bold"
-                >
-                  "
-                </Text>
-                <Text
-                  zIndex={3}
-                  color="white"
-                  fontSize={{ base: "1rem", md: "1.8rem", lg: "2.5rem" }}
-                  w={{ base: "100%", md: "70%" }}
-                  textAlign={{ base: "center", md: "start" }}
-                  px={6}
-                  fontWeight="bold"
-                >
-                  {lang == "ar" ? "- وعدنا بسيط أن نكون الشريك الذي ينمو معك، في كل خطوة على الطريق" :
-                    "OUR PROMISE IS SIMPLE — TO BE THE PARTNER WHO GROWS WITH YOU, EVERY STEP OF THE WAY."}
-                </Text>
-                <Text
-                  zIndex={3}
-                  color="white"
-                  fontSize={{ base: "1rem", md: "1.5rem", lg: "2rem" }}
-                  textAlign={{ base: "center", md: "end" }}
-                  px={6}
-                  fontWeight="bold"
-                  w={{ base: "100%", md: "70%" }}
-                >
-                  "
-                </Text>
+                {/* Quote Content */}
+                <VStack zIndex={3} w="100%" px={6} gap={2} >
+                  <Text
+                    color="white"
+                    fontSize={{ base: "2rem", md: "3rem" }}
+                    w={{ base: "100%", md: "70%" }}
+                    textAlign={{ base: "center", md: "start" }}
+                    fontWeight="bold"
+                    alignSelf={{ base: "center", md: "flex-start" }}
+                    lineHeight={0.8}
+                  >
+                    "
+                  </Text>
+                  <Text
+                    color="white"
+                    fontSize={{ base: "1.1rem", md: "1.8rem", lg: "2.2rem" }}
+                    w={{ base: "100%", md: "85%" }}
+                    textAlign={{ base: "center", md: "start" }}
+                    fontWeight="bold"
+                    lineHeight={1.3}
+                    fontFamily={lang === "ar" ? "Cairo, sans-serif" : "Montserrat, sans-serif"}
+                  >
+                    {lang === "ar"
+                      ? "وعدنا بسيط: أن نكون الشريك الذي ينمو معك، في كل خطوة على الطريق"
+                      : "OUR PROMISE IS SIMPLE — TO BE THE PARTNER WHO GROWS WITH YOU, EVERY STEP OF THE WAY."}
+                  </Text>
+                  <Text
+                    color="white"
+                    fontSize={{ base: "2rem", md: "3rem" }}
+                    textAlign={{ base: "center", md: "end" }}
+                    fontWeight="bold"
+                    w={{ base: "100%", md: "100%" }}
+                    alignSelf={{ base: "center", md: "flex-start" }}
+                    lineHeight={0.8}
+                  >
+                    "
+                  </Text>
+                </VStack>
               </VStack>
 
               {/* Right Column (Blog List) */}
               <VStack
                 w={{ base: "100%", md: "45%" }}
                 h={{ base: "auto", md: "50vh", lg: "55vh" }}
-                overflow="hidden"
+                overflow="auto"
                 bg="#fff"
                 p={8}
-                gap={4}
+                gap={6}
                 align="flex-start"
                 justify="flex-start"
                 textAlign="start"
+                borderRadius="lg"
+                boxShadow="md"
               >
                 <Text
                   w="100%"
                   fontSize={{ base: "1.5rem", md: "2rem", lg: "2.5rem" }}
                   fontWeight="bold"
                   color="#000"
+                  mb={2}
+                  fontFamily={lang === "ar" ? "Cairo, sans-serif" : "Montserrat, sans-serif"}
                 >
-                    {lang === "ar" ? "منشورات المدونة" : "Blog & News"}
+                  {lang === "ar" ? "منشورات المدونة" : "Blog & News"}
                 </Text>
 
                 {/* Blog Items */}
-                <HStack w="100%" gap={4}>
-                  <Image
-                    src="./blog3.webp"
-                    w="25%"
-                    objectFit="cover"
-                    borderRadius="md"
-                    loading="lazy"
-                  />
-                  <VStack textAlign="start">
-                    <Text w="100%" flex={1} color="#226CFF">
-                      SAP Analytics Innovation Workshop
-                    </Text>
-                    <Text w="100%" flex={1} color="#707070">
-                      21 Sep, 2025
-                    </Text>
-                  </VStack>
-                </HStack>
-
-                <HStack w="100%" gap={4}>
-                  <Image
-                    src="./blog2.webp"
-                    w="25%"
-                    objectFit="cover"
-                    borderRadius="md"
-                    loading="lazy"
-                  />
-                  <VStack textAlign="start">
-                    <Text w="100%" flex={1} color="#226CFF">
-                      SAP Analytics Innovation Workshop
-                    </Text>
-                    <Text w="100%" flex={1} color="#707070">
-                      21 Sep, 2025
-                    </Text>
-                  </VStack>
-                </HStack>
-
-                <HStack w="100%" gap={4}>
-                  <Image
-                    src="./blog1.webp"
-                    w="25%"
-                    objectFit="cover"
-                    borderRadius="md"
-                    loading="lazy"
-                  />
-                  <VStack textAlign="start">
-                    <Text w="100%" flex={1} color="#226CFF">
-                      SAP Analytics Innovation Workshop
-                    </Text>
-                    <Text w="100%" flex={1} color="#707070">
-                      21 Sep, 2025
-                    </Text>
-                  </VStack>
-                </HStack>
+                <BlogItem
+                  imageSrc="./blog3.webp"
+                  title="SAP Analytics Innovation Workshop"
+                  date="21 Sep, 2025"
+                />
+                <BlogItem
+                  imageSrc="./blog2.webp"
+                  title="SAP Analytics Innovation Workshop"
+                  date="21 Sep, 2025"
+                />
+                <BlogItem
+                  imageSrc="./blog1.webp"
+                  title="SAP Analytics Innovation Workshop"
+                  date="21 Sep, 2025"
+                />
               </VStack>
             </HStack>
           </VStack>
