@@ -18,8 +18,8 @@ export const ExoTale = () => {
             ar: "المشاكل التي نعالجها",
         },
         description: {
-            en: "ExoBiz specializes in solving complex organizational challenges that hinder growth and efficiency. Our expertise includes:",
-            ar: "تتخصص ExoBiz في حل التحديات التنظيمية المعقدة التي تعيق النمو والكفاءة. وتشمل خبراتنا:",
+            en: "",
+            ar: "",
         },
         image: "exotale1.webp",
         Array: [
@@ -154,7 +154,7 @@ export const ExoTale = () => {
             </VStack>
             <AboutServices  {...{
                 title: { en: "About Exotale", ar: "حول إيكسوتيل" },
-                description: { en: " is the creative strategy and storytelling arm of Exoln. We don’t stop at designing logos or visuals — we craft living narratives that transform brands into inspiring stories, resonating deeply with their audiences.", ar: " هي ذراع الاستراتيجية الإبداعية وسرد القصص في إكسولن. نحن لا نتوقف عند تصميم الشعارات أو العناصر المرئية - بل نصنع قصصاً حية تتحول بها العلامات التجارية إلى روايات ملهمة، تتردد صدىها بعمق لدى جمهورها"},
+                description: { en: " is the creative strategy and storytelling arm of Exoln. We don’t stop at designing logos or visuals — we craft living narratives that transform brands into inspiring stories, resonating deeply with their audiences.", ar: " هي ذراع الاستراتيجية الإبداعية وسرد القصص في إكسولن. نحن لا نتوقف عند تصميم الشعارات أو العناصر المرئية - بل نصنع قصصاً حية تتحول بها العلامات التجارية إلى روايات ملهمة، تتردد صدىها بعمق لدى جمهورها" },
                 subtitle: { en: "Our mission is to turn every brand into an emotional experience that reflects its values and message, translating them into authentic and impactful communication across all channels.", ar: "مهمتنا هي تحويل كل علامة تجارية إلى تجربة عاطفية تعكس قيمها ورسالتها، محولة إياها إلى تواصل أصيل مؤثر عبر جميع القنوات" },
                 imageUrl: "/exotale.webp",
                 color: "#9841FD"

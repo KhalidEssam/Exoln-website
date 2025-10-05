@@ -184,6 +184,36 @@
       "en": "About",
       "ar": "حول"
     },
+    "body": {
+      "title": {
+        "en": "Abou us",
+        "ar": "معلومات عنا"
+      },
+      "description": {
+        "en": "Exoln was founded to be more than just a service provider; it is a comprehensive ecosystem that enables businesses and entrepreneurs to manage their operations efficiently, develop organizational structures, embrace digital transformation, build strong bra",
+        "ar": "تأسست إكسولن لتكون أكثر من مجرد مزود للخدمات؛ فهي نظام متكامل يمكن الشركات ورواد الأعمال من إدارة عملياتهم بكفاءة، وتطوير الهياكل التنظيمية، وتبني التحول الرقمي، وبناء علامات تجارية قوية، والوصول إلى عملائهم بأكثر الطرق إبداعاً وفعالية"
+      },
+      "subdescription": {
+        "en": "With Exoln, you will find a single partner that combines financial insight, marketing creativity, advanced technology, organizational expertise, and the power of storytelling — offering your business the opportunity for sustainable and balanced growth.",
+        "ar": "مع إكسولن، ستجد شريكاً واحداً يجمع بين البصيرة المالية، والإبداع التسويقي، والتكنولوجيا المتقدمة، والخبرة التنظيمية، وقوة سرد القصص - مما يمنح عملك فرصة للنمو المستدام والمتوازن"
+      },
+      "vision": {
+        "en": "Vision",
+        "ar": "الرؤية"
+      },
+      "text1": {
+        "en": "To become the trusted partner that empowers businesses with innovative solutions for sustainable growth.",
+        "ar": "أن نصبح الشريك الموثوق الذي يمكن الشركات من خلال الحلول المبتكرة لتحقيق نمو مستدام"
+      },
+      "mission": {
+        "en": "Mission",
+        "ar": "الرسالة"
+      },
+      "text2": {
+        "en": "To integrate finance, technology, creativity, and consulting into one ecosystem that enables clients to focus on growth while we simplify the complexity behind the scenes.",
+        "ar": "دمج التمويل، التكنولوجيا، الإبداع، والاستشارات في نظام بيئي واحد يمكن العملاء من التركيز على النمو بينما نبسط التعقيد وراء الكواليس"
+      }
+    },
     "description": {
       "en": "",
       "ar": ""

@@ -99,6 +99,13 @@ export const AboutUs = () => {
     const lang = useSelector(selectLanguage);
     const [loading, setLoading] = useState(true);
     const aboutTitle = useTranslation("about.title");
+    const bodytitle = useTranslation("about.body.title");
+    const description = useTranslation("about.body.description");
+    const description1 = useTranslation("about.body.subdescription");
+    const Mission = useTranslation("about.body.mission");
+    const Vision = useTranslation("about.body.vision");
+    const VisionText = useTranslation("about.body.text1");
+    const MissionText = useTranslation("about.body.text2");
 
     // Simulate content loading (replace with real API/image load logic)
     useEffect(() => {
@@ -225,29 +232,24 @@ export const AboutUs = () => {
                 <Text
                     color="#3F3D3D"
                     fontSize={{ base: "2rem", md: "2.5rem", lg: "2.5rem" }}
-                    fontFamily="'Montserrat', sans-serif"
+                    fontFamily={ lang === "ar" ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"}
                     fontWeight="bold"
                 >
-                    ABOUT US
+                    {bodytitle}
                 </Text>
                 <Text
                     fontSize={{ base: "1rem", md: "1rem", lg: "1.5rem" }}
                     fontWeight="semibold"
                     mt={{ base: "1rem", md: "2rem", lg: "3rem" }}
                 >
-                    Exoln was founded to be more than just a service provider; it is a comprehensive
-                    ecosystem that enables businesses and entrepreneurs to manage their operations
-                    efficiently, develop organizational structures, embrace digital transformation, build
-                    strong brands, and reach their customers in the most creative and effective ways.
+                    {description}
                 </Text>
                 <Text
                     fontSize={{ base: "1rem", md: "1rem", lg: "1.5rem" }}
                     fontWeight="semibold"
                     mt={{ base: "1rem", md: "2rem", lg: "3rem" }}
                 >
-                    With Exoln, you will find a single partner that combines financial insight, marketing
-                    creativity, advanced technology, organizational expertise, and the power of storytelling
-                    — offering your business the opportunity for sustainable and balanced growth.
+                    {description1}
                 </Text>
             </Box>
 
@@ -262,10 +264,10 @@ export const AboutUs = () => {
                 <Text
                     color="#3F3D3D"
                     fontSize={{ base: "2rem", md: "2.5rem", lg: "2.5rem" }}
-                    fontFamily="'Montserrat', sans-serif"
+                    fontFamily={lang === "ar" ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"}
                     fontWeight="bold"
                 >
-                    VISION
+                    {Vision}
                 </Text>
                 <Text
                     color="#707070"
@@ -274,8 +276,7 @@ export const AboutUs = () => {
                     w={{ base: "90%", md: "60%" }}
                     textAlign="center"
                 >
-                    To become the trusted partner that empowers businesses with innovative solutions for
-                    sustainable growth.
+                    {VisionText}
                 </Text>
             </VStack>
 
@@ -296,10 +297,10 @@ export const AboutUs = () => {
                 <Text
                     color="#3F3D3D"
                     fontSize={{ base: "2rem", md: "2.5rem", lg: "2.5rem" }}
-                    fontFamily="'Montserrat', sans-serif"
+                    fontFamily={lang === "ar" ? "'Cairo', sans-serif" : "'Montserrat', sans-serif"}
                     fontWeight="bold"
                 >
-                    MISSION
+                    {Mission}
                 </Text>
                 <Text
                     color="#707070"
@@ -308,8 +309,7 @@ export const AboutUs = () => {
                     w={{ base: "90%", md: "60%" }}
                     textAlign="center"
                 >
-                    To integrate finance, technology, creativity, and consulting into one ecosystem that
-                    enables clients to focus on growth while we simplify the complexity behind the scenes.
+                    {MissionText}
                 </Text>
             </VStack>
         </VStack>
