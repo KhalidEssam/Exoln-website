@@ -23,6 +23,8 @@ const Demo = ({
     return (
         <Steps.Root defaultStep={10} count={steps.length} color={color}>
             <Steps.List
+                dir={lang === "ar" ? "rtl" : "ltr"}
+
                 flexDir={direction === "horizontal" ? "row" : "column"}
                 flexWrap="wrap"
                 gap={8}
