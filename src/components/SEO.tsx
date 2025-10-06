@@ -1,13 +1,20 @@
-import { Helmet } from "react-helmet-async";
+import { Title, Meta } from "react-head";
 
-export const SEO = ({ title, description, keywords  }: {
+interface SEOProps {
     title: string;
     description: string;
     keywords?: string;
-}) => (
-    <Helmet>
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        {keywords && <meta name="keywords" content={keywords} />}
-    </Helmet>
+}
+
+export const SEO = ({ title, description, keywords }: SEOProps) => (
+    <>
+        <Title>{title}</Title>
+        <Meta name="description" content={description} />
+        {keywords && <Meta name="keywords" content={keywords} />}
+        {/* Optional: social sharing (Open Graph + Twitter cards) */}
+        <Meta property="og:title" content={title} />
+        <Meta property="og:description" content={description} />
+        <Meta name="twitter:title" content={title} />
+        <Meta name="twitter:description" content={description} />
+    </>
 );
