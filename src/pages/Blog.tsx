@@ -9,7 +9,7 @@ export const dummyArticles: articleProbs[] = [
   {
     id: 1,
     subtitle: { en: "Business Growth", ar: "نمو الأعمال" },
-    title: { en: "How to Scale Your Startup", ar: "كيفية توسيع نطاق شركتك الناشئة" },
+    title: { en: "The Importance of Accounting and Bookkeeping | Exoln Business Insights", ar: "أهمية المحاسبة ومسك الدفاتر لكل عمل تجاري | رؤى أكسلون Exoln   للأعمال" },
     description: {
       en: "Learn proven strategies to scale your startup effectively while maintaining efficiency and culture.",
       ar: "تعرف على استراتيجيات مثبتة لتوسيع نطاق شركتك الناشئة مع الحفاظ على الكفاءة والثقافة."
@@ -17,7 +17,42 @@ export const dummyArticles: articleProbs[] = [
     image: "/blog1.webp",
     date: "2025-09-01",
     featured: true,
-    ref: "how-to-scale-your-startup"
+    ref: "how-to-scale-your-startup",
+    contentUrl: {
+      en: "https://cms.exoln.com/wp-content/uploads/2025/10/accounting-blog-English.docx",
+      ar: "https://cms.exoln.com/wp-content/uploads/2025/10/accounting-blog-Arabic.docx"
+    },
+    seo: {
+      en: {
+        title: "The Importance of Accounting and Bookkeeping | Exoln Business Insights",
+        description:
+          "Discover why accounting and bookkeeping are essential for every business. Exoln explains how proper financial management supports growth, compliance, and smart decision-making.",
+        keywords: [
+          "accounting and bookkeeping",
+          "importance of accounting",
+          "business bookkeeping",
+          "financial management",
+          "Exoln accounting services",
+          "bookkeeping for businesses",
+          "small business accounting",
+        ],
+      },
+      ar: {
+        title: "أهمية المحاسبة ومسك الدفاتر لكل عمل تجاري | رؤى أكسلون Exoln للأعمال",
+        description:
+          "اكتشف لماذا تعتبر المحاسبة ومسك الدفاتر من الأساسيات لأي عمل تجاري. توضح شركة Exoln كيف يساعد التنظيم المالي الجيد في تحقيق النمو والالتزام واتخاذ قرارات أفضل.",
+        keywords: [
+          "المحاسبة",
+          "مسك الدفاتر",
+          "أهمية المحاسبة",
+          "الإدارة المالية",
+          "خدمات المحاسبة Exoln",
+          "محاسبة الشركات",
+          "المحاسبة للأعمال الصغيرة",
+        ],
+      },
+    }
+
   },
   {
     id: 2,
@@ -28,7 +63,42 @@ export const dummyArticles: articleProbs[] = [
     },
     image: "/blog2.webp",
     date: "2025-08-15",
-    ref: "digital-transformation-2025"
+    ref: "digital-transformation-2025",
+    contentUrl: {
+      en: "https://cms.exoln.com/wp-content/uploads/2025/10/accounting-blog-English.docx",
+      ar: "https://cms.exoln.com/wp-content/uploads/2025/10/accounting-blog-Arabic.docx"
+    },
+    seo: {
+      en: {
+        title: "The Importance of Accounting and Bookkeeping | Exoln Business Insights",
+        description:
+          "Discover why accounting and bookkeeping are essential for every business. Exoln explains how proper financial management supports growth, compliance, and smart decision-making.",
+        keywords: [
+          "accounting and bookkeeping",
+          "importance of accounting",
+          "business bookkeeping",
+          "financial management",
+          "Exoln accounting services",
+          "bookkeeping for businesses",
+          "small business accounting",
+        ],
+      },
+      ar: {
+        title: "أهمية المحاسبة ومسك الدفاتر لكل عمل تجاري | رؤى أكسلون Exoln للأعمال",
+        description:
+          "اكتشف لماذا تعتبر المحاسبة ومسك الدفاتر من الأساسيات لأي عمل تجاري. توضح شركة Exoln كيف يساعد التنظيم المالي الجيد في تحقيق النمو والالتزام واتخاذ قرارات أفضل.",
+        keywords: [
+          "المحاسبة",
+          "مسك الدفاتر",
+          "أهمية المحاسبة",
+          "الإدارة المالية",
+          "خدمات المحاسبة Exoln",
+          "محاسبة الشركات",
+          "المحاسبة للأعمال الصغيرة",
+        ],
+      },
+    }
+
   },
   {
     id: 3,
@@ -66,27 +136,22 @@ export const dummyArticles: articleProbs[] = [
     date: "2025-05-10",
     featured: true,
     ref: "future-of-remote-work"
-  },
-  {
-    id: 6,
-    subtitle: { en: "Innovation", ar: "الابتكار" },
-    title: { en: "The Future of Remote Work", ar: "مستقبل العمل عن بُعد" },
-    description: {
-      en: "Remote work is evolving with new technologies, creating hybrid opportunities.",
-      ar: "يتطور العمل عن بُعد مع التقنيات الجديدة، مما يخلق فرصًا هجينة."
-    },
-    image: "/blog2.webp",
-    date: "2025-05-10",
-    featured: true,
-    ref: "future-of-remote-work"
   }
 ];
+
 export const Blog = () => {
   const lang = useSelector(selectLanguage);
-  return (
-    <VStack gap={4} mb={16} w="100%" align="center" bgColor={"#F9F9F9"}>
 
-      <HStack bgImage={"url(./pattern.webp)"} top={0} width={"100%"} bgSize={"cover"} bgPos={"center"} height={"100vh"}>
+  return (
+    <VStack gap={4} mb={16} w="100%" align="center" bgColor="#F9F9F9">
+      <HStack
+        bgImage="url(./pattern.webp)"
+        top={0}
+        width="100%"
+        bgSize="cover"
+        bgPos="center"
+        height="100vh"
+      >
         <Box
           className="overlay"
           position="absolute"
@@ -94,36 +159,54 @@ export const Blog = () => {
           left={0}
           w="100%"
           h="100vh"
-          bg="blackAlpha.600" // or your glaze color
+          bg="blackAlpha.600"
           zIndex={0}
         />
-        <Box w={{ base: "100%", md: "80%" }}
-          fontFamily={lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', 'Regular'`} textAlign={"start"} p={16}
+        <Box
+          w={{ base: "100%", md: "80%" }}
+          fontFamily={lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', 'Regular'`}
+          textAlign="start"
+          p={16}
           zIndex={1}
-          mt={{ base: "8rem", md: "20rem" }} mb={{ base: "5rem", md: 0 }}>
+          mt={{ base: "8rem", md: "20rem" }}
+          mb={{ base: "5rem", md: 0 }}
+        >
           <Text
             fontSize={{ base: "1.5rem", xl: "2.5rem", md: "2rem" }}
             fontWeight="semibold"
             color="white"
             textAlign="start"
-            whiteSpace={"pre-line"}
+            whiteSpace="pre-line"
           >
             {useTranslation("blog.title")}
           </Text>
-          <Text fontSize={{ base: "1rem", xl: "1.3rem", md: "1.2rem" }}
-            fontWeight={"bold"}
+          <Text
+            fontSize={{ base: "1rem", xl: "1.3rem", md: "1.2rem" }}
+            fontWeight="bold"
             w={{ base: "100%", md: "75%" }}
-            color={"white"}> {useTranslation("blog.description")}</Text>
+            color="white"
+          >
+            {useTranslation("blog.description")}
+          </Text>
         </Box>
       </HStack>
+
       <VStack w={{ base: "100%", md: "90%" }}>
-        <Text w={{ base: "90%", md: "100%" }} textTransform={"uppercase"} fontSize={{ base: "2rem", md: "2.5rem", lg: "2.5rem" }} textAlign={"start"} fontFamily={lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', 'Regular'`} fontWeight="bold" mt={{ base: "2rem", lg: "3rem" }} mb={{ base: "1rem", lg: "2rem" }}>
-          {
-            lang === "ar" ? "مقالات حديثة" : "recent blog posts"
-          }        </Text>
+        <Text
+          w={{ base: "90%", md: "100%" }}
+          textTransform="uppercase"
+          fontSize={{ base: "2rem", md: "2.5rem", lg: "2.5rem" }}
+          textAlign="start"
+          fontFamily={lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', 'Regular'`}
+          fontWeight="bold"
+          mt={{ base: "2rem", lg: "3rem" }}
+          mb={{ base: "1rem", lg: "2rem" }}
+        >
+          {lang === "ar" ? "مقالات حديثة" : "recent blog posts"}
+        </Text>
 
         <ArticleList articles={dummyArticles} />
       </VStack>
     </VStack>
-  )
-}
+  );
+};

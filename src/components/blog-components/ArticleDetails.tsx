@@ -1,69 +1,156 @@
 import { selectLanguage } from "@/store/slices/languageSlice";
-import { VStack, Box, Text, HStack } from "@chakra-ui/react";
+import { VStack, Box, Text, HStack, Spinner, Center, Button } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { FaBell } from "react-icons/fa6";
-
+import { useEffect, useState } from "react";
 import { dummyArticles as articles } from "@/pages/Blog";
+import mammoth from "mammoth";
+// import { Helmet } from "react-helmet-async";
+import { SEO } from "../SEO";
 
 export const ArticleDetails = () => {
-    const lang = useSelector(selectLanguage)
-    const chosenArticle = articles.find(
-        (article) => article.id === Number(window.location.pathname.split("/")[2])
-    );
-    return (
-        <VStack
-            w={"90vw"}
-            align={"start"}
-            textAlign={"start"}
-            gap={"2rem"}
-            m={"2rem"}
-        >
-            <Box
-                bgImage={`url(${chosenArticle?.image})`}
-                bgSize={"cover"}
-                w={"100%"}
-                h={"300px"}
-                borderRadius={"10px"}
-            />
-            <HStack w={"100%"} justifyContent={"space-between"}>
-                <Text
-                    color={"rgba(46, 54, 81, 1)"}
-                    fontSize={{ base: "1.25rem", md: "1.5rem", lg: "2rem" }}
-                >
-                    {" "}
-                    {lang === "en" ? chosenArticle?.title.en : chosenArticle?.title.ar}
-                </Text>
-                <Text
-                    color={"rgba(95, 97, 102, 1)"}
-                    fontSize={{ base: "1rem", md: "1.25rem", lg: "1.5rem" }}
-                >
-                    {" "}
-                    {chosenArticle?.date}
-                </Text>
-            </HStack>
-            <VStack minH={"70vh"}>
-                <Text>{lang === "en" ? chosenArticle?.description.en : chosenArticle?.description.ar}</Text>
-            </VStack>
-            <HStack w={"100%"}>
-                <Text
-                    w={{ base: "40%", md: "50%" }}
-                    color={"rgba(46, 54, 81, 1)"}
-                    fontSize={{ base: "1.25rem", md: "1.5rem" }}
-                >
-                    {lang === "en" ? "Do you need legal help? Subcribe to our plans now" : " هل تحتاج لمساعدة في قضيتك العمالية؟ اشترك في باقاتنا الان"}
-                </Text>
-                <Box
-                    as={"button"}
-                    width={{ base: "40%", md: "30%" }}
+    const lang = useSelector(selectLanguage);
+    const [loading, setLoading] = useState(true);
+    const [htmlContent, setHtmlContent] = useState<string>("");
 
-                    bgColor={"rgba(90, 119, 187, 1)"}
-                    color={"white"}
-                    onClick={() => window.open("https://portal.lsc-sa.net/", "_blank")}
-                    borderRadius={"2xl"}
-                >
-                    {lang === "en" ? "Subscribe Now" : "  التفاصيل والاشتراك"} <FaBell style={{ display: "inline", marginLeft: "0.5rem" }} />
-                </Box>
-            </HStack>
-        </VStack>
+    const id = Number(window.location.pathname.split("/")[2]);
+    const chosenArticle = articles.find((article) => article.id === id);
+
+    const contentUrl = chosenArticle?.contentUrl?.[lang];
+    const seo = chosenArticle?.seo?.[lang]; // 👈 Add SEO data in your dummyArticles object
+
+    useEffect(() => {
+        const loadDocx = async () => {
+            if (!contentUrl) {
+                setLoading(false);
+                return;
+            }
+
+            try {
+                const response = await fetch(contentUrl);
+                if (!response.ok) throw new Error("Failed to fetch document");
+                const arrayBuffer = await response.arrayBuffer();
+
+                const { value } = await mammoth.convertToHtml({ arrayBuffer });
+                setHtmlContent(value);
+            } catch (err) {
+                console.error("Error loading document:", err);
+                setHtmlContent(
+                    `<p style="color:red;">${lang === "ar"
+                        ? "حدث خطأ أثناء تحميل المقال."
+                        : "An error occurred while loading the article."
+                    }</p>`
+                );
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadDocx();
+    }, [contentUrl, lang]);
+
+    return (
+        <>
+            {/* 🌐 SEO META TAGS */}
+            {seo && (
+                // <Helmet>
+                //     <title>{seo.title}</title>
+                //     <meta name="description" content={seo.description} />
+                //     <meta name="keywords" content={seo.keywords?.join(", ")} />
+                //     <meta property="og:title" content={seo.title} />
+                //     <meta property="og:description" content={seo.description} />
+                //     <meta property="og:image" content={chosenArticle?.image} />
+                //     <meta property="og:type" content="article" />
+                //     <meta name="twitter:title" content={seo.title} />
+                //     <meta name="twitter:description" content={seo.description} />
+                //     <meta name="twitter:image" content={chosenArticle?.image} />
+                // </Helmet>
+                <SEO title={seo.title} description={seo.description} keywords={seo.keywords.join(", ")} />
+            )}
+            {console.log(seo)}
+
+            <VStack w="100vw" align="start" textAlign="start" gap="2rem">
+                <Box
+                    bgImage={`url(${chosenArticle?.image})`}
+                    bgSize="cover"
+                    w="100%"
+                    h="300px"
+                    borderRadius="10px"
+                />
+
+                <Center w="90vw" m="2rem" flexDir="column" gap="2rem">
+                    <HStack w="100%" justifyContent="space-between">
+                        <Text
+                            color="rgba(46, 54, 81, 1)"
+                            fontSize={{ base: "1.25rem", md: "1.5rem", lg: "2rem" }}
+                        >
+                            {lang === "en" ? chosenArticle?.title.en : chosenArticle?.title.ar}
+                        </Text>
+                        <Text
+                            color="rgba(95, 97, 102, 1)"
+                            fontSize={{ base: "1rem", md: "1.25rem", lg: "1.5rem" }}
+                        >
+                            {chosenArticle?.date}
+                        </Text>
+                    </HStack>
+
+                    {/* 🧩 Main Content */}
+                    <VStack minH="70vh" w="100%">
+                        {loading ? (
+                            <Center w="100%" h="70vh">
+                                <Spinner size="xl" />
+                            </Center>
+                        ) : htmlContent ? (
+                            <Box
+                                w="100%"
+                                p={4}
+                                bg="white"
+                                borderRadius="md"
+                                boxShadow="sm"
+                                fontFamily={
+                                    lang === "ar"
+                                        ? `'Cairo', sans-serif`
+                                        : `'Montserrat', sans-serif`
+                                }
+                                fontSize={{ base: "1rem", md: "1.1rem" }}
+                                lineHeight="1.8"
+                                dir={lang === "ar" ? "rtl" : "ltr"}
+                                dangerouslySetInnerHTML={{ __html: htmlContent }}
+                            />
+                        ) : (
+                            <Text fontSize={{ base: "1rem", md: "1.1rem" }}>
+                                {lang === "en"
+                                    ? chosenArticle?.description.en
+                                    : chosenArticle?.description.ar}
+                            </Text>
+                        )}
+                    </VStack>
+
+                    {/* 📩 Subscription CTA */}
+                    <HStack w="100%" justifyContent="space-between" flexWrap="wrap">
+                        <Text
+                            w={{ base: "100%", md: "60%" }}
+                            color="rgba(46, 54, 81, 1)"
+                            fontSize={{ base: "1.25rem", md: "1.5rem" }}
+                        >
+                            {lang === "en"
+                                ? "Do you need help? Subscribe to our plans now"
+                                : "هل تحتاج لمساعدة ؟ اشترك في باقاتنا الآن"}
+                        </Text>
+
+                        <Button
+                            bgColor="rgba(90, 119, 187, 1)"
+                            color="white"
+                            borderRadius="2xl"
+                            _hover={{ bg: "rgba(77, 104, 166, 1)" }}
+                            onClick={() => window.open("https://exoln.com/", "_blank")}
+                        >
+                            <FaBell style={{ marginInlineEnd: "0.5rem" }} />
+                            {lang === "en" ? "Subscribe Now" : "التفاصيل والاشتراك"}
+                        </Button>
+                    </HStack>
+                </Center>
+            </VStack>
+        </>
     );
 };

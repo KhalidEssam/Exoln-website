@@ -2,54 +2,71 @@ export type Slide = {
   title: { en: string; ar: string };
   subtitle: { en: string; ar: string };
   description: { en: string; ar: string };
-  bgcolor:string;
+  bgcolor: string;
 };
 
 
 export interface articleProbs {
-    id: number;
-    subtitle?: {
-        en: string;
-        ar: string
+  id: number;
+  subtitle?: {
+    en: string;
+    ar: string
+  };
+  title: {
+    en: string;
+    ar: string
+  };
+  description: {
+    en: string;
+    ar: string
+  };
+  image: string;
+  date: string;
+  featured?: boolean;
+  ref: string;
+  contentUrl?: {
+    en: string;
+    ar: string;
+  };
+  seo? : {
+    en: {
+      title: string;
+      description: string;
+      keywords: string[];
     };
-    title: {
-        en: string;
-        ar: string
+    ar: {
+      title: string;
+      description: string;
+      keywords: string[];
     };
-    description: {
-        en: string;
-        ar: string
-    };
-    image: string;
-    date: string;
-    featured?: boolean;
-    ref: string;
+  }
+
 }
 
 export interface procedureProbs {
-    id: number;
-    subtitle?: {
-        en: string;
-        ar: string
-    };
-    title: {
-        en: string;
-        ar: string
-    };
-    description: {
-        en: string;
-        ar: string
-    };
-    bgColor: string;
-    date: string;
-    featured?: boolean;
-    ref: string;
+  id: number;
+  subtitle?: {
+    en: string;
+    ar: string
+  };
+  title: {
+    en: string;
+    ar: string
+  };
+  description: {
+    en: string;
+    ar: string
+  };
+  bgColor: string;
+  date: string;
+  featured?: boolean;
+  ref: string;
 }
 
 export interface BannerProps {
-    title:string;
-    subtitle:string;
-    action?: React.ButtonHTMLAttributes<HTMLButtonElement>;
+  title: string;
+  subtitle: string;
+  action?: React.ButtonHTMLAttributes<HTMLButtonElement>;
 }
 
 import type { ReactNode } from "react";
@@ -72,20 +89,20 @@ export interface TrustCardProps {
 
 
 export interface PlanProbs {
-    title: { en: string; ar: string };
-    text?:{ en: string; ar: string };
-    subtitle: { en: string; ar: string };
-    description: { en: string; ar: string }[];
-    whofor: { en: string; ar: string }[];
-    info?: { en: string; ar: string };
-    price?: { en: string; ar: string };
-    features: { en: string; ar: string }[];
-    Image?: string; // Optional image property
-    icon?: {
-        icon: React.ReactElement; // Icon component
-        color: string; // Color for the icon
-    }; // Optional icon property
-    ref?: string;
+  title: { en: string; ar: string };
+  text?: { en: string; ar: string };
+  subtitle: { en: string; ar: string };
+  description: { en: string; ar: string }[];
+  whofor: { en: string; ar: string }[];
+  info?: { en: string; ar: string };
+  price?: { en: string; ar: string };
+  features: { en: string; ar: string }[];
+  Image?: string; // Optional image property
+  icon?: {
+    icon: React.ReactElement; // Icon component
+    color: string; // Color for the icon
+  }; // Optional icon property
+  ref?: string;
 }
 
 export type TabContentItem = {
@@ -107,9 +124,9 @@ export interface SwiperSliderProps {
 
 
 export interface StatCardProps {
-    title: { en: string; ar: string };
-    number: { en: string; ar: string };
-    subtitle: { en: string; ar: string };
+  title: { en: string; ar: string };
+  number: { en: string; ar: string };
+  subtitle: { en: string; ar: string };
 }
 
 
@@ -146,13 +163,13 @@ export type Blog = {
 
 
 export interface UserCommentProbs {
-    name: {
-        en: string;
-        ar: string
-    };
-    avatar: string;
-    comment: {
-        en: string;
-        ar: string
-    };
+  name: {
+    en: string;
+    ar: string
+  };
+  avatar: string;
+  comment: {
+    en: string;
+    ar: string
+  };
 }
