@@ -1,5 +1,5 @@
 import { ArticleList } from "@/components/blog-components/ArticleList";
-import { VStack, HStack, Box, Text } from "@chakra-ui/react";
+import { VStack, Box, Text, Image } from "@chakra-ui/react";
 import type { articleProbs } from "@/types/types";
 import { useTranslation } from "@/hooks/useTranslation";
 import { useSelector } from "react-redux";
@@ -145,34 +145,53 @@ export const Blog = () => {
 
   return (
     <VStack gap={4} mb={16} w="100%" align="center" bgColor="#F9F9F9">
-      <HStack
-        bgImage="url(./pattern.webp)"
-        top={0}
+      <Box
+        as="header"
+        position="relative"
         width="100%"
-        bgSize="cover"
-        bgPos="center"
         height="100vh"
+        overflow="hidden"
       >
-        <Box
-          className="overlay"
+        {/* Background Image with lazy loading and async decoding */}
+        <Image
+          src="./pattern.webp"
+          alt=""
           position="absolute"
           top={0}
           left={0}
-          w="100%"
-          h="100vh"
-          bg="blackAlpha.600"
+          width="100%"
+          height="100%"
+          objectFit="cover"
+          objectPosition="center"
+          loading="lazy"
+          decoding="async"
           zIndex={0}
         />
+
+        {/* Overlay */}
+        <Box
+          position="absolute"
+          top={0}
+          left={0}
+          right={0}
+          bottom={0}
+          bg="blackAlpha.600"
+          zIndex={1}
+        />
+
+        {/* Content */}
         <Box
           w={{ base: "100%", md: "80%" }}
           fontFamily={lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', 'Regular'`}
           textAlign="start"
           p={16}
-          zIndex={1}
-          mt={{ base: "8rem", md: "20rem" }}
+          position="relative"
+          zIndex={2}
+          mt={{ base: "8rem", md: "35rem" }}
           mb={{ base: "5rem", md: 0 }}
         >
           <Text
+            as="h1"
             fontSize={{ base: "1.5rem", xl: "2.5rem", md: "2rem" }}
             fontWeight="semibold"
             color="white"
@@ -190,10 +209,11 @@ export const Blog = () => {
             {useTranslation("blog.description")}
           </Text>
         </Box>
-      </HStack>
+      </Box>
 
       <VStack w={{ base: "100%", md: "90%" }}>
         <Text
+          as="h2"
           w={{ base: "90%", md: "100%" }}
           textTransform="uppercase"
           fontSize={{ base: "2rem", md: "2.5rem", lg: "2.5rem" }}
