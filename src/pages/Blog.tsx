@@ -9,7 +9,7 @@ export const dummyArticles: articleProbs[] = [
   {
     id: 1,
     subtitle: { en: "Business Growth", ar: "نمو الأعمال" },
-    title: { en: "The Importance of Accounting and Bookkeeping | Exoln Business Insights", ar: "أهمية المحاسبة ومسك الدفاتر لكل عمل تجاري | رؤى أكسولن  Exoln   للأعمال" },
+    title: { en: "The Importance of Accounting and Bookkeeping | Exoln Business Insights", ar: "أهمية المحاسبة ومسك الدفاتر لكل عمل تجاري | رؤى إكسولن  Exoln   للأعمال" },
     description: {
       en: "Learn proven strategies to scale your startup effectively while maintaining efficiency and culture.",
       ar: "تعرف على استراتيجيات مثبتة لتوسيع نطاق شركتك الناشئة مع الحفاظ على الكفاءة والثقافة."
@@ -39,7 +39,7 @@ export const dummyArticles: articleProbs[] = [
         ],
       },
       ar: {
-        title: "أهمية المحاسبة ومسك الدفاتر لكل عمل تجاري | رؤى أكسولن  Exoln للأعمال",
+        title: "أهمية المحاسبة ومسك الدفاتر لكل عمل تجاري | رؤى إكسولن  Exoln للأعمال",
         description:
           "اكتشف لماذا تعتبر المحاسبة ومسك الدفاتر من الأساسيات لأي عمل تجاري. توضح شركة Exoln كيف يساعد التنظيم المالي الجيد في تحقيق النمو والالتزام واتخاذ قرارات أفضل.",
         keywords: [
@@ -85,7 +85,7 @@ export const dummyArticles: articleProbs[] = [
         ],
       },
       ar: {
-        title: "أهمية المحاسبة ومسك الدفاتر لكل عمل تجاري | رؤى أكسولن  Exoln للأعمال",
+        title: "أهمية المحاسبة ومسك الدفاتر لكل عمل تجاري | رؤى إكسولن  Exoln للأعمال",
         description:
           "اكتشف لماذا تعتبر المحاسبة ومسك الدفاتر من الأساسيات لأي عمل تجاري. توضح شركة Exoln كيف يساعد التنظيم المالي الجيد في تحقيق النمو والالتزام واتخاذ قرارات أفضل.",
         keywords: [
