@@ -65,14 +65,14 @@ export const Exolnix = () => {
             {
                 title: {
                     en: "Financial disorder or lack of cashflow visibility.",
-                    ar: "الاضطراب المالي أو عدم وضوح التدفق النقدي.",
+                    ar: "فوضى مالية أو عدم وضوح في رؤية التدفق النقدي.",
                 },
                 description: { en: "", ar: "" },
             },
             {
                 title: {
                     en: "Absence of regular reports for decision-making.",
-                    ar: "غياب التقارير الدورية لدعم اتخاذ القرار.",
+                    ar: "غياب التقارير المنتظمة لاتخاذ القرارات.",
                 },
                 description: { en: "", ar: "" },
             },
@@ -86,14 +86,14 @@ export const Exolnix = () => {
             {
                 title: {
                     en: "Non-compliance with tax and zakat requirements.",
-                    ar: "عدم الامتثال لمتطلبات الضرائب والزكاة.",
+                    ar: "ضعف متابعة المصروفات والإيرادات اليومية.",
                 },
                 description: { en: "", ar: "" },
             },
             {
                 title: {
                     en: "Lack of financial planning for upcoming projects.",
-                    ar: "غياب التخطيط المالي للمشاريع القادمة.",
+                    ar: "عدم وجود تخطيط مالي للمشاريع القادمة",
                 },
                 description: { en: "", ar: "" },
             },

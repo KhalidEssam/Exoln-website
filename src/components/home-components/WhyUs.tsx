@@ -77,9 +77,10 @@ const ReasonCard = memo(({
             backdropFilter="blur(6px)"
             transition="transform 0.2s ease, background 0.2s ease"
             _hover={{ transform: "translateY(-4px)", bg: "whiteAlpha.200" }}
+            justifyContent={"space-between"}
         >
             <Circle border="2px solid white" size="50px" bg="transparent">
-                <FaCheck size="2rem" aria-hidden="true" />
+                <FaCheck size="1.5rem" aria-hidden="true" />
             </Circle>
             <Text
                 fontFamily="Cairo"
@@ -90,7 +91,7 @@ const ReasonCard = memo(({
             >
                 {lang === "ar" ? reason.title.ar : reason.title.en}
             </Text>
-            <Text fontSize="1rem" textAlign="center" lineHeight={1.5}>
+            <Text fontSize="1rem" color={"whiteAlpha.700"} textAlign="center" lineHeight={1.5}>
                 {lang === "ar" ? reason.description.ar : reason.description.en}
             </Text>
         </VStack>

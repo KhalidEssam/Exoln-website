@@ -26,11 +26,12 @@ const StepComp = ({
                 dir={lang === "ar" ? "rtl" : "ltr"}
                 flexDir={direction === "horizontal" ? "row" : "column"}
                 flexWrap="wrap"
-                gap={8}
-                justifyContent="space-around"
-                alignItems="stretch"
-                // maxW="90vw"
-                maxH={{ base: "auto", md: direction === "horizontal" ? "none" : "60vh" }}
+                gap={6}
+                justifyContent={"space-between"}
+                // alignItems="stretch"
+                overflow={"hidden"}
+
+                maxH={{ base: "auto", md: direction === "horizontal" ? "none" : "60vh", "2xl": direction === "horizontal" ? "none" : "40vh" }}
             >
                 {steps.map((step, index) => (
                     <Steps.Item
@@ -47,8 +48,10 @@ const StepComp = ({
                         <Stack
                             direction={direction === "horizontal" ? "column" : "row"}
                             align="center"
+                            justifyContent={"space-between"}
                             gap={3}
-                            w="100%"
+                            // w="40vw"
+                            w={"100%"}
                             h="100%"
                         >
                             <Steps.Indicator order={(lang === "en") ? 0 : 1} color="white" width={"50px"} height={"50px"} bgColor={color} border="none">
@@ -57,7 +60,7 @@ const StepComp = ({
                                 </Text>
                             </Steps.Indicator>
 
-                            <Stack w={"100%"} order={direction === "horizontal" ? 1 : 0} pl={4} textAlign="center" gap={1} flexShrink={0}>
+                            <Stack w={"90%"} dir={lang === "ar" ? "rtl" : "ltr"} align={direction === "horizontal" ? "center" : "start"} order={direction === "horizontal" ? 1 : 0} pl={4} textAlign="center" gap={1} flexShrink={0}>
                                 <Steps.Description fontSize="lg" color="#707070">
                                     {lang === "en" ? step.description.en : step.description.ar}
                                 </Steps.Description>
@@ -75,7 +78,7 @@ export const WhyThisService = (props: Props) => {
 
     return (
         <VStack
-            maxW={"80vw"}
+            maxW={"90vw"}
             // w="80%"
             p={{ base: 4, md: 8 }}
             gap={8}

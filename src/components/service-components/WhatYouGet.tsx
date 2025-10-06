@@ -24,10 +24,9 @@ const Demo = ({
         <Steps.Root defaultStep={10} count={steps.length} color={color}>
             <Steps.List
                 dir={lang === "ar" ? "rtl" : "ltr"}
-
                 flexDir={direction === "horizontal" ? "row" : "column"}
                 flexWrap="wrap"
-                gap={8}
+                gap={4}
                 justifyContent="space-around"
                 alignItems="stretch"
                 maxW="100%"
@@ -39,7 +38,7 @@ const Demo = ({
                         key={index}
                         index={index}
                         flex="1 1 30%"
-                        maxW={{ base: "80%", md: direction === "horizontal" ? "22%" : "40%" }}
+                        maxW={{ base: "80%", md: direction === "horizontal" ? "32%" : "40%", lg: direction === "horizontal" ? "22%" : "40%" , "2xl": direction === "horizontal" ? "17%" : "40%"}}
                         minH="100px"
                         display="flex"
                         h="100%"
@@ -48,19 +47,19 @@ const Demo = ({
                             direction={direction === "horizontal" ? "column" : "row"}
                             align="center"
                             gap={3}
-                            w="100%"
+                            // w="100%"
                             h="100%"
                         >
                             <Circle order={(lang === "en") ? 0 : 1} size="50px" bg={"transparent"} color="white" display="flex"
                                 alignItems="center" justifyContent="center" fontFamily={"Agency FB"}
-                                border={"3px solid " + color}>
-                                <Steps.Indicator color={color} fontSize={"3rem"} bgColor={"transparent"} border={"none"}>
-                                    <GiCheckMark size={"1.5rem"} />
-                                </Steps.Indicator>
+                                border={"5px solid " + color}>
+                                {/* <Steps.Indicator color={color} fontSize={"2rem"} bgColor={"transparent"}> */}
+                                <GiCheckMark color={color} size={"1.5rem"} />
+                                {/* </Steps.Indicator> */}
                             </Circle>
 
 
-                            <Stack order={direction === "horizontal" ? 1 : 0} pl={4} p={2} maxW={{ base: "100%", md: "50%", xl: "60%" }} textAlign="center" gap={1} flexShrink={0}>
+                            <Stack dir={lang === "ar" ? "rtl" : "ltr"} align={direction === "horizontal" ? "center" : "start"} order={direction === "horizontal" ? 1 : 0} pl={4} p={2} maxW={{ base: "100%", md: "90%", xl: "80%" }} textAlign="center" gap={1} flexShrink={0}>
                                 <Steps.Title fontWeight={"bold"} fontSize="lg" color="#707070">{step.title}</Steps.Title>
                                 <Steps.Description fontSize="lg" color="#707070">{lang === "en" ? step.description.en : step.description.ar}</Steps.Description>
                             </Stack>
@@ -78,8 +77,7 @@ export const WhatYouGet = (props: Props) => {
 
     return (
         <VStack
-            maxW={"85vw"}
-            // w="80%"
+            maxW={"90vw"}
             p={{ base: 4, md: 8 }}
             gap={8}
         >

@@ -10,7 +10,10 @@ type WhoWeSurveProps = {
 export const WhoWeSurve = ({ Services }: WhoWeSurveProps) => {
     const lang = useSelector(selectLanguage)
     return (
-        <VStack justifyContent="center" alignItems="center" w={"80%"} gap={8}>
+        <VStack justifyContent="center" alignItems="center" gap={4} mb={8}>
+            <Text fontSize="2xl" fontWeight="bold" color="black" mb={4} mt={8} fontFamily={"Cairo"}>
+                {lang === "en" ? "Who We Serve" : "من نخدم"}
+            </Text>
             <HStack
                 w="90%"
                 align="stretch"
@@ -25,7 +28,7 @@ export const WhoWeSurve = ({ Services }: WhoWeSurveProps) => {
                         position="relative"
                         justify="center"
                         align="center"
-                        maxW={{ base: "90vw", md: "300px" }}
+                        maxW={{ base: "90vw", md: "300px", lg: "22%" }}
                         minH="200px"
                         boxShadow={"0 4px 6px rgba(0, 0, 0, 0.1)"}
                         borderRadius="lg"

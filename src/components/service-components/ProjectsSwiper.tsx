@@ -4,6 +4,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import useSwiperDirectionFix from "@/hooks/useSwiperDirectionFix";
 import "swiper/swiper-bundle.css";
+import { useSelector } from "react-redux";
+
 
 const images = ["/proj-2.webp", "/proj-1.webp", "/proj-3.webp"];
 
@@ -13,12 +15,13 @@ const Slides = Array.from({ length: 9 }, (_, i) => ({
 }));
 
 export const ProjectsSwiper = () => {
+    const lang = useSelector((state: any) => state.language.lang);
     const { swiperRef, direction, key } = useSwiperDirectionFix();
 
     return (
         <VStack w="100%" maxW="80vw" mx="auto" gap={8}>
             <Text fontSize="2xl" fontWeight="bold">
-                Projects That Speak
+                {lang === "en" ? "Projects That Speak" : "بعض من مشاريعنا"}
             </Text>
 
             <Swiper

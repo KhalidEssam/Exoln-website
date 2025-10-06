@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { useState, useCallback, memo } from "react";
+import { ServiceSelector } from "../components/ServiceSelector.tsx";
 
 // Memoized Contact Hero Background Component
 const ContactHeroBackground = memo(() => {
@@ -53,7 +54,7 @@ const ContactHeroBackground = memo(() => {
                 </Box>
             )}
 
-            {/* Fallback gradient (shows while loading OR if image fails) */}
+            {/* Fallback gradient */}
             <Box
                 position="absolute"
                 inset={0}
@@ -66,7 +67,7 @@ const ContactHeroBackground = memo(() => {
                 transition="opacity 0.6s ease-in-out"
             />
 
-            {/* Dark overlay for better text readability */}
+            {/* Dark overlay */}
             <Box
                 position="absolute"
                 inset={0}
@@ -97,51 +98,95 @@ ContactHeroBackground.displayName = "ContactHeroBackground";
 const ContactInput = memo(({
     type = "text",
     placeholder,
-    width = { base: "100%", md: "49%" }
+    width = { base: "100%", md: "49%" },
+    value,
+    onChange,
+    name
 }: {
     type?: string;
     placeholder: string;
     width?: { base: string; md: string };
-}) => (
+    value?: string;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    name?: string;
+}) => {
+    const lang = useSelector(selectLanguage);
 
-    <Input
-        dir={useSelector(selectLanguage)
-            === "en" ? "ltr" : "rtl"}
-        type={type}
-        bg="transparent"
-        p={4}
-        color="white"
-        placeholder={placeholder}
-        _placeholder={{ color: "white", opacity: 0.9 }}
-        width={width}
-        height="2.5rem"
-        mt={4}
-        border="2px solid white"
-        borderRadius="4xl"
-        _hover={{
-            borderColor: "whiteAlpha.800",
-            bg: "whiteAlpha.100"
-        }}
-        _focus={{
-            borderColor: "white",
-            boxShadow: "0 0 0 1px white",
-            bg: "whiteAlpha.50"
-        }}
-        transition="all 0.2s ease"
-    />
-));
+    return (
+        <Input
+            name={name}
+            value={value}
+            onChange={onChange}
+            dir={lang === "en" ? "ltr" : "rtl"}
+            type={type}
+            bg="transparent"
+            p={4}
+            color="white"
+            placeholder={placeholder}
+            _placeholder={{ color: "white", opacity: 0.9 }}
+            width={width}
+            height="2.5rem"
+            mt={4}
+            border="2px solid white"
+            borderRadius="4xl"
+            _hover={{
+                borderColor: "whiteAlpha.800",
+                bg: "whiteAlpha.100"
+            }}
+            _focus={{
+                borderColor: "white",
+                boxShadow: "0 0 0 1px white",
+                bg: "whiteAlpha.50"
+            }}
+            transition="all 0.2s ease"
+        />
+    );
+});
 
 ContactInput.displayName = "ContactInput";
 
 export const Contact = () => {
     const lang = useSelector(selectLanguage);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        company: "",
+        phone: "",
+    });
+    const [selectedServices, setSelectedServices] = useState<Set<string>>(new Set());
 
-    const handleSubmit = useCallback(() => {
-        setIsSubmitting(true);
-        // Add your form submission logic here
-        setTimeout(() => setIsSubmitting(false), 2000);
+    const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
     }, []);
+
+    const handleSubmit = useCallback((e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+
+        // Prepare submission data
+        const submissionData = {
+            ...formData,
+            services: Array.from(selectedServices),
+        };
+
+        console.log("Form submitted:", submissionData);
+
+        // Add your API call here
+        // Example:
+        // await fetch('/api/contact', {
+        //   method: 'POST',
+        //   body: JSON.stringify(submissionData),
+        // });
+
+        setTimeout(() => {
+            setIsSubmitting(false);
+            // Reset form on success
+            setFormData({ name: "", email: "", company: "", phone: "" });
+            setSelectedServices(new Set());
+        }, 2000);
+    }, [formData, selectedServices]);
 
     return (
         <VStack w="100vw">
@@ -149,7 +194,7 @@ export const Contact = () => {
                 position="relative"
                 top={0}
                 width="100%"
-                height="100vh"
+                minHeight="120vh"
                 overflow="hidden"
                 isolation="isolate"
             >
@@ -163,7 +208,7 @@ export const Contact = () => {
                     p={{ base: 8, md: 16 }}
                     zIndex={2}
                     mt={{ base: "4rem", md: "5rem" }}
-                    mb={{ base: "5rem", md: 0 }}
+                    mb={{ base: "5rem", md: "2rem" }}
                 >
                     <Text
                         fontSize={{ base: "1.5rem", md: "2rem", xl: "2.5rem" }}
@@ -184,74 +229,94 @@ export const Contact = () => {
                     </Text>
 
                     {/* Contact Form */}
-                    <HStack
-                        justifyContent="space-between"
-                        flexWrap="wrap"
-                        color="white"
-                        mt={8}
-                        as="form"
-                        onSubmit={(e) => {
-                            e.preventDefault();
-                            handleSubmit();
-                        }}
-                    >
-                        <ContactInput
-                            type="text"
-                            placeholder={useTranslation("contact.Name")}
-                        />
-
-                        <ContactInput
-                            type="email"
-                            placeholder={useTranslation("contact.email")}
-                        />
-
-                        <ContactInput
-                            type="text"
-                            placeholder={useTranslation("contact.company")}
-                        />
-
-                        <ContactInput
-                            type="tel"
-                            placeholder={useTranslation("contact.phone")}
-                        />
-                    </HStack>
-
-                    {/* Submit Button */}
                     <Box
-                        as="button"
-                        border="2px solid white"
-                        borderRadius="4xl"
-                        bg="transparent"
-                        p={4}
-                        mt={4}
-                        fontSize="1rem"
-                        color="white"
-                        fontWeight="500"
-                        width={{ base: "100%", md: "49%" }}
-                        cursor={isSubmitting ? "not-allowed" : "pointer"}
-                        opacity={isSubmitting ? 0.7 : 1}
-                        _hover={{
-                            bg: "white",
-                            color: "black",
-                            transform: "translateY(-2px)",
-                            boxShadow: "0 4px 12px rgba(255, 255, 255, 0.3)"
-                        }}
-                        _active={{
-                            transform: "translateY(0)",
-                        }}
-                        _disabled={{
-                            cursor: "not-allowed",
-                            opacity: 0.7
-                        }}
-                        transition="all 0.3s ease"
-                        onClick={handleSubmit}
+                        as="form"
+                        onSubmit={handleSubmit}
                     >
-                        {isSubmitting
-                            ? useTranslation("contact.Sending") || "Sending..."
-                            : useTranslation("contact.SendMessage")}
+                        <HStack
+                            justifyContent="space-between"
+                            flexWrap="wrap"
+                            color="white"
+                            mt={8}
+                        >
+                            <ContactInput
+                                name="name"
+                                value={formData.name}
+                                onChange={handleInputChange}
+                                type="text"
+                                placeholder={useTranslation("contact.Name")}
+                            />
+
+                            <ContactInput
+                                name="email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                type="email"
+                                placeholder={useTranslation("contact.email")}
+                            />
+
+                            <ContactInput
+                                name="company"
+                                value={formData.company}
+                                onChange={handleInputChange}
+                                type="text"
+                                placeholder={useTranslation("contact.company")}
+                            />
+
+                            <ContactInput
+                                name="phone"
+                                value={formData.phone}
+                                onChange={handleInputChange}
+                                type="tel"
+                                placeholder={useTranslation("contact.phone")}
+                            />
+                        </HStack>
+
+                        {/* Service Selector */}
+                        <ServiceSelector
+                            selectedServices={selectedServices}
+                            onServicesChange={setSelectedServices}
+                            placeholder={useTranslation("contact.selectServices") || "Select Services *"}
+                        />
+
+                        {/* Submit Button */}
+                        <Box
+                            as="button"
+                            // type="submit"
+                            border="2px solid white"
+                            borderRadius="4xl"
+                            bg="transparent"
+                            p={4}
+                            mt={6}
+                            fontSize="1rem"
+                            color="white"
+                            fontWeight="500"
+                            width={{ base: "100%", md: "49%" }}
+                            cursor={isSubmitting ? "not-allowed" : "pointer"}
+                            opacity={isSubmitting ? 0.7 : 1}
+                            _hover={{
+                                bg: "white",
+                                color: "black",
+                                transform: "translateY(-2px)",
+                                boxShadow: "0 4px 12px rgba(255, 255, 255, 0.3)"
+                            }}
+                            _active={{
+                                transform: "translateY(0)",
+                            }}
+                            _disabled={{
+                                cursor: "not-allowed",
+                                opacity: 0.7
+                            }}
+                            transition="all 0.3s ease"
+                        //  disabled={isSubmitting}
+                        >
+                            {isSubmitting
+                                ? useTranslation("contact.Sending") || "Sending..."
+                                : useTranslation("contact.SendMessage")}
+                        </Box>
                     </Box>
                 </Box>
             </HStack>
         </VStack>
     );
-};  
+};

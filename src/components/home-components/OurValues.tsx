@@ -18,7 +18,7 @@ export const OurValues = () => {
             {/* INTEGRATED VALUE DELIVERY */}
             {useTranslation("home.ourvalues.title")}
         </Text>
-        <Text fontSize={"1.5rem"} color={"#707070"}>
+        <Text fontSize={"1.5rem"} maxW={{ base: "100%", lg: "60%" }} fontFamily={lang === "ar" ? "'Cairo', sans-serif" : "'Montserrat', 'Regular'"} color={"#707070"}>
             {useTranslation("home.ourvalues.subtitle")}
             {/* At Exoln, we believe in a seamless and well-structured process — one that not only overcomes challenges but also transforms them into powerful opportunities for sustainable growth and long-term success. */}
         </Text>
@@ -33,7 +33,7 @@ export const OurValues = () => {
 
 
                 <Text fontSize={"1.5rem"}>{useTranslation("home.ourvalues.1stvalue.title")}</Text>
-                <Text fontSize={"1.25rem"}>{useTranslation("home.ourvalues.1stvalue.subtitle")}</Text>
+                <Text fontSize={"1.25rem"} maxW={{ base: "100%", lg: "70%" }}>{useTranslation("home.ourvalues.1stvalue.subtitle")}</Text>
             </VStack>
             <Box
                 bg="#6B6B6B"
@@ -48,7 +48,7 @@ export const OurValues = () => {
                     <path d="M51.307 13.664C52.2739 13.664 53.2192 13.3773 54.0231 12.84C54.8271 12.3028 55.4538 11.5393 55.8238 10.6459C56.1939 9.75258 56.2907 8.76957 56.102 7.82119C55.9134 6.87282 55.4477 6.00168 54.764 5.31794C54.0803 4.6342 53.2091 4.16857 52.2608 3.97993C51.3124 3.79129 50.3294 3.8881 49.436 4.25814C48.5427 4.62818 47.7791 5.25481 47.2419 6.05881C46.7047 6.8628 46.418 7.80804 46.418 8.77499C46.4193 10.0712 46.9348 11.314 47.8514 12.2306C48.768 13.1471 50.0107 13.6627 51.307 13.664ZM51.307 6.60599C51.736 6.60599 52.1553 6.7332 52.512 6.97153C52.8687 7.20986 53.1467 7.54861 53.3109 7.94495C53.475 8.34128 53.518 8.77739 53.4343 9.19814C53.3506 9.61888 53.144 10.0054 52.8407 10.3087C52.5373 10.612 52.1509 10.8186 51.7301 10.9023C51.3094 10.986 50.8733 10.9431 50.4769 10.7789C50.0806 10.6147 49.7418 10.3367 49.5035 9.98002C49.2652 9.62333 49.138 9.20398 49.138 8.77499C49.1388 8.19998 49.3675 7.64874 49.7741 7.24215C50.1807 6.83555 50.732 6.60678 51.307 6.60599Z" fill="#226CFF" />
                 </svg>
                 <Text fontSize={"1.5rem"} >{useTranslation("home.ourvalues.2ndvalue.title")}</Text>
-                <Text fontSize={"1.25rem"} >{useTranslation("home.ourvalues.2ndvalue.subtitle")}</Text>
+                <Text fontSize={"1.25rem"} maxW={{ base: "100%", lg: "70%" }}>{useTranslation("home.ourvalues.2ndvalue.subtitle")}</Text>
             </VStack>
             <Box
                 bg="#6B6B6B"
@@ -68,7 +68,7 @@ export const OurValues = () => {
                 </svg>
 
                 <Text fontSize={{ base: "1.5rem", md: "2rem", lg: "1.5rem" }}>{useTranslation("home.ourvalues.3rdvalue.title")}</Text>
-                <Text fontSize={{ base: "1rem", md: "1.25rem", lg: "1.5rem", xl: "1.25rem" }}>{useTranslation("home.ourvalues.3rdvalue.subtitle")}</Text>
+                <Text fontSize={{ base: "1rem", md: "1.25rem", lg: "1.5rem", xl: "1.25rem" }} maxW={{ base: "100%", lg: "70%" }}>{useTranslation("home.ourvalues.3rdvalue.subtitle")}</Text>
             </VStack>
         </HStack>
     </VStack>;

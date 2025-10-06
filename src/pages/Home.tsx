@@ -342,10 +342,10 @@ export const Home = () => {
                   </Text>
                   <Text
                     color="white"
-                    fontSize={{ base: "1.1rem", md: "1.8rem", lg: "2.2rem" }}
+                    fontSize={{ base: "1.1rem", md: "1.8rem", xl: "2rem", "2xl": "2.5rem"}}
                     w={{ base: "100%", md: "85%" }}
                     textAlign={{ base: "center", md: "start" }}
-                    fontWeight="bold"
+                    fontWeight="700"
                     lineHeight={1.3}
                     fontFamily={lang === "ar" ? "Cairo, sans-serif" : "Montserrat, sans-serif"}
                   >

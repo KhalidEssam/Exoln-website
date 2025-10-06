@@ -101,6 +101,11 @@ export const ServiceCard = memo(({ number, service }: ServiceCardProps) => {
                     <Text textAlign="start" fontSize="1.5rem" fontWeight="light" lineHeight={1.4}>
                         {lang === "en" ? service.description.en : service.description.ar}
                     </Text>
+                    <Text as={"span"} textAlign="start" color={"whiteAlpha.800"} fontSize="0.8rem" fontWeight="light" lineHeight={1.4}>
+                        {lang === "en" ? "Learn more" : "تعرف على المزيد"}
+                    </Text>
+
+
                 </VStack>
             </ChakraLink>
         </VStack>

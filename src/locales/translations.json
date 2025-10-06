@@ -144,6 +144,10 @@
       "en": "Behind every success story is a conversation, that started somewhere. Start yours today.",
       "ar": " وراء كل قصة نجاح محادثة بدأت في مكان ما. ابدأ محادثتك اليوم"
     },
+    "selectServices": {
+      "en": "Select Services",
+      "ar": "حدد الخدمات"
+    },
     "SendMessage": {
       "en": "Send Message",
       "ar": "تواصل معنا"
