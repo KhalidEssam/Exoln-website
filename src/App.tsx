@@ -22,6 +22,7 @@ import { NotFound } from './pages/NotFound';
 // import { Toaster } from 'react-hot-toast';
 import { useLanguage } from "./hooks/useLanguage.ts";
 import { useEffect } from "react";
+import ProfileHtml from './pages/ProfileHtml';
 // import { TimedPopup } from "./components/SubscribeNow.tsx";
 import useDirection from "./hooks/useDirection.ts";
 import useFontFamily from "./hooks/useFontFamily";
@@ -52,6 +53,8 @@ function App() {
             <Route path="/blogs" element={<Blog />} />
             <Route path="/blogs/:id" element={<ArticleDetails />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/profile" element={< ProfileHtml />} /> 
+            
             <Route path="*" element={<NotFound />} />
           </Routes>
           {/* <Toaster /> */}

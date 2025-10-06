@@ -29,6 +29,7 @@ const initialState: NavState = {
     },
     { href: "/blogs", label: "Blogs", en: "Blogs", ar: "المدونات" },
     { href: "/about", label: "About", en: "About", ar: "من نحن" },
+    { href: "/profile", label: "Company Profile", en: "Company Profile", ar: "هوية الشركة" },
     { href: "/contact", label: "Contact", en: "Contact", ar: "اتصل بنا" },
   ],
   activeLink: "/",

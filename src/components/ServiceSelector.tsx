@@ -10,7 +10,7 @@ import { Checkbox } from "@chakra-ui/react/checkbox";
 import { Collapsible } from "@chakra-ui/react/collapsible";
 // import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import { FaUpLong, FaDownLong } from "react-icons/fa6";
-import type { MouseEvent } from "react";
+// import type { MouseEvent } from "react";
 
 interface Service {
     id: string;
@@ -76,11 +76,13 @@ const ServiceItem = memo(
         const handleParentToggle = useCallback(() => {
             if (hasChildren) {
                 if (allChildrenSelected) {
+                    // Unselect all
                     onToggle(service.id);
                     service.children!.forEach((child) => {
                         if (selectedServices.has(child.id)) onToggle(child.id);
                     });
                 } else {
+                    // Select all
                     if (!isParentSelected) onToggle(service.id);
                     service.children!.forEach((child) => {
                         if (!selectedServices.has(child.id)) onToggle(child.id);
@@ -98,14 +100,10 @@ const ServiceItem = memo(
             onToggle,
         ]);
 
-        const handleCheckboxClick = useCallback(
-            (e: MouseEvent<HTMLLabelElement>) => {
-                e.stopPropagation();
-                handleParentToggle();
-            },
-            [handleParentToggle]
-        );
-
+        // ✅ Chakra 3 uses onCheckedChange, not onClick
+        const handleCheckboxChange = useCallback(() => {
+            handleParentToggle();
+        }, [handleParentToggle]);
 
         return (
             <VStack align="stretch" w="100%" gap={0}>
@@ -119,10 +117,10 @@ const ServiceItem = memo(
                     transition="all 0.2s"
                     onClick={hasChildren ? toggleExpand : undefined}
                 >
-                    {/* ✅ Chakra v3 Checkbox structure */}
                     <Checkbox.Root
+                        // ✅ Controlled state (not checked/onClick)
                         checked={isParentSelected || allChildrenSelected}
-                        onClick={handleCheckboxClick}
+                        onCheckedChange={handleCheckboxChange}
                     >
                         <Checkbox.HiddenInput />
                         <Checkbox.Control borderColor="white">
@@ -138,7 +136,6 @@ const ServiceItem = memo(
                     )}
                 </HStack>
 
-                {/* ✅ Chakra v3 Collapsible */}
                 {hasChildren && (
                     <Collapsible.Root open={open}>
                         <Collapsible.Content>
@@ -160,6 +157,7 @@ const ServiceItem = memo(
         );
     }
 );
+
 ServiceItem.displayName = "ServiceItem";
 
 interface ServiceSelectorProps {
