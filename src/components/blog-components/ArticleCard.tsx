@@ -50,7 +50,7 @@ export const ArticleCard = ({ article }: { article: articleProbs }) => {
         <Box
           as="button"
           bgColor="rgba(90, 119, 187, 1)"
-          onClick={() => navigate(`/blogs/${article.id}`)}
+          onClick={() => navigate(`/blogs/${article.slug ? article.slug : article.id}`)}
           borderRadius="2rem"
           color="white"
           fontSize="lg"

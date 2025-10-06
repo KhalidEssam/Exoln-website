@@ -22,6 +22,7 @@ export const dummyArticles: articleProbs[] = [
       en: "https://cms.exoln.com/wp-content/uploads/2025/10/accounting-blog-English.docx",
       ar: "https://cms.exoln.com/wp-content/uploads/2025/10/accounting-blog-Arabic.docx"
     },
+    slug: "the-importance-of-accounting-and-bookkeeping",
     seo: {
       en: {
         title: "The Importance of Accounting and Bookkeeping | Exoln Business Insights",

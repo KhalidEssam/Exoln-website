@@ -51,10 +51,10 @@ function App() {
             <Route path="/services/exobiz" element={<Exobiz />} />
             <Route path="/services/exotale" element={<ExoTale />} />
             <Route path="/blogs" element={<Blog />} />
-            <Route path="/blogs/:id" element={<ArticleDetails />} />
+            <Route path="/blogs/:slug" element={<ArticleDetails />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/profile" element={< ProfileHtml />} /> 
-            
+            <Route path="/profile" element={< ProfileHtml />} />
+
             <Route path="*" element={<NotFound />} />
           </Routes>
           {/* <Toaster /> */}

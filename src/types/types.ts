@@ -22,6 +22,7 @@ export interface articleProbs {
   };
   image: string;
   date: string;
+  slug?: string;
   featured?: boolean;
   ref: string;
   contentUrl?: {

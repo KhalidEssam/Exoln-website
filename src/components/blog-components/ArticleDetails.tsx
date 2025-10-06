@@ -13,8 +13,11 @@ export const ArticleDetails = () => {
     const [loading, setLoading] = useState(true);
     const [htmlContent, setHtmlContent] = useState<string>("");
 
-    const id = Number(window.location.pathname.split("/")[2]);
-    const chosenArticle = articles.find((article) => article.id === id);
+    const id = window.location.pathname.split("/")[2];
+    let chosenArticle = articles.find((article) => article.id == Number(id));
+    if (!chosenArticle) {
+        chosenArticle = articles.find((article) => article.slug === id);
+    }
 
     const contentUrl = chosenArticle?.contentUrl?.[lang];
     const seo = chosenArticle?.seo?.[lang]; // 👈 Add SEO data in your dummyArticles object
