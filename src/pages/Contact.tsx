@@ -181,7 +181,6 @@ export const Contact = () => {
 
             const messageText = `User submitted the contact form inquiring about these services:<br>${servicesText}`;
 
-
             await emailjs.send(
                 import.meta.env.VITE_EMAIL_SERVICE_ID,
                 import.meta.env.VITE_EMAIL_TEMPLATE_ID,
@@ -191,13 +190,15 @@ export const Contact = () => {
                     company: formData.company,
                     phone: formData.phone,
                     message: messageText,
-                    // services: servicesText,
                     time: new Date().toLocaleString(),
                 },
                 import.meta.env.VITE_EMAIL_PUBLIC_KEY
             );
 
-            alert("Your message was sent successfully!");
+            // Redirect to thank-you page instead of alert
+            window.location.href = "/thank-you";
+
+            // Optional: reset form (may not be necessary if redirecting)
             setFormData({ name: "", email: "", company: "", phone: "" });
             setSelectedServices(new Set());
         } catch (error) {
@@ -207,6 +208,7 @@ export const Contact = () => {
             setIsSubmitting(false);
         }
     }, [formData, selectedServices]);
+
 
     return (
         <VStack w="100vw">

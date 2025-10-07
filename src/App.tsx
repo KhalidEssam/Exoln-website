@@ -23,6 +23,7 @@ import { NotFound } from './pages/NotFound';
 import { useLanguage } from "./hooks/useLanguage.ts";
 import { useEffect } from "react";
 import ProfileHtml from './pages/ProfileHtml';
+import {ThankYou} from './pages/ThankYou';
 // import { TimedPopup } from "./components/SubscribeNow.tsx";
 import useDirection from "./hooks/useDirection.ts";
 import useFontFamily from "./hooks/useFontFamily";
@@ -54,6 +55,7 @@ function App() {
             <Route path="/blogs/:slug" element={<ArticleDetails />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/profile" element={< ProfileHtml />} />
+            <Route path="/thank-you" element={< ThankYou />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>
