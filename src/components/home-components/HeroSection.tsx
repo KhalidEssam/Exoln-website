@@ -33,6 +33,7 @@ export const HeroSection = () => {
                         borderRadius={"4xl"}
                         p={4}
                         mt={4}
+                        onClick={() => { window.location.href = "/contact" }}
                         fontSize={"1.2rem"}
                         bg={"transparent"}
                         fontFamily={lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', 'Regular'`}
