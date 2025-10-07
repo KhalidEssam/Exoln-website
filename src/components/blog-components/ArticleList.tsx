@@ -15,7 +15,10 @@ export const ArticleList = ({ articles }: { articles: articleProbs[] }) => {
 
                 flexDir={{ base: "column", md: "row" }}
 
-                flexWrap={"wrap"} justifyContent={"space-around"} align={"stretch"}>
+                flexWrap={"wrap"}
+                justifyContent={"space-around"}
+                align={{ base: "center", md: "stretch" }}
+            >
                 {articles.map((article: articleProbs) => (
                     <ArticleCard key={article.id} article={article} />
                 ))}

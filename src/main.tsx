@@ -7,7 +7,7 @@ import { store, persistor } from './store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider as ReduxProvider } from 'react-redux';
 import { HeadProvider } from "react-head";
-import { Analytics } from "@/components/Analytics/Analytics";
+// import { Analytics } from "@/components/Analytics/Analytics";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -15,7 +15,7 @@ createRoot(document.getElementById('root')!).render(
       <PersistGate loading={null} persistor={persistor}>
         <Provider>
           <HeadProvider>
-            <Analytics />
+            {/* <Analytics /> */}
             <App />
           </HeadProvider>
         </Provider>

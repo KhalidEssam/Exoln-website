@@ -186,7 +186,7 @@ export const Blog = () => {
           textAlign="start"
           p={16}
           position="relative"
-          zIndex={2}
+          zIndex={1}
           mt={{ base: "8rem", md: "35rem" }}
           mb={{ base: "5rem", md: 0 }}
         >
