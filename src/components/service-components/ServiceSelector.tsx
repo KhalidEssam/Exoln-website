@@ -11,6 +11,7 @@ import { Collapsible } from "@chakra-ui/react/collapsible";
 // import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import { FaUpLong, FaDownLong } from "react-icons/fa6";
 // import type { MouseEvent } from "react";
+import { Button } from "@chakra-ui/react";
 
 interface Service {
     id: string;
@@ -200,7 +201,7 @@ export const ServiceSelector = memo(
 
         return (
             <Box position="relative" w="100%" mt={4}>
-                <Box
+                {/* <Box
                     as="button"
                     w="100%"
                     p={4}
@@ -233,7 +234,41 @@ export const ServiceSelector = memo(
                     <Box ml={2}>
                         {open ? <FaUpLong /> : <FaDownLong />}
                     </Box>
-                </Box>
+                </Box> */}
+
+                <Button
+                    type="button"
+                    w="100%"
+                    p={4}
+                    bg="transparent"
+                    border="2px solid white"
+                    borderRadius="xl"
+                    color="white"
+                    textAlign="start"
+                    cursor="pointer"
+                    onClick={onToggle}
+                    _hover={{
+                        borderColor: "whiteAlpha.800",
+                        bg: "whiteAlpha.100",
+                    }}
+                    transition="all 0.2s ease"
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="space-between"
+                    // variant="unstyled"
+                >
+                    <Text
+                        fontSize="sm"
+                        opacity={selectedNames.length > 0 ? 1 : 0.9}
+                        flex={1}
+                        overflow="hidden"
+                        whiteSpace="nowrap"
+                        textOverflow="ellipsis"
+                    >
+                        {displayText}
+                    </Text>
+                    <Box ml={2}>{open ? <FaUpLong /> : <FaDownLong />}</Box>
+                </Button>
 
                 <Collapsible.Root open={open}>
                     <Collapsible.Content>

@@ -7,11 +7,13 @@ import {
     Text,
     Input,
     Image,
-    Skeleton
+    Skeleton,
+    Button
 } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { useState, useCallback, memo } from "react";
-import { ServiceSelector } from "../components/ServiceSelector.tsx";
+import { ServiceSelector } from "../components/service-components/ServiceSelector.tsx";
+import emailjs from "emailjs-com";
 
 // Memoized Contact Hero Background Component
 const ContactHeroBackground = memo(() => {
@@ -154,38 +156,56 @@ export const Contact = () => {
         company: "",
         phone: "",
     });
-    const [selectedServices, setSelectedServices] = useState<Set<string>>(new Set());
 
+
+    const [selectedServices, setSelectedServices] = useState<Set<string>>(new Set());
+    const isFormReady =
+        formData.name.trim() !== "" &&
+        formData.email.trim() !== "" &&
+        formData.company.trim() !== "" &&
+        formData.phone.trim() !== "" &&
+        selectedServices.size > 0;
     const handleInputChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
     }, []);
 
-    const handleSubmit = useCallback((e: React.FormEvent) => {
+    const handleSubmit = useCallback(async (e: React.FormEvent) => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Prepare submission data
-        const submissionData = {
-            ...formData,
-            services: Array.from(selectedServices),
-        };
+        try {
+            const servicesText = Array.from(selectedServices)
+                .map((service, i) => `${i + 1} - ${service}`)
+                .join("<br>");
 
-        console.log("Form submitted:", submissionData);
+            const messageText = `User submitted the contact form inquiring about these services:<br>${servicesText}`;
 
-        // Add your API call here
-        // Example:
-        // await fetch('/api/contact', {
-        //   method: 'POST',
-        //   body: JSON.stringify(submissionData),
-        // });
 
-        setTimeout(() => {
-            setIsSubmitting(false);
-            // Reset form on success
+            await emailjs.send(
+                import.meta.env.VITE_EMAIL_SERVICE_ID,
+                import.meta.env.VITE_EMAIL_TEMPLATE_ID,
+                {
+                    name: formData.name,
+                    email: formData.email,
+                    company: formData.company,
+                    phone: formData.phone,
+                    message: messageText,
+                    // services: servicesText,
+                    time: new Date().toLocaleString(),
+                },
+                import.meta.env.VITE_EMAIL_PUBLIC_KEY
+            );
+
+            alert("Your message was sent successfully!");
             setFormData({ name: "", email: "", company: "", phone: "" });
             setSelectedServices(new Set());
-        }, 2000);
+        } catch (error) {
+            console.error("EmailJS error:", error);
+            alert("Failed to send your message. Please try again later.");
+        } finally {
+            setIsSubmitting(false);
+        }
     }, [formData, selectedServices]);
 
     return (
@@ -280,9 +300,8 @@ export const Contact = () => {
                         />
 
                         {/* Submit Button */}
-                        <Box
-                            as="button"
-                            // type="submit"
+                        <Button
+                            type="submit"
                             border="2px solid white"
                             borderRadius="4xl"
                             bg="transparent"
@@ -298,22 +317,20 @@ export const Contact = () => {
                                 bg: "white",
                                 color: "black",
                                 transform: "translateY(-2px)",
-                                boxShadow: "0 4px 12px rgba(255, 255, 255, 0.3)"
+                                boxShadow: "0 4px 12px rgba(255, 255, 255, 0.3)",
                             }}
-                            _active={{
-                                transform: "translateY(0)",
-                            }}
+                            _active={{ transform: "translateY(0)" }}
                             _disabled={{
                                 cursor: "not-allowed",
-                                opacity: 0.7
+                                opacity: 0.7,
                             }}
                             transition="all 0.3s ease"
-                        //  disabled={isSubmitting}
+                            disabled={isSubmitting || !isFormReady} // ✅ Disable until ready
                         >
                             {isSubmitting
                                 ? useTranslation("contact.Sending") || "Sending..."
                                 : useTranslation("contact.SendMessage")}
-                        </Box>
+                        </Button>
                     </Box>
                 </Box>
             </HStack>
