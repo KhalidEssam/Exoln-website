@@ -201,41 +201,6 @@ export const ServiceSelector = memo(
 
         return (
             <Box position="relative" w="100%" mt={4}>
-                {/* <Box
-                    as="button"
-                    w="100%"
-                    p={4}
-                    bg="transparent"
-                    border="2px solid white"
-                    borderRadius="xl"
-                    color="white"
-                    textAlign="start"
-                    cursor="pointer"
-                    onClick={onToggle}
-                    _hover={{
-                        borderColor: "whiteAlpha.800",
-                        bg: "whiteAlpha.100",
-                    }}
-                    transition="all 0.2s ease"
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="space-between"
-                >
-                    <Text
-                        fontSize="sm"
-                        opacity={selectedNames.length > 0 ? 1 : 0.9}
-                        flex={1}
-                        overflow="hidden"
-                        whiteSpace="nowrap"
-                        textOverflow="ellipsis"
-                    >
-                        {displayText}
-                    </Text>
-                    <Box ml={2}>
-                        {open ? <FaUpLong /> : <FaDownLong />}
-                    </Box>
-                </Box> */}
-
                 <Button
                     type="button"
                     w="100%"
@@ -255,7 +220,7 @@ export const ServiceSelector = memo(
                     display="flex"
                     alignItems="center"
                     justifyContent="space-between"
-                    // variant="unstyled"
+                // variant="unstyled"
                 >
                     <Text
                         fontSize="sm"
