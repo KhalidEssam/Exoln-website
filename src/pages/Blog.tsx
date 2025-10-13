@@ -185,10 +185,10 @@ export const Blog = () => {
           fontFamily={lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', 'Regular'`}
           textAlign="start"
           p={16}
-          position="relative"
+          position="absolute"
           zIndex={1}
-          mt={{ base: "8rem", md: "35rem" }}
-          mb={{ base: "5rem", md: 0 }}
+          bottom={{ base: "0rem", md: "1rem", xl: "5rem" }}
+          // mb={{ base: "5rem", md: "10rem" }}
         >
           <Text
             as="h1"
