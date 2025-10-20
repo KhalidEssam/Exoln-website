@@ -33,7 +33,7 @@ export const Exomark = () => {
 
     // Simulate content loading (replace with real API/image load logic)
     useEffect(() => {
-        const timer = setTimeout(() => setLoading(false), 1500); // 1.5s fake loading
+        const timer = setTimeout(() => setLoading(false), 200); // 1.5s fake loading
         return () => clearTimeout(timer);
     }, []);
 

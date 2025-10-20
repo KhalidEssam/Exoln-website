@@ -203,7 +203,7 @@ export const Home = () => {
 
   // Simulate loading images & content
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1500);
+    const timer = setTimeout(() => setLoading(false), 100);
     return () => clearTimeout(timer);
   }, []);
 

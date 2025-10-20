@@ -109,7 +109,7 @@ export const AboutUs = () => {
 
     // Simulate content loading (replace with real API/image load logic)
     useEffect(() => {
-        const timer = setTimeout(() => setLoading(false), 1500);
+        const timer = setTimeout(() => setLoading(false), 200);
         return () => clearTimeout(timer);
     }, []);
 
