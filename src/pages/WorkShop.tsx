@@ -167,10 +167,10 @@ export const WorkShop = () => {
 
                                     <Text fontFamily={lang === "ar" ? "'Cairo', sans-serif" : "'Montserrat', 'Regular'"}
                                         fontWeight={"bold"} w={"100%"} fontSize={"2.5rem"}>
-                                        {lang === "ar" ? "من فهم جمهورك إلى مضاعفة المبيعات" : "INTEGRATED VALUE DE"}
+                                        {lang === "ar" ? "من فهم جمهورك إلى مضاعفة المبيعات" : "From Understanding Your Audience to Doubling Sales"}
                                     </Text>
                                     <Text fontSize={"1.5rem"} w={"100%"} fontFamily={lang === "ar" ? "'Cairo', sans-serif" : "'Montserrat', 'Regular'"} >
-                                        {lang === "ar" ? "كيف تنجح بمتجرك الإلكتروني على سلة أو زد" : ""}
+                                        {lang === "ar" ? "كيف تنجح بمتجرك الإلكتروني على سلة أو زد" : "How to succeed with your e-commerce store"}
                                     </Text>
                                     <Box w={"100%"} minH={"3rem"} >
                                         <svg width="100%" height="100%" viewBox="0 0 682 32" fill="none" xmlns="http://www.w3.org/2000/svg">

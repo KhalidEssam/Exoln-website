@@ -15,7 +15,6 @@ export const OurValues = () => {
         alignItems="center"
     >
         <Text fontFamily={lang === "ar" ? "'Cairo', sans-serif" : "'Montserrat', 'Regular'"} fontWeight={"bold"} fontSize={"2.5rem"} color={"#3F3D3D"}>
-            {/* INTEGRATED VALUE DELIVERY */}
             {useTranslation("home.ourvalues.title")}
         </Text>
         <Text fontSize={"1.5rem"} maxW={{ base: "100%", lg: "60%" }} fontFamily={lang === "ar" ? "'Cairo', sans-serif" : "'Montserrat', 'Regular'"} color={"#707070"}>
