@@ -7,7 +7,6 @@ import { store, persistor } from './store';
 import { PersistGate } from 'redux-persist/integration/react';
 import { Provider as ReduxProvider } from 'react-redux';
 import { HeadProvider } from "react-head";
-// import { Analytics } from "@/components/Analytics/Analytics";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

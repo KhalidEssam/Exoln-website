@@ -7,7 +7,7 @@ export const OurValues = () => {
     return <VStack
         w={{ base: "95vw", md: "80vw", xl: "90vw" }}
         marginTop={-100}
-        zIndex={3}
+        zIndex={1}
         borderRadius={"md"} boxShadow={"md"}
         bgColor="#Fff"
         gap={8}

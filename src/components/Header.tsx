@@ -7,7 +7,8 @@ import { selectLanguage } from "../store/slices/languageSlice";
 import { useState } from "react";
 import type { RootState } from "@/store";
 import { useRef } from "react";
-// import { useOutsideClick } from "./Navbar";
+
+import { useNavigate } from "react-router-dom";
 import { Menu, Portal } from "@chakra-ui/react"
 import { setLanguage } from "../store/slices/languageSlice";
 import { useDispatch } from "react-redux";
@@ -17,6 +18,7 @@ export const Header = () => {
   const { activeLink, } = useSelector((state: RootState) => state.nav);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   // ✅ Close menu when clicking outside
   // useOutsideClick(menuRef, () => {
   //   if (menuOpen) setMenuOpen(false);
@@ -38,41 +40,51 @@ export const Header = () => {
           <Image src={activeLink === "/" ? "/logo.webp" : "/logo2.webp"} alt="logo" h="2rem" />
         </ChakraLink>
         {/* Desktop Navbar + Actions: show ONLY on lg and up */}
-        <HStack display={{ base: "none", lg: "flex" }} w={"75%"} justifyContent={"space-between"} gap={6} align="center">
+        <HStack display={{ base: "none", lg: "flex" }} w={"55%"} justifyContent={"space-arounf"} gap={6} align="center">
           <Navbar />
+          <Menu.Root>
+            <Menu.Trigger asChild>
+              <HStack>
+                {lang === "ar" ? "AR" : "EN"}  <FaAngleDown size="1rem" />
 
-          <HStack>
-            <Menu.Root>
-              <Menu.Trigger asChild>
-                <HStack>
-                  {lang === "ar" ? "AR" : "EN"}  <FaAngleDown size="1rem" />
+              </HStack>
+            </Menu.Trigger>
+            <Portal>
+              <Menu.Positioner>
+                <Menu.Content>
+                  <Menu.Item value="new-txt" onClick={() => dispatch(setLanguage('en'))}>English</Menu.Item>
+                  <Menu.Item value="new-file" onClick={() => dispatch(setLanguage('ar'))}>العربية</Menu.Item>
+                </Menu.Content>
+              </Menu.Positioner>
+            </Portal>
+          </Menu.Root>
 
-                </HStack>
-              </Menu.Trigger>
-              <Portal>
-                <Menu.Positioner>
-                  <Menu.Content>
-                    <Menu.Item value="new-txt" onClick={() => dispatch(setLanguage('en'))}>English</Menu.Item>
-                    <Menu.Item value="new-file" onClick={() => dispatch(setLanguage('ar'))}>العربية</Menu.Item>
-                  </Menu.Content>
-                </Menu.Positioner>
-              </Portal>
-            </Menu.Root>
-            {/* <Box
-              as="button"
-              _hover={{ bg: "whiteAlpha.300", cursor: "pointer" }}
-              fontSize="1.2rem"
-              fontWeight="500"
-              w="8em"
-              borderRadius="full"
-              border="2px solid white"
-              p={4}
-            >
-              {lang === "ar" ? "تسجيل الدخول" : "Login"}
-            </Box> */}
-          </HStack>
         </HStack>
+        {/* <HStack> */}
 
+        <Box
+          as="button"
+          display={{ base: "none", lg: "flex" }}
+          _hover={{ bg: "whiteAlpha.300", cursor: "pointer" }}
+          fontSize="1.25rem"
+          fontWeight="bold"
+          fontFamily={"Cairo"}
+          alignItems={"center"}
+          gap={2}
+          borderRadius="2rem"
+          border="2px solid white"
+          color="white"
+          px={"1.25rem"}
+          py={2}
+          onClick={() => navigate("/workshop")}
+        >
+          {lang === "ar" ? "ورشة المتاجر الالكترونية" : "E-Commerce Workshop"}
+          <svg width="24" transform={(lang === "ar" ? "rotate(0)" : "rotate(90)")} height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 18L6 6M6 6H15M6 6V15" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+
+        </Box>
+        {/* </HStack> */}
         {/* Mobile Hamburger: show UP TO md (hidden on lg and above) */}
         <IconButton
           aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -81,8 +93,7 @@ export const Header = () => {
           color="white"
           onClick={() => setMenuOpen((s) => !s)}
           zIndex={5}
-        // right positioning optional if you want it absolutely placed:
-        // pos="absolute" right={4}
+
         >
           {menuOpen ? <FaTimes size="1.5rem" /> : <FaBars size="1.5rem" />}
         </IconButton>
@@ -101,6 +112,29 @@ export const Header = () => {
           display={{ base: "flex", lg: "none" }}
         >
           <Navbar />
+          <Box
+          as="button"
+          display={"flex"}
+          maxW={"50%"}
+          _hover={{ bg: "whiteAlpha.300", cursor: "pointer" }}
+          fontSize="1.25rem"
+          fontWeight="bold"
+          fontFamily={"Cairo"}
+          alignItems={"center"}
+          justifyContent={"space-around"}
+          marginInlineStart={"25%"}
+          borderRadius="2rem"
+          border="2px solid white"
+          color="white"
+          px={"1.25rem"}
+          py={2}
+          onClick={() => navigate("/workshop")}
+        >
+          {lang === "ar" ? "ورشة المتاجر الالكترونية" : "E-Commerce Workshop"}
+          <svg width={"24"} height={"24"} transform={(lang === "ar" ? "rotate(0)" : "rotate(90)")} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 18L6 6M6 6H15M6 6V15" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </Box>
           <HStack w="100%" justify="center" gap={2}>
             <Menu.Root>
               <Menu.Trigger asChild>
@@ -118,6 +152,7 @@ export const Header = () => {
                 </Menu.Positioner>
               </Portal>
             </Menu.Root>
+            
           </HStack>
           {/* <Box
             as="button"

@@ -234,8 +234,8 @@ export const Exolnix = () => {
                     left={0}
                     w="100%"
                     h="100%"
-                    objectFit="fill"        // cover, contain, fill
-                    objectPosition="center"  // top, bottom, left, right, or "x% y%"
+                    // objectFit="fill"        // cover, contain, fill
+                    objectPosition="0% 0%"  // top, bottom, left, right, or "x% y%"
                 />
 
                 {/* Green overlay */}
@@ -248,7 +248,7 @@ export const Exolnix = () => {
                     zIndex={1}
                     bg="#1E9241"
                     style={{ mixBlendMode: "multiply" }}
-                >
+                />
                     <VStack
 
                         h="100%" w="100%" justify="center" align="center" p={4} textAlign={"center"}
@@ -279,7 +279,7 @@ export const Exolnix = () => {
                             </Box>
                         </Box>
                     </VStack>
-                </Box>
+                {/* </Box> */}
             </VStack>
             <WhyThisService {...WhyExolnix} metadata={{ direction: "vertical", color: "#1E9241" }} />
         </VStack >

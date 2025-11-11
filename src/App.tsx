@@ -15,6 +15,8 @@ import { Blog } from './pages/Blog';
 import { ArticleDetails } from './components/blog-components/ArticleDetails';
 // import { ViewAllArtciles } from './pages/ViewAllArtciles';
 import { Contact } from './pages/Contact';
+import { WorkShop } from './pages/WorkShop';
+
 // import { TermsandConditions } from './pages/TermsandConditions';
 // import { PrivacyPolicy } from './pages/PrivacyPolicy';
 // import { FrequentQuestions } from './pages/FrequentQuestions';
@@ -55,6 +57,7 @@ function App() {
             <Route path="/blogs/:slug" element={<ArticleDetails />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/profile" element={< ProfileHtml />} />
+            <Route path="/workshop" element={< WorkShop />} />
             <Route path="/thank-you" element={< ThankYou />} />
 
             <Route path="*" element={<NotFound />} />
