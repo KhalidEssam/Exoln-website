@@ -9,11 +9,10 @@ import { Link as ChakraLink } from "@chakra-ui/react";
 import { type FC } from "react";
 import { useColorModeValue } from "@chakra-ui/color-mode";
 import { Link as RouterLink } from "react-router-dom";
-import { FaFacebookF, FaPinterestP } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaPinterestP } from "react-icons/fa";
 import { TfiLocationPin } from "react-icons/tfi";
 import { MdOutlinePhoneInTalk } from "react-icons/md";
 import { IoMail } from "react-icons/io5";
-import { FaLinkedinIn } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { setActiveLink } from "@/store/slices/navSlice";
 import type { RootState } from "@/store";
@@ -68,13 +67,13 @@ export const Footer: FC = () => {
           <Text textAlign={{ base: "center", md: "start" }} fontWeight={"600"} fontSize={{ base: "1rem", md: "1.2rem", lg: "1.8rem" }}  > {t("footer.text")} </Text>
           <HStack align={{ base: "center", md: "flex-start" }}>
 
-            <Circle bgColor={"transparent"} border={" 2px solid white"} size={"3rem"}>
+            <Circle bgColor={"transparent"} border={" 2px solid white"} _hover={{ cursor: "pointer" }} onClick={() => window.open("https://www.facebook.com/profile.php?id=61579313723527 ", "_blank")} size={"3rem"}>
               <FaFacebookF />
             </Circle>
-            <Circle bgColor={"transparent"} border={" 2px solid white"} size={"3rem"}>
-              <FaLinkedinIn />
+            <Circle bgColor={"transparent"} border={" 2px solid white"} _hover={{ cursor: "pointer" }} onClick={() => window.open("https://www.instagram.com/exolnsa/", "_blank")} size={"3rem"}>
+              <FaInstagram />
             </Circle>
-            <Circle bgColor={"transparent"} border={" 2px solid white"} size={"3rem"}>
+            <Circle bgColor={"transparent"} border={" 2px solid white"} _hover={{ cursor: "pointer" }} size={"3rem"}>
               <FaPinterestP />
             </Circle>
           </HStack>
