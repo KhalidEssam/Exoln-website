@@ -148,6 +148,8 @@ export const WorkShop = () => {
                                         w={"100%"}
                                         h={"100%"}
                                         alt=""
+                                        loading="eager"
+                                        decoding="async"
                                     />
                                     {/* Blur Overlay */}
                                     <Box
@@ -307,12 +309,112 @@ export const WorkShop = () => {
                         </VStack>
                         <HStack gap={8} w={{ base: "100%", lg: "85%" }} align={"stretch"} flexDirection={{ base: "column", lg: "row" }}>
 
-                            <VStack minW={"40%"} gap={8} order={1} align={"center"} justifyContent={"center"} p={6}  bg={"rgba(34, 108, 255, 1)"}>
+                            <VStack borderRadius={"md"} minW={"40%"} gap={8} order={1} align={"center"} justifyContent={"center"} p={6} bg={"rgba(34, 108, 255, 1)"}>
                                 <Text color={"white"} fontWeight={700} fontSize={"2.5rem"}>مصطفى صبحي</Text>
                                 <Text color={"rgba(255, 255, 255, 0.8)"} lineHeight={"2.25rem"} fontWeight={400} fontSize={"1.5rem"}>لوريم ايبسوم دولار سيت أميت مينيم ريبيوديامت كويرات. كويس نوسترو نيسيوت نوسترو لابورام ديواس أيوتي ماجنا أليكا ليجاتوس لابورام لابوريس كلارينتي دولار كويس لابوري يوت نيسيوت نيسيوت كويرات إيليت، تيمبور إنتروليكيشن نيسي فينيام، إياسمود ديكتوم إي كويرات. يوت إن ماغنيت، إت بيريتيتيس. لابورام إن لابورام كلارينتي إي أليكا نوسترو إنفيدونت دولار ديواس أميت، أميت، إنفيدونت أيوتي كونسيفيكات كويرات ليجاتوس كويرات نويس كلارينتي كويرات. ميو إيليت.</Text>
                             </VStack>
-                            <Image objectFit={"contain"}  order={1} minW={"55%"} src={"/testimonial_1.jpg"} />
+                            <Image borderRadius={"md"} loading="eager"
+                                decoding="async" objectFit={"contain"} order={1} minW={"55%"} src={"/testimonial.jpg"} />
 
+                        </HStack>
+                    </VStack>
+
+                    <VStack w={"80%"} gap={8} p={4}>
+
+                        <Text color={"rgba(11, 8, 7, 1)"} fontWeight={"bold"} fontSize={"2.5rem"} >من يمكنه المشاركه في الورشة</Text>
+                        <Text color={"rgba(11, 8, 7, 0.7)"} fontWeight={"light"} fontSize={"1.5rem"} >لوريم ايبسوم دولار سيت أميت مينيم ريبيوديامت كويرات. كويس نوسترو نيسيوت نوسترو لابورام ديواس أيوتي ماجنا أليكا ليجاتوس لابورام لابوريس كلارينتي دولار كويس لابوري يوت نيسيوت نيسيوت كويرات إيليت، تيمبور إنتروليكيشن نيسي فينيام، إياسمود ديكتوم إي كويرات. يوت إن ماغنيت.</Text>
+
+                        <HStack w={"90%"} gap={4} align={"stretch"} flexDir={{ base: "column", lg: "row" }} justifyContent={"space-between"}>
+                            <Image src="/testimonial2.jpg"
+                                order={0} />
+                            <VStack order={1} 
+                            gap={8}
+                                p={4}
+                                textAlign={"start"}
+                                align={"center"}
+                                justifyContent={"space-between"} alignItems={"start"}>
+                                <Box>
+                                    <HStack>
+                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="48" height="48" rx="24" fill="#226CFF" />
+                                            <path d="M28 33V31C28 29.9391 27.5786 28.9217 26.8284 28.1716C26.0783 27.4214 25.0609 27 24 27H18C16.9391 27 15.9217 27.4214 15.1716 28.1716C14.4214 28.9217 14 29.9391 14 31V33" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M28 15.1279C28.8578 15.3503 29.6174 15.8512 30.1597 16.552C30.702 17.2528 30.9962 18.1138 30.9962 18.9999C30.9962 19.886 30.702 20.7471 30.1597 21.4479C29.6174 22.1487 28.8578 22.6496 28 22.8719" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M34 32.9999V30.9999C33.9993 30.1136 33.7044 29.2527 33.1614 28.5522C32.6184 27.8517 31.8581 27.3515 31 27.1299" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M21 23C23.2091 23 25 21.2091 25 19C25 16.7909 23.2091 15 21 15C18.7909 15 17 16.7909 17 19C17 21.2091 18.7909 23 21 23Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+
+                                        <Box gap={2}>
+                                            <Text fontSize={"1.5rem"} fontWeight={600}>أصحاب الشركات الناشئة</Text>
+                                            <Text fontSize={"1rem"} fontWeight={400} >لوريم ايبسوم دولار سيت أميت مينيم ريبيوديامت كويرات. كويس نوسترو نيسيوت نوسترو لابورام ديواس أيوتي ماجنا أليكا ليجاتوس. لوريم ايبسوم دولار سيت أميت مينيم ريبيوديامت كويرات.</Text>
+                                        </Box>
+                                    </HStack>
+                                </Box>
+                                <Box>
+                                    <HStack>
+                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="48" height="48" rx="24" fill="#226CFF" />
+                                            <path d="M28 33V31C28 29.9391 27.5786 28.9217 26.8284 28.1716C26.0783 27.4214 25.0609 27 24 27H18C16.9391 27 15.9217 27.4214 15.1716 28.1716C14.4214 28.9217 14 29.9391 14 31V33" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M28 15.1279C28.8578 15.3503 29.6174 15.8512 30.1597 16.552C30.702 17.2528 30.9962 18.1138 30.9962 18.9999C30.9962 19.886 30.702 20.7471 30.1597 21.4479C29.6174 22.1487 28.8578 22.6496 28 22.8719" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M34 32.9999V30.9999C33.9993 30.1136 33.7044 29.2527 33.1614 28.5522C32.6184 27.8517 31.8581 27.3515 31 27.1299" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M21 23C23.2091 23 25 21.2091 25 19C25 16.7909 23.2091 15 21 15C18.7909 15 17 16.7909 17 19C17 21.2091 18.7909 23 21 23Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+
+                                        <Box gap={2}>
+                                            <Text fontSize={"1.5rem"} fontWeight={600}>أصحاب الشركات الناشئة</Text>
+                                            <Text fontSize={"1rem"} fontWeight={400} >لوريم ايبسوم دولار سيت أميت مينيم ريبيوديامت كويرات. كويس نوسترو نيسيوت نوسترو لابورام ديواس أيوتي ماجنا أليكا ليجاتوس. لوريم ايبسوم دولار سيت أميت مينيم ريبيوديامت كويرات.</Text>
+                                        </Box>
+                                    </HStack>
+                                </Box>
+                                <Box>
+                                    <HStack>
+                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="48" height="48" rx="24" fill="#226CFF" />
+                                            <path d="M28 33V31C28 29.9391 27.5786 28.9217 26.8284 28.1716C26.0783 27.4214 25.0609 27 24 27H18C16.9391 27 15.9217 27.4214 15.1716 28.1716C14.4214 28.9217 14 29.9391 14 31V33" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M28 15.1279C28.8578 15.3503 29.6174 15.8512 30.1597 16.552C30.702 17.2528 30.9962 18.1138 30.9962 18.9999C30.9962 19.886 30.702 20.7471 30.1597 21.4479C29.6174 22.1487 28.8578 22.6496 28 22.8719" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M34 32.9999V30.9999C33.9993 30.1136 33.7044 29.2527 33.1614 28.5522C32.6184 27.8517 31.8581 27.3515 31 27.1299" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M21 23C23.2091 23 25 21.2091 25 19C25 16.7909 23.2091 15 21 15C18.7909 15 17 16.7909 17 19C17 21.2091 18.7909 23 21 23Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+
+                                        <Box gap={2}>
+                                            <Text fontSize={"1.5rem"} fontWeight={600}>أصحاب الشركات الناشئة</Text>
+                                            <Text fontSize={"1rem"} fontWeight={400} >لوريم ايبسوم دولار سيت أميت مينيم ريبيوديامت كويرات. كويس نوسترو نيسيوت نوسترو لابورام ديواس أيوتي ماجنا أليكا ليجاتوس. لوريم ايبسوم دولار سيت أميت مينيم ريبيوديامت كويرات.</Text>
+                                        </Box>
+                                    </HStack>
+                                </Box>
+
+                                <Box><HStack>
+                                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="48" height="48" rx="24" fill="#226CFF" />
+                                        <path d="M28 33V31C28 29.9391 27.5786 28.9217 26.8284 28.1716C26.0783 27.4214 25.0609 27 24 27H18C16.9391 27 15.9217 27.4214 15.1716 28.1716C14.4214 28.9217 14 29.9391 14 31V33" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M28 15.1279C28.8578 15.3503 29.6174 15.8512 30.1597 16.552C30.702 17.2528 30.9962 18.1138 30.9962 18.9999C30.9962 19.886 30.702 20.7471 30.1597 21.4479C29.6174 22.1487 28.8578 22.6496 28 22.8719" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M34 32.9999V30.9999C33.9993 30.1136 33.7044 29.2527 33.1614 28.5522C32.6184 27.8517 31.8581 27.3515 31 27.1299" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                        <path d="M21 23C23.2091 23 25 21.2091 25 19C25 16.7909 23.2091 15 21 15C18.7909 15 17 16.7909 17 19C17 21.2091 18.7909 23 21 23Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+
+                                    <Box gap={2}>
+                                        <Text fontSize={"1.5rem"} fontWeight={600}>أصحاب الشركات الناشئة</Text>
+                                        <Text fontSize={"1rem"} fontWeight={400} >لوريم ايبسوم دولار سيت أميت مينيم ريبيوديامت كويرات. كويس نوسترو نيسيوت نوسترو لابورام ديواس أيوتي ماجنا أليكا ليجاتوس. لوريم ايبسوم دولار سيت أميت مينيم ريبيوديامت كويرات.</Text>
+                                    </Box>
+                                </HStack>
+                                </Box>
+                                <Box>
+                                    <HStack>
+                                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="48" height="48" rx="24" fill="#226CFF" />
+                                            <path d="M28 33V31C28 29.9391 27.5786 28.9217 26.8284 28.1716C26.0783 27.4214 25.0609 27 24 27H18C16.9391 27 15.9217 27.4214 15.1716 28.1716C14.4214 28.9217 14 29.9391 14 31V33" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M28 15.1279C28.8578 15.3503 29.6174 15.8512 30.1597 16.552C30.702 17.2528 30.9962 18.1138 30.9962 18.9999C30.9962 19.886 30.702 20.7471 30.1597 21.4479C29.6174 22.1487 28.8578 22.6496 28 22.8719" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M34 32.9999V30.9999C33.9993 30.1136 33.7044 29.2527 33.1614 28.5522C32.6184 27.8517 31.8581 27.3515 31 27.1299" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M21 23C23.2091 23 25 21.2091 25 19C25 16.7909 23.2091 15 21 15C18.7909 15 17 16.7909 17 19C17 21.2091 18.7909 23 21 23Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+
+                                        <Box gap={2}>
+                                            <Text fontSize={"1.5rem"} fontWeight={600}>أصحاب الشركات الناشئة</Text>
+                                            <Text fontSize={"1rem"} fontWeight={400} >لوريم ايبسوم دولار سيت أميت مينيم ريبيوديامت كويرات. كويس نوسترو نيسيوت نوسترو لابورام ديواس أيوتي ماجنا أليكا ليجاتوس. لوريم ايبسوم دولار سيت أميت مينيم ريبيوديامت كويرات.</Text>
+                                        </Box>
+                                    </HStack>
+                                </Box>
+
+                            </VStack>
                         </HStack>
                     </VStack>
 
@@ -328,6 +430,8 @@ export const WorkShop = () => {
                             zIndex={0}
                             w="100%"
                             h="100%"
+                            loading="eager"
+                            decoding="async"
                             objectFit="cover"
                             objectPosition="center"
                         />
