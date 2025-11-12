@@ -318,10 +318,10 @@ export const WorkShop = () => {
                                 {lang === "ar" ? "مقدم الورشة" : "The Workshop Leader"}
                             </Text>
                             <Text color={"rgba(11, 8, 7, 0.7)"} fontWeight={300} fontSize={"1.5rem"}>
-{lang === "ar"
-  ? "خبرة فى التسويق للتجارة الإلكترونية فى المملكة العربية السعودية وفي الشرق الأوسط، أقدم لك افضل الحلول التسويقية للمتاجر الالكترونية لكيفية تسويقها على منصات التواصل الاجتماعي، وزيادة مبيعات المتجر الإلكتروني شهريًا."
-  : "With experience in e-commerce marketing in Saudi Arabia and the Middle East, I provide the best marketing solutions for online stores, showing how to promote them on social media platforms and increase monthly online store sales."
-}
+                                {lang === "ar"
+                                    ? "خبرة فى التسويق للتجارة الإلكترونية فى المملكة العربية السعودية وفي الشرق الأوسط، أقدم لك افضل الحلول التسويقية للمتاجر الالكترونية لكيفية تسويقها على منصات التواصل الاجتماعي، وزيادة مبيعات المتجر الإلكتروني شهريًا."
+                                    : "With experience in e-commerce marketing in Saudi Arabia and the Middle East, I provide the best marketing solutions for online stores, showing how to promote them on social media platforms and increase monthly online store sales."
+                                }
                             </Text>
                         </VStack>
                         <HStack gap={8} w={{ base: "100%", lg: "85%" }} align={"stretch"} flexDirection={{ base: "column", lg: "row" }}>
@@ -329,10 +329,10 @@ export const WorkShop = () => {
                             <VStack borderRadius={"md"} minW={"40%"} gap={8} order={1} align={"center"} justifyContent={"center"} p={6} bg={"rgba(34, 108, 255, 1)"}>
                                 <Text color={"white"} fontWeight={700} fontSize={"2.5rem"}>{lang === "ar" ? "مصطفى صبحي" : "Mostafa Soubhi"}</Text>
                                 <Text color={"rgba(255, 255, 255, 0.8)"} lineHeight={"2.25rem"} fontWeight={400} fontSize={"1.5rem"}>
-{lang === "ar"
-  ? "أعمل كخبير فى التسويق الرقمي ولدي خبرة تمتد لأكثر من 9 سنوات في تصميم وتنفيذ استراتيجيات تسويق رقمي مبتكرة. أتميز بالقدرة على تحليل الأسواق وتحديد الفرص، بالإضافة إلى تقديم حلول تسويقية متكاملة تهدف إلى تعزيز نمو الأعمال وتحقيق أهداف الشركات. أسعى دائمًا لتطوير مهاراتي ومواكبة أحدث اتجاهات التسويق الرقمي لتحقيق أقصى قيمة للعملاء والمشاريع التي أعمل عليها."
-  : "I work as a digital marketing expert with over 9 years of experience in designing and implementing innovative digital marketing strategies. I excel at analyzing markets and identifying opportunities, while providing comprehensive marketing solutions aimed at boosting business growth and achieving company goals. I am always striving to improve my skills and stay up-to-date with the latest digital marketing trends to deliver maximum value to the clients and projects I work on."
-}
+                                    {lang === "ar"
+                                        ? "أعمل كخبير فى التسويق الرقمي ولدي خبرة تمتد لأكثر من 9 سنوات في تصميم وتنفيذ استراتيجيات تسويق رقمي مبتكرة. أتميز بالقدرة على تحليل الأسواق وتحديد الفرص، بالإضافة إلى تقديم حلول تسويقية متكاملة تهدف إلى تعزيز نمو الأعمال وتحقيق أهداف الشركات. أسعى دائمًا لتطوير مهاراتي ومواكبة أحدث اتجاهات التسويق الرقمي لتحقيق أقصى قيمة للعملاء والمشاريع التي أعمل عليها."
+                                        : "I work as a digital marketing expert with over 9 years of experience in designing and implementing innovative digital marketing strategies. I excel at analyzing markets and identifying opportunities, while providing comprehensive marketing solutions aimed at boosting business growth and achieving company goals. I am always striving to improve my skills and stay up-to-date with the latest digital marketing trends to deliver maximum value to the clients and projects I work on."
+                                    }
                                 </Text>
                             </VStack>
                             <Image borderRadius={"md"} loading="eager"
@@ -344,7 +344,12 @@ export const WorkShop = () => {
                     <VStack w={"80%"} gap={8} p={4}>
 
                         <Text color={"rgba(11, 8, 7, 1)"} fontWeight={"bold"} fontSize={"2.5rem"} > {lang === "ar" ? "من يمكنه المشاركه في الورشة" : "Who Can Benefit from the Workshop"}</Text>
-                        <Text color={"rgba(11, 8, 7, 0.7)"} fontWeight={"light"} fontSize={"1.5rem"} > {lang === "ar" ? "الورشة مناسبة لكل من يرغب في تطوير مبيعاته عبر الإنترنت، سواء كان يمتلك متجرًا على سلة أو زد أو يسوّق لمنتجاته بطرق مختلفة، مصممة لتناسب أصحاب المشاريع الصغيرة، والمسوقين، وأصحاب البرندات اللي يبغون يحققون نمو حقيقي ويحوّلون أفكارهم إلى أرباح ملموسة." : ""}</Text>
+                        <Text color={"rgba(11, 8, 7, 0.7)"} fontWeight={"light"} fontSize={"1.5rem"}>
+                            {lang === "ar"
+                                ? "الورشة مناسبة لكل من يرغب في تطوير مبيعاته عبر الإنترنت، سواء كان يمتلك متجرًا على سلة أو زد أو يسوّق لمنتجاته بطرق مختلفة، مصممة لتناسب أصحاب المشاريع الصغيرة، والمسوقين، وأصحاب البرندات اللي يبغون يحققون نمو حقيقي ويحوّلون أفكارهم إلى أرباح ملموسة."
+                                : "The workshop is suitable for anyone looking to grow their online sales, whether they have a store on Salla or Zed, or market their products in various ways. It’s designed for small business owners, marketers, and brand owners who want to achieve real growth and turn their ideas into tangible profits."
+                            }
+                        </Text>
                         <VStack w={"100vw"} bg={"white"} p={4}>
                             <HStack w={"80%"} gap={4} align={"stretch"} flexDir={{ base: "column", lg: "row" }} justifyContent={"space-between"}>
                                 <Image src="/testimonial2.jpg"
