@@ -80,7 +80,7 @@ export const Header = () => {
         >
           {lang === "ar" ? "ورشة المتاجر الالكترونية" : "E-Commerce Workshop"}
           <svg width="24" transform={(lang === "ar" ? "rotate(0)" : "rotate(90)")} height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 18L6 6M6 6H15M6 6V15" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            <path d="M18 18L6 6M6 6H15M6 6V15" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
           </svg>
 
         </Box>
@@ -113,29 +113,29 @@ export const Header = () => {
         >
           <Navbar />
           <Box
-          as="button"
-          display={"flex"}
-          minW={"50%"}
-          _hover={{ bg: "whiteAlpha.300", cursor: "pointer" }}
-          fontSize="1.25rem"
-          fontWeight="bold"
-          fontFamily={"Cairo"}
-          alignItems={"center"}
-          justifyContent={"space-around"}
-          marginInlineStart={"auto"}
-          marginInlineEnd={"auto"}
-          borderRadius="2rem"
-          border="2px solid white"
-          color="white"
-          px={"1.25rem"}
-          py={2}
-          onClick={() => navigate("/workshop")}
-        >
-          {lang === "ar" ? "ورشة المتاجر الالكترونية" : "E-Commerce Workshop"}
-          <svg width={"24"} height={"24"} transform={(lang === "ar" ? "rotate(0)" : "rotate(90)")} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 18L6 6M6 6H15M6 6V15" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </Box>
+            as="button"
+            display={"flex"}
+            minW={"50%"}
+            _hover={{ bg: "whiteAlpha.300", cursor: "pointer" }}
+            fontSize="1.25rem"
+            fontWeight="bold"
+            fontFamily={"Cairo"}
+            alignItems={"center"}
+            justifyContent={"space-around"}
+            marginInlineStart={"auto"}
+            marginInlineEnd={"auto"}
+            borderRadius="2rem"
+            border="2px solid white"
+            color="white"
+            px={"1.25rem"}
+            py={2}
+            onClick={() => navigate("/workshop")}
+          >
+            {lang === "ar" ? "ورشة المتاجر الالكترونية" : "E-Commerce Workshop"}
+            <svg width={"24"} height={"24"} transform={(lang === "ar" ? "rotate(0)" : "rotate(90)")} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 18L6 6M6 6H15M6 6V15" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </Box>
           <HStack w="100%" justify="center" gap={2}>
             <Menu.Root>
               <Menu.Trigger asChild>
@@ -153,7 +153,7 @@ export const Header = () => {
                 </Menu.Positioner>
               </Portal>
             </Menu.Root>
-            
+
           </HStack>
           {/* <Box
             as="button"

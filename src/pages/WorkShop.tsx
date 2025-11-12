@@ -224,13 +224,14 @@ export const WorkShop = () => {
                         <VStack w={"80%"} gap="8" p={8}>
                             <Text color={"rgba(11, 8, 7, 1)"} fontSize={"2.5rem"} fontWeight={700}>
                                 {lang === "ar" ? "لماذا عليك الحضور؟" : "Why You Should Attend?"}                            </Text>
-                            <Text color={"rgba(11, 8, 7, 0.7)"} fontSize={"1.2rem"} fontWeight={400} >
+                            <Text color={"rgba(11, 8, 7, 0.7)"} w={{base:"90vw" , md:"100%"}} fontSize={"1.2rem"} fontWeight={400} >
                                 {lang === "ar"
                                     ? "لأن النجاح في التجارة الإلكترونية ما يعتمد على الحظ، بل على الفهم والخطة الصح، في هذه الورشة ستتعلم أسرار المتاجر الناجحة، كيف ترفع مبيعاتك وتفهم جمهورك وتسوّق بذكاء؛ احضر وخلّي متجرك يحقق النتائج اللي كنت تتمناها!"
                                     : "Success in e-commerce doesn’t depend on luck — it depends on understanding and having the right plan. In this workshop, you’ll learn the secrets of successful stores, how to increase your sales, understand your audience, and market intelligently. Join us and make your store achieve the results you’ve always dreamed of!"
                                 }
                             </Text>
-                            <HStack gap={8} align={"stretch"} justifyContent={"space-around"}
+                            <HStack gap={8} align={{ base: "center", lg: "stretch" }} 
+                            justifyContent={"space-around"}
                                 w={{ base: "100%", lg: "80%" }} flexDir={{ base: "column", lg: "row" }}>
                                 <VStack p={4} borderRadius={"md"} w={{ base: "90vw", lg: "30%" }} border={"1px solid rgba(133, 133, 133, 0.2)"}>
                                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -369,10 +370,10 @@ export const WorkShop = () => {
                                             <Box w={"20"} h={"auto"}>
                                                 <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <rect width="48" height="48" rx="24" fill="#226CFF" />
-                                                    <path d="M28 33V31C28 29.9391 27.5786 28.9217 26.8284 28.1716C26.0783 27.4214 25.0609 27 24 27H18C16.9391 27 15.9217 27.4214 15.1716 28.1716C14.4214 28.9217 14 29.9391 14 31V33" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path d="M28 15.1279C28.8578 15.3503 29.6174 15.8512 30.1597 16.552C30.702 17.2528 30.9962 18.1138 30.9962 18.9999C30.9962 19.886 30.702 20.7471 30.1597 21.4479C29.6174 22.1487 28.8578 22.6496 28 22.8719" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path d="M34 32.9999V30.9999C33.9993 30.1136 33.7044 29.2527 33.1614 28.5522C32.6184 27.8517 31.8581 27.3515 31 27.1299" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path d="M21 23C23.2091 23 25 21.2091 25 19C25 16.7909 23.2091 15 21 15C18.7909 15 17 16.7909 17 19C17 21.2091 18.7909 23 21 23Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path d="M28 33V31C28 29.9391 27.5786 28.9217 26.8284 28.1716C26.0783 27.4214 25.0609 27 24 27H18C16.9391 27 15.9217 27.4214 15.1716 28.1716C14.4214 28.9217 14 29.9391 14 31V33" stroke="white" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path d="M28 15.1279C28.8578 15.3503 29.6174 15.8512 30.1597 16.552C30.702 17.2528 30.9962 18.1138 30.9962 18.9999C30.9962 19.886 30.702 20.7471 30.1597 21.4479C29.6174 22.1487 28.8578 22.6496 28 22.8719" stroke="white" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path d="M34 32.9999V30.9999C33.9993 30.1136 33.7044 29.2527 33.1614 28.5522C32.6184 27.8517 31.8581 27.3515 31 27.1299" stroke="white" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path d="M21 23C23.2091 23 25 21.2091 25 19C25 16.7909 23.2091 15 21 15C18.7909 15 17 16.7909 17 19C17 21.2091 18.7909 23 21 23Z" stroke="white" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
                                                 </svg>
                                             </Box>
 
@@ -392,10 +393,10 @@ export const WorkShop = () => {
                                             <Box w={"20"} h={"auto"}>
                                                 <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <rect width="48" height="48" rx="24" fill="#226CFF" />
-                                                    <path d="M28 33V31C28 29.9391 27.5786 28.9217 26.8284 28.1716C26.0783 27.4214 25.0609 27 24 27H18C16.9391 27 15.9217 27.4214 15.1716 28.1716C14.4214 28.9217 14 29.9391 14 31V33" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path d="M28 15.1279C28.8578 15.3503 29.6174 15.8512 30.1597 16.552C30.702 17.2528 30.9962 18.1138 30.9962 18.9999C30.9962 19.886 30.702 20.7471 30.1597 21.4479C29.6174 22.1487 28.8578 22.6496 28 22.8719" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path d="M34 32.9999V30.9999C33.9993 30.1136 33.7044 29.2527 33.1614 28.5522C32.6184 27.8517 31.8581 27.3515 31 27.1299" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path d="M21 23C23.2091 23 25 21.2091 25 19C25 16.7909 23.2091 15 21 15C18.7909 15 17 16.7909 17 19C17 21.2091 18.7909 23 21 23Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path d="M28 33V31C28 29.9391 27.5786 28.9217 26.8284 28.1716C26.0783 27.4214 25.0609 27 24 27H18C16.9391 27 15.9217 27.4214 15.1716 28.1716C14.4214 28.9217 14 29.9391 14 31V33" stroke="white" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path d="M28 15.1279C28.8578 15.3503 29.6174 15.8512 30.1597 16.552C30.702 17.2528 30.9962 18.1138 30.9962 18.9999C30.9962 19.886 30.702 20.7471 30.1597 21.4479C29.6174 22.1487 28.8578 22.6496 28 22.8719" stroke="white" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path d="M34 32.9999V30.9999C33.9993 30.1136 33.7044 29.2527 33.1614 28.5522C32.6184 27.8517 31.8581 27.3515 31 27.1299" stroke="white" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path d="M21 23C23.2091 23 25 21.2091 25 19C25 16.7909 23.2091 15 21 15C18.7909 15 17 16.7909 17 19C17 21.2091 18.7909 23 21 23Z" stroke="white" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
                                                 </svg>
                                             </Box>
 
@@ -416,10 +417,10 @@ export const WorkShop = () => {
                                             <Box w={"20"} h={"auto"}>
                                                 <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <rect width="48" height="48" rx="24" fill="#226CFF" />
-                                                    <path d="M28 33V31C28 29.9391 27.5786 28.9217 26.8284 28.1716C26.0783 27.4214 25.0609 27 24 27H18C16.9391 27 15.9217 27.4214 15.1716 28.1716C14.4214 28.9217 14 29.9391 14 31V33" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path d="M28 15.1279C28.8578 15.3503 29.6174 15.8512 30.1597 16.552C30.702 17.2528 30.9962 18.1138 30.9962 18.9999C30.9962 19.886 30.702 20.7471 30.1597 21.4479C29.6174 22.1487 28.8578 22.6496 28 22.8719" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path d="M34 32.9999V30.9999C33.9993 30.1136 33.7044 29.2527 33.1614 28.5522C32.6184 27.8517 31.8581 27.3515 31 27.1299" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
-                                                    <path d="M21 23C23.2091 23 25 21.2091 25 19C25 16.7909 23.2091 15 21 15C18.7909 15 17 16.7909 17 19C17 21.2091 18.7909 23 21 23Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <path d="M28 33V31C28 29.9391 27.5786 28.9217 26.8284 28.1716C26.0783 27.4214 25.0609 27 24 27H18C16.9391 27 15.9217 27.4214 15.1716 28.1716C14.4214 28.9217 14 29.9391 14 31V33" stroke="white" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path d="M28 15.1279C28.8578 15.3503 29.6174 15.8512 30.1597 16.552C30.702 17.2528 30.9962 18.1138 30.9962 18.9999C30.9962 19.886 30.702 20.7471 30.1597 21.4479C29.6174 22.1487 28.8578 22.6496 28 22.8719" stroke="white" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path d="M34 32.9999V30.9999C33.9993 30.1136 33.7044 29.2527 33.1614 28.5522C32.6184 27.8517 31.8581 27.3515 31 27.1299" stroke="white" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
+                                                    <path d="M21 23C23.2091 23 25 21.2091 25 19C25 16.7909 23.2091 15 21 15C18.7909 15 17 16.7909 17 19C17 21.2091 18.7909 23 21 23Z" stroke="white" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
                                                 </svg>
                                             </Box>
                                             <Box gap={2}>
@@ -444,10 +445,10 @@ export const WorkShop = () => {
                                         <Box w={"20"} h={"auto"}>
                                             <svg width="100%" height="100%" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <rect width="48" height="48" rx="24" fill="#226CFF" />
-                                                <path d="M28 33V31C28 29.9391 27.5786 28.9217 26.8284 28.1716C26.0783 27.4214 25.0609 27 24 27H18C16.9391 27 15.9217 27.4214 15.1716 28.1716C14.4214 28.9217 14 29.9391 14 31V33" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
-                                                <path d="M28 15.1279C28.8578 15.3503 29.6174 15.8512 30.1597 16.552C30.702 17.2528 30.9962 18.1138 30.9962 18.9999C30.9962 19.886 30.702 20.7471 30.1597 21.4479C29.6174 22.1487 28.8578 22.6496 28 22.8719" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
-                                                <path d="M34 32.9999V30.9999C33.9993 30.1136 33.7044 29.2527 33.1614 28.5522C32.6184 27.8517 31.8581 27.3515 31 27.1299" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
-                                                <path d="M21 23C23.2091 23 25 21.2091 25 19C25 16.7909 23.2091 15 21 15C18.7909 15 17 16.7909 17 19C17 21.2091 18.7909 23 21 23Z" stroke="white" stroke-width="2.66667" stroke-linecap="round" stroke-linejoin="round" />
+                                                <path d="M28 33V31C28 29.9391 27.5786 28.9217 26.8284 28.1716C26.0783 27.4214 25.0609 27 24 27H18C16.9391 27 15.9217 27.4214 15.1716 28.1716C14.4214 28.9217 14 29.9391 14 31V33" stroke="white" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
+                                                <path d="M28 15.1279C28.8578 15.3503 29.6174 15.8512 30.1597 16.552C30.702 17.2528 30.9962 18.1138 30.9962 18.9999C30.9962 19.886 30.702 20.7471 30.1597 21.4479C29.6174 22.1487 28.8578 22.6496 28 22.8719" stroke="white" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
+                                                <path d="M34 32.9999V30.9999C33.9993 30.1136 33.7044 29.2527 33.1614 28.5522C32.6184 27.8517 31.8581 27.3515 31 27.1299" stroke="white" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
+                                                <path d="M21 23C23.2091 23 25 21.2091 25 19C25 16.7909 23.2091 15 21 15C18.7909 15 17 16.7909 17 19C17 21.2091 18.7909 23 21 23Z" stroke="white" strokeWidth="2.66667" strokeLinecap="round" strokeLinejoin="round" />
                                             </svg>
                                         </Box>
 
