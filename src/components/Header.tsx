@@ -115,14 +115,15 @@ export const Header = () => {
           <Box
           as="button"
           display={"flex"}
-          maxW={"50%"}
+          minW={"50%"}
           _hover={{ bg: "whiteAlpha.300", cursor: "pointer" }}
           fontSize="1.25rem"
           fontWeight="bold"
           fontFamily={"Cairo"}
           alignItems={"center"}
           justifyContent={"space-around"}
-          marginInlineStart={"25%"}
+          marginInlineStart={"auto"}
+          marginInlineEnd={"auto"}
           borderRadius="2rem"
           border="2px solid white"
           color="white"

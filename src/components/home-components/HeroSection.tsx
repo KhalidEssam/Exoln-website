@@ -45,6 +45,28 @@ export const HeroSection = () => {
                     >
                         {lang === "ar" ? "أطلب خطتك الخاصة" : "Get a custom plan"}
                     </Box>
+                    <Box
+                        as="button"
+                        display={{ base: "flex", lg: "none" }}
+                        _hover={{ bg: "whiteAlpha.300", cursor: "pointer" }}
+                        fontSize="1.25rem"
+                        fontWeight="bold"
+                        fontFamily={"Cairo"}
+                        alignItems={"center"}
+                        gap={2}
+                        borderRadius="2rem"
+                        border="2px solid white"
+                        color="white"
+                        px={"1.25rem"}
+                        py={2}
+                        onClick={() => { window.location.href = "/workshop" }}
+                    >
+                        {lang === "ar" ? "ورشة المتاجر الالكترونية" : "E-Commerce Workshop"}
+                        <svg width="24" transform={(lang === "ar" ? "rotate(0)" : "rotate(90)")} height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 18L6 6M6 6H15M6 6V15" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+
+                    </Box>
                 </VStack >
 
                 {/* <SkippingGrid /> */}
