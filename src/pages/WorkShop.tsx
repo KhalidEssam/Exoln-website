@@ -323,10 +323,14 @@ export const WorkShop = () => {
 
                         <Text color={"rgba(11, 8, 7, 1)"} fontWeight={"bold"} fontSize={"2.5rem"} >من يمكنه المشاركه في الورشة</Text>
                         <Text color={"rgba(11, 8, 7, 0.7)"} fontWeight={"light"} fontSize={"1.5rem"} >لوريم ايبسوم دولار سيت أميت مينيم ريبيوديامت كويرات. كويس نوسترو نيسيوت نوسترو لابورام ديواس أيوتي ماجنا أليكا ليجاتوس لابورام لابوريس كلارينتي دولار كويس لابوري يوت نيسيوت نيسيوت كويرات إيليت، تيمبور إنتروليكيشن نيسي فينيام، إياسمود ديكتوم إي كويرات. يوت إن ماغنيت.</Text>
-
-                        <HStack w={"90%"} gap={4} align={"stretch"} flexDir={{ base: "column", lg: "row" }} justifyContent={"space-between"}>
+<VStack w={"100vw"} bg={"white"} p={4}>
+                        <HStack w={"80%"}  gap={4} align={"stretch"} flexDir={{ base: "column", lg: "row" }} justifyContent={"space-between"}>
                             <Image src="/testimonial2.jpg"
-                                order={0} />
+                                order={0}
+                                loading="eager"
+                                decoding="async"
+                                objectFit={"contain"}
+                                 />
                             <VStack order={1} 
                             gap={8}
                                 p={4}
@@ -416,6 +420,7 @@ export const WorkShop = () => {
 
                             </VStack>
                         </HStack>
+                        </VStack>
                     </VStack>
 
 
