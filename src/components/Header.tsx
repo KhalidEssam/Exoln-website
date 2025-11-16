@@ -76,6 +76,8 @@ export const Header = () => {
           color="white"
           px={"1.25rem"}
           py={2}
+          bg="transparent"
+
           onClick={() => navigate("/workshop")}
         >
           {lang === "ar" ? "ورشة المتاجر الالكترونية" : "E-Commerce Workshop"}
@@ -129,6 +131,8 @@ export const Header = () => {
             color="white"
             px={"1.25rem"}
             py={2}
+            bg="transparent"
+
             onClick={() => navigate("/workshop")}
           >
             {lang === "ar" ? "ورشة المتاجر الالكترونية" : "E-Commerce Workshop"}

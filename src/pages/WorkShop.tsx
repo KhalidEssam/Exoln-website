@@ -213,6 +213,7 @@ export const WorkShop = () => {
                                         py={"2"}
                                         borderRadius={"3xl"}
                                         fontSize={"xl"}
+                                        bg="transparent"
                                         border={"3px solid white"}
                                         onClick={() => window.open("https://shop.exoln.com/qGobrnm", "_blank")}>
                                         {lang === "ar" ? " احجز مقعدك الأن وابدأ طريق النجاح" : "Book Now & Start Your Journey to Success"}
@@ -550,6 +551,7 @@ export const WorkShop = () => {
                                     borderRadius="4xl"
                                     p={2}
                                     px={8}
+                                    bg="transparent"
                                     fontSize={{ base: "0.8rem", md: "1.5rem" }}
                                     // color="white"
                                     _hover={{ bg: "white", color: "#226CFF", cursor: "pointer" }}
