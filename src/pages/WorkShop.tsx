@@ -142,7 +142,7 @@ export const WorkShop = () => {
                                 align={"stretch"}>
                                 {/* Image with Blur Overlay */}
                                 <Box position="relative" w={{ base: "100%", lg: "40%" }} h={"100%"}>
-                                    <Image
+                                    {/* <Image
                                         src="./Rectangle 1.png"
                                         // p={8}
                                         w={"100%"}
@@ -150,9 +150,18 @@ export const WorkShop = () => {
                                         alt=""
                                         loading="eager"
                                         decoding="async"
+                                    /> */}
+                                    <iframe
+                                        src="https://drive.google.com/file/d/1aVinT5Rk3ETva3UihxSvNvFNWEzlkR1L/preview"
+                                        width="100%"
+                                        height="480"
+                                        allow="autoplay"
+                                        style={{ border: "none" }}
                                     />
+
+
                                     {/* Blur Overlay */}
-                                    <Box
+                                    {/* <Box
                                         position="absolute"
                                         top={0}
                                         left={0}
@@ -163,7 +172,7 @@ export const WorkShop = () => {
                                         // WebkitBackdropFilter="blur(6px)" // Safari support
                                         zIndex={1}
                                         pointerEvents="none" // Allow clicks to pass through
-                                    />
+                                    /> */}
                                 </Box>
                                 <VStack textAlign="start" w={{ base: "100%", lg: "60%" }} gap={6} color={"#FFFFFF"}>
 
@@ -359,12 +368,21 @@ export const WorkShop = () => {
                         </Text>
                         <VStack w={"100vw"} bg={"white"} p={4}>
                             <HStack w={"80%"} gap={4} align={"stretch"} flexDir={{ base: "column", lg: "row" }} justifyContent={"space-between"}>
-                                <Image src="/testimonial2.jpg"
+                                {/* <Image src="/testimonial2.jpg"
                                     order={0}
                                     loading="eager"
                                     decoding="async"
                                     objectFit={"contain"}
+                                /> */}
+                                <Box w={{base:"100%",lg:"50%"}}>
+                                <iframe
+                                    src="https://drive.google.com/file/d/1QbePWX0XOvFI_Femfg1ASpVps0HF7hUV/preview"
+                                    width="100%"
+                                    height="480"
+                                    allow="autoplay"
+                                    style={{ border: "none" }}
                                 />
+                                </Box>
                                 <VStack order={1}
                                     gap={8}
                                     p={4}
