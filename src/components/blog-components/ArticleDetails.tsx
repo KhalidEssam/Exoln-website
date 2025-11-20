@@ -82,7 +82,7 @@ export const ArticleDetails = () => {
                         mb={{ base: "5rem", xl: "3rem" }}
                     >
                         <Image
-                            src="/الخدمات-الطبية-في-القاهرة-الجديدة-1.webp"
+                            src="/blog1.webp"
                             alt=""
                             borderRadius="10px"
                             w="100%"
