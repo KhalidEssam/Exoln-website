@@ -1,5 +1,5 @@
 import { selectLanguage } from "@/store/slices/languageSlice";
-import { VStack, Box, Text, HStack, Spinner, Center, Button } from "@chakra-ui/react";
+import { VStack, Box, Text, HStack, Spinner, Center, Button, Image } from "@chakra-ui/react";
 import { useSelector } from "react-redux";
 import { FaBell } from "react-icons/fa6";
 import { useEffect, useState } from "react";
@@ -73,13 +73,26 @@ export const ArticleDetails = () => {
             {console.log(seo)}
 
             <VStack w="100vw" align="start" textAlign="start" gap="2rem">
-                <Box
-                    bgImage={`url(${chosenArticle?.image})`}
-                    bgSize="cover"
-                    w="100%"
-                    h="300px"
-                    borderRadius="10px"
-                />
+
+                <Center w="100%" bg={"gray.500"}>
+                    <Box
+                        w={{ base: "80%", md: "70%", xl: "50%" }}
+                        // maxW="920px"
+                        mt={{ base: "5rem", xl: "8rem" }}
+                        mb={{ base: "5rem", xl: "3rem" }}
+                    >
+                        <Image
+                            src="/الخدمات-الطبية-في-القاهرة-الجديدة-1.webp"
+                            alt=""
+                            borderRadius="10px"
+                            w="100%"
+                            h="auto"
+                            objectFit="cover"
+                            objectPosition="center"
+                        />
+                    </Box>
+                </Center>
+
 
                 <Center w="90vw" m="2rem" flexDir="column" gap="2rem">
                     <HStack w="100%" justifyContent="space-between">

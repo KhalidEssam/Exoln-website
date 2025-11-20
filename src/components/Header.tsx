@@ -7,22 +7,19 @@ import { selectLanguage } from "../store/slices/languageSlice";
 import { useState } from "react";
 import type { RootState } from "@/store";
 import { useRef } from "react";
-
 import { useNavigate } from "react-router-dom";
 import { Menu, Portal } from "@chakra-ui/react"
 import { setLanguage } from "../store/slices/languageSlice";
 import { useDispatch } from "react-redux";
 export const Header = () => {
+
   const lang = useSelector(selectLanguage);
   const [menuOpen, setMenuOpen] = useState(false);
   const { activeLink, } = useSelector((state: RootState) => state.nav);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  // ✅ Close menu when clicking outside
-  // useOutsideClick(menuRef, () => {
-  //   if (menuOpen) setMenuOpen(false);
-  // });
+  
   return (
     <Box
       as="header"
@@ -31,8 +28,9 @@ export const Header = () => {
       position="absolute"
       top={0}
       mt={6}
-      w="90%"
-      px={4}
+      minW={"90%"}
+      maxW="99%"
+      // px={4}
     >
       <HStack justify="space-between" align="center">
         {/* Logo */}
@@ -40,7 +38,7 @@ export const Header = () => {
           <Image src={activeLink === "/" ? "/logo.webp" : "/logo2.webp"} alt="logo" h="2rem" />
         </ChakraLink>
         {/* Desktop Navbar + Actions: show ONLY on lg and up */}
-        <HStack display={{ base: "none", lg: "flex" }} w={"55%"} justifyContent={"space-arounf"} gap={6} align="center">
+        <HStack display={{ base: "none", xl: "flex" }} w={"55%"} justifyContent={"space-arounf"} gap={6} align="center">
           <Navbar />
           <Menu.Root>
             <Menu.Trigger asChild>
@@ -60,8 +58,6 @@ export const Header = () => {
           </Menu.Root>
 
         </HStack>
-        {/* <HStack> */}
-
         <Box
           as="button"
           display={{ base: "none", lg: "flex" }}
@@ -90,7 +86,7 @@ export const Header = () => {
         {/* Mobile Hamburger: show UP TO md (hidden on lg and above) */}
         <IconButton
           aria-label={menuOpen ? "Close menu" : "Open menu"}
-          display={{ base: "flex", lg: "none" }}
+          display={{ base: "flex", xl: "none" }}
           variant="ghost"
           color="white"
           onClick={() => setMenuOpen((s) => !s)}
@@ -111,7 +107,7 @@ export const Header = () => {
           align="stretch"
           bg="blackAlpha.900"
           borderRadius="lg"
-          display={{ base: "flex", lg: "none" }}
+          display={{ base: "flex", xl: "none" }}
         >
           <Navbar />
           <Box
@@ -159,18 +155,6 @@ export const Header = () => {
             </Menu.Root>
 
           </HStack>
-          {/* <Box
-            as="button"
-            _hover={{ bg: "whiteAlpha.300", cursor: "pointer" }}
-            fontSize="1.2rem"
-            fontWeight="500"
-            w="100%"
-            borderRadius="full"
-            border="2px solid white"
-            p={4}
-          >
-            {lang === "ar" ? "تسجيل الدخول" : "Login"}
-          </Box> */}
         </VStack>
       )}
     </Box>

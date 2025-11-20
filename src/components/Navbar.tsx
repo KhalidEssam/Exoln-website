@@ -54,7 +54,7 @@ export const Navbar = () => {
   return (
     <Stack direction="column" zIndex={2} position="relative">
       <Stack
-        direction={{ base: "column", md: "column", lg: "row" }}
+        direction={{ base: "column", md: "column", xl: "row" }}
         gap={{ base: "1rem", md: "2rem", xl: "3.5rem" }}
         color={"white"}
       >
