@@ -5,7 +5,6 @@ import { FaBell } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import { dummyArticles as articles } from "@/pages/Blog";
 import mammoth from "mammoth";
-// import { Helmet } from "react-helmet-async";
 import { SEO } from "../SEO";
 
 export const ArticleDetails = () => {
@@ -14,13 +13,14 @@ export const ArticleDetails = () => {
     const [htmlContent, setHtmlContent] = useState<string>("");
 
     const id = window.location.pathname.split("/")[2];
+
     let chosenArticle = articles.find((article) => article.id == Number(id));
     if (!chosenArticle) {
         chosenArticle = articles.find((article) => article.slug === id);
     }
 
     const contentUrl = chosenArticle?.contentUrl?.[lang];
-    const seo = chosenArticle?.seo?.[lang]; // 👈 Add SEO data in your dummyArticles object
+    const seo = chosenArticle?.seo?.[lang];
 
     useEffect(() => {
         const loadDocx = async () => {
@@ -32,10 +32,28 @@ export const ArticleDetails = () => {
             try {
                 const response = await fetch(contentUrl);
                 if (!response.ok) throw new Error("Failed to fetch document");
+
                 const arrayBuffer = await response.arrayBuffer();
 
-                const { value } = await mammoth.convertToHtml({ arrayBuffer });
+                // ⭐ FIX: Mammoth style map for correct formatting
+                const { value } = await mammoth.convertToHtml(
+                    { arrayBuffer },
+                    {
+                        styleMap: [
+                            "b => strong",
+                            "i => em",
+                            "u => u",
+                            "p[style-name='Normal'] => p",
+                            "p[style-name='Heading 1'] => h1:fresh",
+                            "p[style-name='Heading 2'] => h2:fresh",
+                            "p[style-name='Heading 3'] => h3:fresh",
+                            "p[style-name='List Paragraph'] => ul > li:fresh"
+                        ]
+                    }
+                );
+
                 setHtmlContent(value);
+
             } catch (err) {
                 console.error("Error loading document:", err);
                 setHtmlContent(
@@ -54,30 +72,20 @@ export const ArticleDetails = () => {
 
     return (
         <>
-            {/* 🌐 SEO META TAGS */}
             {seo && (
-                // <Helmet>
-                //     <title>{seo.title}</title>
-                //     <meta name="description" content={seo.description} />
-                //     <meta name="keywords" content={seo.keywords?.join(", ")} />
-                //     <meta property="og:title" content={seo.title} />
-                //     <meta property="og:description" content={seo.description} />
-                //     <meta property="og:image" content={chosenArticle?.image} />
-                //     <meta property="og:type" content="article" />
-                //     <meta name="twitter:title" content={seo.title} />
-                //     <meta name="twitter:description" content={seo.description} />
-                //     <meta name="twitter:image" content={chosenArticle?.image} />
-                // </Helmet>
-                <SEO title={seo.title} description={seo.description} keywords={seo.keywords.join(", ")} />
+                <SEO
+                    title={seo.title}
+                    description={seo.description}
+                    keywords={seo.keywords.join(", ")}
+                />
             )}
-            {console.log(seo)}
 
             <VStack w="100vw" align="start" textAlign="start" gap="2rem">
 
+                {/* ARTICLE COVER IMAGE */}
                 <Center w="100%" bg={"gray.500"}>
                     <Box
                         w={{ base: "80%", md: "70%", xl: "50%" }}
-                        // maxW="920px"
                         mt={{ base: "5rem", xl: "8rem" }}
                         mb={{ base: "5rem", xl: "3rem" }}
                     >
@@ -93,8 +101,8 @@ export const ArticleDetails = () => {
                     </Box>
                 </Center>
 
-
                 <Center w="90vw" m="2rem" flexDir="column" gap="2rem">
+                    {/* TITLE + DATE */}
                     <HStack w="100%" justifyContent="space-between">
                         <Text
                             color="rgba(46, 54, 81, 1)"
@@ -102,6 +110,7 @@ export const ArticleDetails = () => {
                         >
                             {lang === "en" ? chosenArticle?.title.en : chosenArticle?.title.ar}
                         </Text>
+
                         <Text
                             color="rgba(95, 97, 102, 1)"
                             fontSize={{ base: "1rem", md: "1.25rem", lg: "1.5rem" }}
@@ -110,7 +119,7 @@ export const ArticleDetails = () => {
                         </Text>
                     </HStack>
 
-                    {/* 🧩 Main Content */}
+                    {/* ARTICLE BODY */}
                     <VStack minH="70vh" w="100%">
                         {loading ? (
                             <Center w="100%" h="70vh">
@@ -124,13 +133,12 @@ export const ArticleDetails = () => {
                                 borderRadius="md"
                                 boxShadow="sm"
                                 fontFamily={
-                                    lang === "ar"
-                                        ? `'Cairo', sans-serif`
-                                        : `'Montserrat', sans-serif`
+                                    lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', sans-serif`
                                 }
                                 fontSize={{ base: "1rem", md: "1.1rem" }}
-                                lineHeight="1.8"
+                                lineHeight="1.9"
                                 dir={lang === "ar" ? "rtl" : "ltr"}
+                                className="article-content"
                                 dangerouslySetInnerHTML={{ __html: htmlContent }}
                             />
                         ) : (
@@ -142,7 +150,7 @@ export const ArticleDetails = () => {
                         )}
                     </VStack>
 
-                    {/* 📩 Subscription CTA */}
+                    {/* CTA */}
                     <HStack w="100%" justifyContent="space-between" flexWrap="wrap">
                         <Text
                             w={{ base: "100%", md: "60%" }}
