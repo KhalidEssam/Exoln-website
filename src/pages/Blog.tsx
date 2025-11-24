@@ -14,7 +14,7 @@ export const dummyArticles: articleProbs[] = [
       en: "Learn proven strategies to scale your startup effectively while maintaining efficiency and culture.",
       ar: "تعرف على استراتيجيات مثبتة لتوسيع نطاق شركتك الناشئة مع الحفاظ على الكفاءة والثقافة."
     },
-    image: "/blog1.webp",
+    image: "/webblog.png",
     date: "2025-09-01",
     featured: true,
     ref: "how-to-scale-your-startup",
@@ -40,6 +40,7 @@ export const dummyArticles: articleProbs[] = [
       },
       ar: {
         title: "أهمية المحاسبة ومسك الدفاتر لكل عمل تجاري | رؤى إكسولن  Exoln للأعمال",
+        
         description:
           "اكتشف لماذا تعتبر المحاسبة ومسك الدفاتر من الأساسيات لأي عمل تجاري. توضح شركة Exoln كيف يساعد التنظيم المالي الجيد في تحقيق النمو والالتزام واتخاذ قرارات أفضل.",
         keywords: [
@@ -57,23 +58,27 @@ export const dummyArticles: articleProbs[] = [
   },
   {
     id: 2,
-    title: { en: "Digital Transformation in 2025", ar: "التحول الرقمي في 2025" },
-    description: {
-      en: "Explore how AI and automation are reshaping industries worldwide.",
-      ar: "اكتشف كيف يعيد الذكاء الاصطناعي والأتمتة تشكيل الصناعات حول العالم."
+    title: {
+      en: "The Importance of E-Commerce Marketing and How to Choose the Right Agency",
+      ar: "أهمية التسويق للمتاجر الإلكترونية وكيف تختار شركة التسويق المناسبة"
     },
-    image: "/blog2.webp",
-    date: "2025-08-15",
+    subtitle: { en: "E-Commerce Marketing", ar:"تسويق المتاجر الإلكترونية"  },
+    description: {
+      en: "Discover why e-commerce marketing is essential and how to choose the right digital marketing agency to grow your online store effectively in Saudi Arabia.",
+      ar: "تعرف على أهمية التسويق للمتاجر الإلكترونية، وكيف يمكن أن تسهم شركات التسويق في نجاح متجرك. ودليل شامل لاختيار أفضل شركة تسويق الكتروني في السعودية."
+    },
+    slug: "the-importance-of-e-commerce-marketing-and-how-to-choose-the-right-agency",
+    image: "/webblog2.jpg",
+    date: "2025-11-24",
     ref: "digital-transformation-2025",
     contentUrl: {
-      en: "https://cms.exoln.com/wp-content/uploads/2025/10/accounting-blog-English.docx",
-      ar: "https://cms.exoln.com/wp-content/uploads/2025/10/accounting-blog-Arabic.docx"
+      en: "https://cms.exoln.com/wp-content/uploads/2025/11/e-commerce-marketing.docx",
+      ar: "https://cms.exoln.com/wp-content/uploads/2025/11/e-commerce-marketing-ar.docx"
     },
     seo: {
       en: {
         title: "The Importance of Accounting and Bookkeeping | Exoln Business Insights",
-        description:
-          "Discover why accounting and bookkeeping are essential for every business. Exoln explains how proper financial management supports growth, compliance, and smart decision-making.",
+        description: "Discover why e-commerce marketing is essential and how to choose the right digital marketing agency to grow your online store effectively in Saudi Arabia.",
         keywords: [
           "accounting and bookkeeping",
           "importance of accounting",
@@ -85,7 +90,7 @@ export const dummyArticles: articleProbs[] = [
         ],
       },
       ar: {
-        title: "أهمية المحاسبة ومسك الدفاتر لكل عمل تجاري | رؤى إكسولن  Exoln للأعمال",
+        title: "أهمية التسويق للمتاجر الإلكترونية وكيف تختار شركة التسويق المناسبة",
         description:
           "اكتشف لماذا تعتبر المحاسبة ومسك الدفاتر من الأساسيات لأي عمل تجاري. توضح شركة Exoln كيف يساعد التنظيم المالي الجيد في تحقيق النمو والالتزام واتخاذ قرارات أفضل.",
         keywords: [
@@ -101,43 +106,7 @@ export const dummyArticles: articleProbs[] = [
     }
 
   },
-  {
-    id: 3,
-    subtitle: { en: "Leadership", ar: "القيادة" },
-    title: { en: "Top 5 Traits of Successful Leaders", ar: "أفضل 5 سمات للقادة الناجحين" },
-    description: {
-      en: "Strong leaders share common traits that inspire teams and drive innovation.",
-      ar: "يشترك القادة الأقوياء في سمات مشتركة تلهم الفرق وتقود الابتكار."
-    },
-    image: "/blog3.webp",
-    date: "2025-07-30",
-    featured: false,
-    ref: "top-5-traits-leaders"
-  },
-  {
-    id: 4,
-    title: { en: "Sustainable Business Practices", ar: "ممارسات الأعمال المستدامة" },
-    description: {
-      en: "Companies adopting green initiatives are gaining both profit and brand trust.",
-      ar: "الشركات التي تعتمد مبادرات خضراء تحقق الربح وثقة العلامة التجارية."
-    },
-    image: "/blog1.webp",
-    date: "2025-06-20",
-    ref: "sustainable-business"
-  },
-  {
-    id: 5,
-    subtitle: { en: "Innovation", ar: "الابتكار" },
-    title: { en: "The Future of Remote Work", ar: "مستقبل العمل عن بُعد" },
-    description: {
-      en: "Remote work is evolving with new technologies, creating hybrid opportunities.",
-      ar: "يتطور العمل عن بُعد مع التقنيات الجديدة، مما يخلق فرصًا هجينة."
-    },
-    image: "/blog2.webp",
-    date: "2025-05-10",
-    featured: true,
-    ref: "future-of-remote-work"
-  }
+
 ];
 
 export const Blog = () => {
@@ -148,7 +117,7 @@ export const Blog = () => {
       <Box
         as="header"
         position="relative"
-        width="100%"
+        width="100vw"
         height="100vh"
         overflow="hidden"
       >
@@ -188,7 +157,7 @@ export const Blog = () => {
           position="absolute"
           zIndex={1}
           bottom={{ base: "0rem", md: "1rem", xl: "5rem" }}
-          // mb={{ base: "5rem", md: "10rem" }}
+        // mb={{ base: "5rem", md: "10rem" }}
         >
           <Text
             as="h1"

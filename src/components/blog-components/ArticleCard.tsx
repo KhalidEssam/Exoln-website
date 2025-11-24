@@ -21,6 +21,7 @@ export const ArticleCard = ({ article }: { article: articleProbs }) => {
       position="relative"
       overflow="hidden"
       borderRadius="lg"
+
     >
       {/* Overlay */}
       <VStack
@@ -46,6 +47,7 @@ export const ArticleCard = ({ article }: { article: articleProbs }) => {
         borderRadius="xl"
         zIndex={2}
         transition="all 0.3s ease"
+
       >
         <Box
           as="button"
@@ -68,29 +70,33 @@ export const ArticleCard = ({ article }: { article: articleProbs }) => {
         alt={lang === "en" ? article.title.en : article.title.ar}
         w="100%"
         h="300px"
+
         objectFit="cover"
         loading="lazy"      // ✅ Lazy loading
         decoding="async"    // ✅ Async decoding for perf
         borderTopRadius="lg"
       />
+      <Box p={4}
+>
 
-      {/* Text Content */}
-      <Text
-        color="rgba(46, 54, 81, 1)"
-        fontWeight={600}
-        fontSize={{ base: "1.1rem", lg: "1.25rem" }}
-        lineClamp={2}  // ✅ Prevents layout shifts
-      >
-        {lang === "en" ? article.title.en : article.title.ar}
-      </Text>
-      <Text
-        color="rgba(95, 97, 102, 1)"
-        fontSize={{ base: "0.9rem", lg: "1rem" }}
-        fontWeight={400}
-        lineClamp={2} // ✅ avoids overflow
-      >
-        {lang === "en" ? article.subtitle?.en : article.subtitle?.ar}
-      </Text>
+        {/* Text Content */}
+        <Text
+          color="rgba(46, 54, 81, 1)"
+          fontWeight={600}
+          fontSize={{ base: "1.1rem", lg: "1.25rem" }}
+          lineClamp={2}  // ✅ Prevents layout shifts
+        >
+          {lang === "en" ? article.title.en : article.title.ar}
+        </Text>
+        <Text
+          color="rgba(95, 97, 102, 1)"
+          fontSize={{ base: "0.9rem", lg: "1rem" }}
+          fontWeight={400}
+          lineClamp={2} // ✅ avoids overflow
+        >
+          {lang === "en" ? article.subtitle?.en : article.subtitle?.ar}
+        </Text>
+      </Box>
     </VStack>
   );
 };

@@ -82,7 +82,7 @@ export const ArticleDetails = () => {
                         mb={{ base: "5rem", xl: "3rem" }}
                     >
                         <Image
-                            src="/blog1.webp"
+                            src={chosenArticle?.image}
                             alt=""
                             borderRadius="10px"
                             w="100%"
