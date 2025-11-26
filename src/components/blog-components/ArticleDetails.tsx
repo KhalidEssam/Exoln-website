@@ -113,7 +113,7 @@ export const ArticleDetails = () => {
                     </Box>
                 </Center>
 
-                <VStack w="100%" m="2rem" flexDir="column" gap="2rem">
+                <VStack w="90%" m="2rem" flexDir="column" gap="2rem">
 
 
                     {/* ARTICLE BODY */}
