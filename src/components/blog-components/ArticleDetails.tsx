@@ -80,44 +80,41 @@ export const ArticleDetails = () => {
                 />
             )}
 
-            <VStack w="100vw" align="start" textAlign="start" gap="2rem">
+            <VStack w="100vw" bg={"#f5f5f5"} align="start" textAlign="start" gap="2rem">
 
                 {/* ARTICLE COVER IMAGE */}
-                <Center w="100%" bg={"gray.500"}>
+                <Center w="100%" bg={"rgba(11, 8, 7, 1)"}>
                     <Box
-                        w={{ base: "80%", md: "70%", xl: "50%" }}
-                        mt={{ base: "5rem", xl: "8rem" }}
-                        mb={{ base: "5rem", xl: "3rem" }}
-                    >
-                        <Image
-                            src={chosenArticle?.image}
-                            alt=""
-                            borderRadius="10px"
-                            w="100%"
-                            h="auto"
-                            objectFit="cover"
-                            objectPosition="center"
-                        />
+                        w={{ base: "90%", md: "80%" }}
+                        mt={{ base: "5rem", xl: "10rem" }}
+                        mb={{ base: "5rem", xl: "5rem" }}
+                    >                    {/* TITLE + DATE */}
+                        <VStack w="100%" justifyContent="space-between" gap={8} align="start">
+                            <Text
+                                color="rgba(95, 97, 102, 1)"
+                                fontWeight={500}
+                                fontSize={{ base: "1rem", md: "1.25rem", lg: "1.5rem" }}
+                            >
+                                {chosenArticle?.date}
+                            </Text>
+                            <Text
+                                color="rgba(255, 255, 255, 1)"
+                                fontSize={{ base: "1.25rem", md: "1.5rem", lg: "2rem" }}
+                            >
+                                {lang === "en" ? chosenArticle?.title.en : chosenArticle?.title.ar}
+                            </Text>
+                            <Text
+                                color="rgba(255, 255, 255, 0.5)"
+                                fontSize={{ base: "1.25rem", md: "1.5rem", lg: "2rem" }}
+                            >
+                                {lang === "en" ? chosenArticle?.subtitle?.en : chosenArticle?.subtitle?.ar}
+                            </Text>
+                        </VStack>
                     </Box>
                 </Center>
 
                 <Center w="90vw" m="2rem" flexDir="column" gap="2rem">
-                    {/* TITLE + DATE */}
-                    <HStack w="100%" justifyContent="space-between">
-                        <Text
-                            color="rgba(46, 54, 81, 1)"
-                            fontSize={{ base: "1.25rem", md: "1.5rem", lg: "2rem" }}
-                        >
-                            {lang === "en" ? chosenArticle?.title.en : chosenArticle?.title.ar}
-                        </Text>
 
-                        <Text
-                            color="rgba(95, 97, 102, 1)"
-                            fontSize={{ base: "1rem", md: "1.25rem", lg: "1.5rem" }}
-                        >
-                            {chosenArticle?.date}
-                        </Text>
-                    </HStack>
 
                     {/* ARTICLE BODY */}
                     <VStack minH="70vh" w="100%">
@@ -126,21 +123,41 @@ export const ArticleDetails = () => {
                                 <Spinner size="xl" />
                             </Center>
                         ) : htmlContent ? (
-                            <Box
-                                w="100%"
-                                p={4}
+                            <Box w={"80vw"}
+                                alignSelf={"center"}
                                 bg="white"
-                                borderRadius="md"
+                                borderRadius="10px"
+                                justifyContent={"center"}
+                                alignItems={"center"}
+                                justifyItems={"center"}
                                 boxShadow="sm"
-                                fontFamily={
-                                    lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', sans-serif`
-                                }
-                                fontSize={{ base: "1rem", md: "1.1rem" }}
-                                lineHeight="1.9"
-                                dir={lang === "ar" ? "rtl" : "ltr"}
-                                className="article-content"
-                                dangerouslySetInnerHTML={{ __html: htmlContent }}
-                            />
+                                alignContent={"center"}
+                            >
+                                <Image
+                                    src={chosenArticle?.image}
+                                    alt=""
+                                    borderRadius="10px"
+                                    w="70%"
+                                    h="auto"
+                                    mt={"5rem"}
+                                    objectFit="cover"
+                                    objectPosition="center"
+                                />
+                                <Box
+                                    w="100%"
+                                    p={4}
+
+                                    fontFamily={
+                                        lang === "ar" ? `'Cairo', sans-serif` : `'Montserrat', sans-serif`
+                                    }
+                                    fontSize={{ base: "1rem", md: "1.1rem" }}
+                                    lineHeight="1.9"
+                                    dir={lang === "ar" ? "rtl" : "ltr"}
+                                    className="article-content"
+                                    dangerouslySetInnerHTML={{ __html: htmlContent }}
+                                />
+
+                            </Box>
                         ) : (
                             <Text fontSize={{ base: "1rem", md: "1.1rem" }}>
                                 {lang === "en"
