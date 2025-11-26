@@ -80,7 +80,7 @@ export const ArticleDetails = () => {
                 />
             )}
 
-            <VStack w="100vw" bg={"#f5f5f5"} align="start" textAlign="start" gap="2rem">
+            <VStack w="100vw" bg={"#f5f5f5"} textAlign="start" gap="2rem">
 
                 {/* ARTICLE COVER IMAGE */}
                 <Center w="100%" bg={"rgba(11, 8, 7, 1)"}>
@@ -113,7 +113,7 @@ export const ArticleDetails = () => {
                     </Box>
                 </Center>
 
-                <Center w="90vw" m="2rem" flexDir="column" gap="2rem">
+                <VStack w="100%" m="2rem" flexDir="column" gap="2rem">
 
 
                     {/* ARTICLE BODY */}
@@ -123,7 +123,7 @@ export const ArticleDetails = () => {
                                 <Spinner size="xl" />
                             </Center>
                         ) : htmlContent ? (
-                            <Box w={"80vw"}
+                            <Box w={{ base: "90%", lg: "80%" }}
                                 alignSelf={"center"}
                                 bg="white"
                                 borderRadius="10px"
@@ -137,9 +137,9 @@ export const ArticleDetails = () => {
                                     src={chosenArticle?.image}
                                     alt=""
                                     borderRadius="10px"
-                                    w="70%"
+                                    w={{ base: "90%", md: "80%", lg: "70%" }}
                                     h="auto"
-                                    mt={"5rem"}
+                                    mt={{ base: "1rem", md: "4rem" }}
                                     objectFit="cover"
                                     objectPosition="center"
                                 />
@@ -190,7 +190,7 @@ export const ArticleDetails = () => {
                             {lang === "en" ? "Subscribe Now" : "التفاصيل والاشتراك"}
                         </Button>
                     </HStack>
-                </Center>
+                </VStack>
             </VStack>
         </>
     );
